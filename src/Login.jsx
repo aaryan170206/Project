@@ -10,40 +10,44 @@ const Log = () => {
     return (
         <div>
             <div className="container-fluid">
-                <div className="row min-vh-100 align-items-center justify-content-center">                
-                        <motion.div
-                        className={`${show ? "col-xl-6" : "col-6"} d-flex justify-content-center align-items-centre`}
-                        animate={{
-                        x: show ? -25 : 350,
-                        y: show ? -75:-75,
+                <div className="row min-vh-100 align-items-center justify-content-center">
+
+                    {/* Welcome Message */}               
+                    <motion.div
+                    className={`${show ? "col-xl-6" : "col-6"} d-flex justify-content-center align-items-centre`}
+                    animate={{
+                    x: show ? -25 : 350,
+                    y: show ? -75:-75,
+                    }}
+                    transition={{ duration: 1.0,
+                                ease: "easeInOut"
                         }}
-                        transition={{ duration: 1.0,
-                                    ease: "easeInOut"
-                         }}
-                         whileHover={{ scale: 1.1 }}>
-                            <h3 className="text-light align-items-center">
-                                Welcome to Login Page
-                            </h3>  
-                            <Button
-                                variant="link"
-                                className="text-decoration-none"
-                                whileTap={{ scale: 0.9 }}
-                                onClick={() => setShow(show => !show)}>
-                                <i
-                                    className="bi bi-arrow-right fs-4 d-inline-flex justify-content-center align-items-center bg-light text-dark rounded-circle"
-                                    style={{
-                                        width: "25px",
-                                        height: "25px",
-                                        cursor: "pointer",
-                                    }}
-                                    >
-                                </i>
-                            </Button>
-                        </motion.div>
-                     <div className="col-xl-6 mb-5">
+                        whileHover={{ scale: 1.1 }}>
+                        <h3 className="text-light align-items-center">
+                            Welcome to Login Page
+                        </h3>  
+                        <Button
+                            variant="link"
+                            className="text-decoration-none"
+                            whileTap={{ scale: 0.9 }}
+                            onClick={() => setShow(show => !show)}>
+                            <i
+                                className="bi bi-arrow-right fs-4 d-inline-flex justify-content-center align-items-center bg-light text-dark rounded-circle"
+                                style={{
+                                    width: "25px",
+                                    height: "25px",
+                                    cursor: "pointer",
+                                }}
+                                >
+                            </i>
+                        </Button>
+                    </motion.div>
+
+                    {/*Login Card */}
+                    <div className="col-xl-6 mb-5">
                         <AnimatePresence>
                         {show && (
-                             <motion.div
+                            <motion.div
                                 initial={{ x: 500, opacity: 1 }}
                                 animate={{ x: 0, opacity: 1 }}
                                 exit={{ x: 500, opacity: 1 }}
@@ -101,7 +105,7 @@ const Log = () => {
                                         <div className="row justify-content-start ms-3">
                                             <div className="col-xl-6 mx-3">
                                                 <p className=" text-center mb-4 text-light fs-6">
-                                                     Remember Me 
+                                                    Remember Me 
                                                     <input type="checkbox"className="mx-1" style={{ accentColor: "#28b463" }}/>
                                                 </p>
                                             </div> 
@@ -126,12 +130,8 @@ const Log = () => {
                                                 </lable>
                                             </div>
                                         </div>
-
-                                        <div className="row justify-content-start mb-3">
-                                            
-                                        </div>
                                     </form>
-                                   </div>
+                                </div>
                                 </div>
                                 
                             </div>
