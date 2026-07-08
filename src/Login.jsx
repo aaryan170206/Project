@@ -1,10 +1,12 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import "animate.css";
 import { AnimatePresence,motion } from "framer-motion";
+
 const Log = () => {
     
-    const [show, setShow] = useState(false);
+    const [show, setShow] = useState(true);
 
     const [showPassword,setShowPassword] = useState(true);
     return (
@@ -14,13 +16,15 @@ const Log = () => {
 
                     {/* Welcome Message */}               
                     <motion.div
-                    className={`${show ? "col-xl-6" : "col-6"} d-flex justify-content-center align-items-centre`}
+                    className={`${show ? "col-xl-6" : "col-6"} d-flex justify-content-center align-items-centre mb-5`}
+                    initial={{ x: 500, opacity: 0 }}
                     animate={{
-                    x: show ? -25 : 350,
-                    y: show ? -75:-75,
-                    }}
-                    transition={{ duration: 1.0,
-                                ease: "easeInOut"
+                        x: show ? -25 : 350,
+                        opacity: 1,
+                        }}
+                        transition={{
+                            duration: 1,
+                            ease: "easeInOut",
                         }}
                         whileHover={{ scale: 1.1 }}>
                         <h3 className="text-light align-items-center">
@@ -120,7 +124,7 @@ const Log = () => {
                                         <div className="row my-3 justify-content-center">
                                             <div className="col-xl-4">
                                                 <label>
-                                                    <a href="/createaccount">Create Account</a>
+                                                   <Link to="/Sign">Create Account</Link>
                                                 </label>
                                             </div>
 

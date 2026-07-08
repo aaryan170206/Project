@@ -1,6 +1,8 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Log from "./Login"
 import Nav from"./Navbar"
+import Sign from "./Signup";
+import Pass from "./Password";
 function App() {
 
 
@@ -15,7 +17,13 @@ function App() {
               <Log />
             </Route>
 
-            
+          <Route exact path="/Sign">
+              <Sign />
+          </Route>
+
+          <Route exact path="/Sign/Next">
+            <Pass />
+          </Route> 
 
           </Switch>
         </div>
