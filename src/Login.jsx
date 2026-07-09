@@ -130,7 +130,7 @@ const Log = () => {
 
                                             <div className="col-xl-4">
                                                 <lable className="mb-4">
-                                                    <a href="/password">Forgot Password</a>
+                                                    <Link to="/Forgot">Forgot Password</Link>
                                                 </lable>
                                             </div>
                                         </div>

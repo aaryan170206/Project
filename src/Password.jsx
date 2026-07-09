@@ -1,7 +1,7 @@
 const Pass = () => {
     return (
         <div>
-            <h1>Hello</h1>
+            <h1 className="text-light">Hello</h1>
         </div>
     );
 }

@@ -1,10 +1,35 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link,useHistory } from "react-router-dom";
 
 
 const Sign = () => {
+    //Show Password
     const [showPassword,setShowPassword] = useState(true);
-    const [showConfirmPassword,setShowConfirmPassword] = useState(false);
+
+    //Form Data
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
+
+    //Form Validation
+    const isFormValid =
+                        firstName.trim() !== "" &&
+                        lastName.trim() !== "" &&
+                        email.trim() !== "" &&
+                        password.trim() !== "" &&
+                        confirmPassword.trim() !== "" &&
+                        password === confirmPassword &&
+                        /\S+@\S+\.\S+/.test(email);
+    const history = useHistory();
+
+    //Button Dissable
+    const handleNext = () => {
+    if (!isFormValid) return;
+
+    history.push("/Sign/Next");
+    };
     return (
         <div>
             <div className="d-flex justify-content-center">
@@ -27,7 +52,11 @@ const Sign = () => {
 
                         <div className="row justify-content-start ms-5">
                             <div className="col-auto justify-content-between">
+
+                            {/*User Data*/}
                             <form>
+
+                                {/*Name Field*/}
                                 <div className="row justify-content-start mx-5"> 
                                     <div className="col-auto mt-2">
                                         <h5>Name</h5>
@@ -35,7 +64,8 @@ const Sign = () => {
                                 </div>
                                 <div className="row justify-content-start mx-5 mb-3">
                                     <div className="col-auto border-2 border-end border-danger">
-                                        <input type="text" 
+                                        <input type="text"
+                                        onChange={(e) => setFirstName(e.target.value)} 
                                         placeholder="First Name"
                                         className="text-center rounded-3"
                                         style={{
@@ -47,6 +77,7 @@ const Sign = () => {
                                     <div className="col-auto border-2 border-start border-danger">
                                         <input type="text" 
                                         placeholder="Last Name"
+                                        onChange={(e) => setLastName(e.target.value)}
                                         className="text-center rounded-3"
                                         style={{
                                             width:"200px",
@@ -55,6 +86,7 @@ const Sign = () => {
                                     </div>
                                 </div>
                                 
+                                {/*Email Field*/}
                                 <div className="row justify-content-start mx-5">
                                     <div className="col-auto mt-2">
                                         <h5>Email</h5>
@@ -63,6 +95,7 @@ const Sign = () => {
                                 <div className="row justify-content-start ms-5 mb-3">
                                     <div className="col-auto">
                                     <input type="email"
+                                    onChange={(e) => setEmail(e.target.value)}
                                     className="rounded-3" 
                                     style={{
                                             width:"430px",
@@ -72,6 +105,7 @@ const Sign = () => {
                                     </div>
                                 </div>
 
+                                {/*Password Field*/}
                                 <div className="row justify-content-start mx-5">
                                     <div className="col-auto mt-2">
                                         <h5>Password</h5>
@@ -81,6 +115,7 @@ const Sign = () => {
                                     <div className="col-auto">
                                     <input 
                                     type={showPassword ? "password" : "text"}
+                                    onChange={(e) => setPassword(e.target.value)}
                                     className="rounded-3" 
                                     style={{
                                             width:"430px",
@@ -89,10 +124,10 @@ const Sign = () => {
                                             
                                         <i
                                             className={`bi ${showPassword ? "bi-eye-slash-fill" : "bi-eye-fill"} 
-                                                position-absolute text-dark`}
+                                                position-relative text-dark`}
                                             style={{
-                                            right: "145px",
-                                            top: "64%",
+                                            right: "30px",
+                                            top: "5%",
                                             transform: "translateY(-50%)",
                                             cursor: "pointer"
                                             }}
@@ -101,6 +136,7 @@ const Sign = () => {
                                     </div>
                                 </div>
 
+                                {/*Confirm Password Field*/}
                                 <div className="row justify-content-start mx-5">
                                     <div className="col-auto mt-2">
                                         <h5>Confirm Password</h5>
@@ -110,6 +146,7 @@ const Sign = () => {
                                     <div className="col-auto">
                                     <input 
                                     type={showPassword ? "password" : "text"}
+                                    onChange={(e) => setConfirmPassword(e.target.value)}
                                     className="rounded-3" 
                                     style={{
                                             width:"430px",
@@ -118,9 +155,17 @@ const Sign = () => {
                                     </div>
                                 </div>
 
+                                {/*Button( dissabled by default) Field*/}
                                 <div className="row justify-content-center">
                                     <div className="col-auto align-items-center">
-                                        <Link to="/Sign/Next"className="btn btn-info my-1">Next</Link>
+                                        <button
+                                        type="button"
+                                        className="btn btn-info"
+                                        disabled={!isFormValid}
+                                        onClick={handleNext}
+                                        >
+                                            Next
+                                        </button>
                                     </div>
                                 </div>
                             </form>
