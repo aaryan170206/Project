@@ -1,3 +1,4 @@
 body{
-    background-image:url(assets/Login.jpg);
+    background-image:url(assets/Background.jpg);
+    background-size: cover;
 }

@@ -1,0 +1,198 @@
+import { useState } from "react";
+import emailjs from "@emailjs/browser";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { useHistory } from "react-router-dom";
+
+const NewPass = () => {
+    const history = useHistory();
+    const [password, setPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
+    const [showPassword, setShowPassword] = useState(false);
+    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+    const [showPasswordWarning, setShowPasswordWarning] = useState(false);
+
+    //Password Validation
+    const hasMinLength = password.length >= 8;
+    const hasUpperCase = /[A-Z]/.test(password);
+    const hasLowerCase = /[a-z]/.test(password);
+    const hasNumber = /[0-9]/.test(password);
+    const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+
+    const isStrongPassword =
+        hasMinLength &&
+        hasUpperCase &&
+        hasLowerCase &&
+        hasNumber &&
+        hasSpecialChar;
+
+    const email = sessionStorage.getItem("email");
+
+    const sendConfirmationMail = async () => {
+    if (!email) {
+    alert("Email not found.");
+    return;
+    
+}
+    try {
+        await emailjs.send(
+            "service_53why4r",
+            "template_s5ttywn",
+            {
+                to_email: email,
+            },
+            "id7N_gR3xELa_b3RL"
+        );
+
+        return true;
+    } catch (error) {
+        console.error(error);
+        alert("Failed to send confirmation email.");
+        return false;
+    }
+    };
+
+    const handleSubmit = async () => {
+    if (password.trim() === "" || confirmPassword.trim() === "") {
+        alert("Please fill in both fields.");
+        return;
+    }
+
+    if (!isStrongPassword) {
+        alert("Please create a stronger password.");
+        return;
+    }
+
+    const success = await sendConfirmationMail();
+
+    if (success) {
+        alert("Password changed successfully!");
+        history.push("/")
+
+        sessionStorage.removeItem("otp");
+        sessionStorage.removeItem("email");
+
+    }
+    };
+
+    return (
+        <div className="row justify-content-center">
+            <div className="col-auto">
+                <div className="card"
+                style={{backgroundColor: "rgba(0, 0, 0, 0.25)",
+                minHeight: "550px",
+                width:"600px",
+                backdropFilter: "blur(10px)",
+                WebkitBackdropFilter: "blur(10px)",
+                borderRadius: "15px"}}>
+                    <div className="card-body text-center text-light">
+                        <div className="card-title my-3">
+                            <h2>New Password</h2>
+                        </div>
+
+                        <div className="card-subtitle">
+                            <h5>Enter a new password for this account</h5>
+                        </div>
+
+                        <form className="my-5">
+                            <div className="row justify-content-center">
+                                <div className="col-auto">
+                                    <label className="d-block">Password</label>
+                                    <div className="input-group">
+                                        <input
+                                            type={showPassword ? "text" : "password"}
+                                            className="form-control bg-light text-dark"
+                                            placeholder="New Password"
+                                            value={password}
+                                            onChange={(e) => setPassword(e.target.value)}
+                                            onBlur={() => setShowPasswordWarning(true)}
+                                        />
+
+                                        <span
+                                            className="input-group-text bg-light text-dark"
+                                            style={{ cursor: "pointer" }}
+                                            onClick={() => setShowPassword(!showPassword)}>
+                                            {showPassword ? <FaEyeSlash /> : <FaEye />}
+                                        </span>
+                                    </div>
+                                        {showPasswordWarning && !isStrongPassword && (
+                                            <div>
+                                                <small className={hasMinLength ? "text-success" : "text-warning"}>
+                                                    At least 8 characters
+                                                </small>
+                                                <br />
+
+                                                <small className={hasUpperCase ? "text-success" : "text-warning"}>
+                                                    One uppercase letter
+                                                </small>
+                                                <br />
+
+                                                <small className={hasLowerCase ? "text-success" : "text-warning"}>
+                                                    One lowercase letter
+                                                </small>
+                                                <br />
+
+                                                <small className={hasNumber ? "text-success" : "text-warning"}>
+                                                    One number
+                                                </small>
+                                                <br />
+
+                                                <small className={hasSpecialChar ? "text-success" : "text-warning"}>
+                                                    One special character
+                                                </small>
+                                            </div>
+                                        )}
+                                </div>
+                            </div>
+
+                            <div className="row justify-content-center">
+                                <div className="col-auto">
+                                    <label className="d-block mt-5">Confirm Password</label>
+                                    <div className="input-group">
+                                        <input
+                                            type={showConfirmPassword ? "text" : "password"}
+                                            placeholder="Confirm New Password"
+                                            className="form-control bg-light text-dark"
+                                            value={confirmPassword}
+                                            onChange={(e) => setConfirmPassword(e.target.value)}/>
+
+                                        <span
+                                            className="input-group-text bg-light text-dark"
+                                            style={{ cursor: "pointer" }}
+                                            onClick={() => setShowConfirmPassword(!showConfirmPassword)}>
+                                            {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {confirmPassword !== "" && (
+                                password === confirmPassword ? (
+                                    <p className="text-success mt-2">
+                                        Passwords match
+                                    </p>
+                                ) : (
+                                    <p className="text-danger mt-2">
+                                        Passwords do not match
+                                    </p>
+                                )
+                            )}
+
+                            <div className="row justify-content-center mt-5">
+                                <div className="col-auto">
+                                    <button
+                                    type="button"
+                                    className="btn btn-info"
+                                    onClick={handleSubmit}>
+                                        Next
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+}
+ 
+export default NewPass;

@@ -1,14 +1,30 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
+import { useHistory } from "react-router-dom";
 import "animate.css";
 import { AnimatePresence,motion } from "framer-motion";
 
 const Log = () => {
-    
+    const history = useHistory();
     const [show, setShow] = useState(true);
 
-    const [showPassword,setShowPassword] = useState(true);
+    //Credentials
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    //Show Password
+    const [showPassword,setShowPassword] = useState(false);
+
+    //Button
+    const handleSubmit = () => {
+    if (email === "" || password === "") {
+    alert("Invalid credential");
+    return;
+    }
+        history.push("/Home");        
+    };
+    
     return (
         <div>
             <div className="container-fluid">
@@ -16,7 +32,7 @@ const Log = () => {
 
                     {/* Welcome Message */}               
                     <motion.div
-                    className={`${show ? "col-xl-6" : "col-6"} d-flex justify-content-center align-items-centre mb-5`}
+                    className={`${show ? "col-xl-6" : "col-6"} d-flex justify-content-center align-items-center`}
                     initial={{ x: 500, opacity: 0 }}
                     animate={{
                         x: show ? -25 : 350,
@@ -27,7 +43,7 @@ const Log = () => {
                             ease: "easeInOut",
                         }}
                         whileHover={{ scale: 1.1 }}>
-                        <h3 className="text-light align-items-center">
+                        <h3 className="text-secondary align-items-center">
                             Welcome to Login Page
                         </h3>  
                         <Button
@@ -36,7 +52,7 @@ const Log = () => {
                             whileTap={{ scale: 0.9 }}
                             onClick={() => setShow(show => !show)}>
                             <i
-                                className="bi bi-arrow-right fs-4 d-inline-flex justify-content-center align-items-center bg-light text-dark rounded-circle"
+                                className="bi bi-arrow-right fs-4 d-inline-flex justify-content-center align-items-center bg-secondary text-light rounded-circle p-4"
                                 style={{
                                     width: "25px",
                                     height: "25px",
@@ -75,40 +91,53 @@ const Log = () => {
 
                                     <div className="container">
                                     <form>
-                                        <div className="row justify-content-center my-2">
-                                            <div className="col-xl-9">
-                                                <label className=" text-light me-4 fs-4">Email:</label>
-                                                    <input type="email"
-                                                    className="border-danger mb-5 pe-5 bg-dark text-light"
-                                                    placeholder="Email"/>
+                                        <div className="row align-items-center justify-content-center mb-4">
+                                            <div className="col-3">
+                                                <label className="text-light fs-5">Email</label>
+                                            </div>
+
+                                            <div className="col-6">
+                                                <input
+                                                type="email"
+                                                placeholder="Email"
+                                                className="form-control text-dark border-success"
+                                                value={email}
+                                                onChange={(e) => setEmail(e.target.value)}/>
                                             </div>
                                         </div>
 
-                                        <div className="row justify-content-center mb-2">
-                                            <div className="col-xl-9">
-                                                <label className=" text-light me-2 fs-4">Password:</label>
+                                        <div className="row align-items-center justify-content-center mb-4">
+                                            <div className="col-3">
+                                                <label className="text-light fs-5 ms-4">Password</label>
+                                            </div>
+
+                                            <div className="col-6">
+                                                <div className="input-group">
                                                     <input
-                                                        type={showPassword ? "password" : "text"}
-                                                        className="border-success mb-5 pe-5 bg-dark text-light"
-                                                        placeholder="********"/>
+                                                    type={showPassword ? "text" : "password"}
+                                                    className="form-control text-dark border-success"
+                                                    placeholder="********"
+                                                    value={password}
+                                                    onChange={(e) => setPassword(e.target.value)}/>
 
-                                                    <i
-                                                        className={`bi ${showPassword ? "bi-eye-slash-fill" : "bi-eye-fill"} 
-                                                            position-absolute text-light`}
-                                                        style={{
-                                                        right: "140px",
-                                                        top: "43%",
-                                                        transform: "translateY(-50%)",
-                                                        cursor: "pointer"
-                                                        }}
-                                                        onClick={()=> setShowPassword(!showPassword)}
-                                                    ></i>
+                                                    <span
+                                                        className="input-group-text border-success text-dark"
+                                                        style={{ cursor: "pointer" }}
+                                                        onClick={() => setShowPassword(!showPassword)}
+                                                    >
+                                                        <i
+                                                            className={`bi ${
+                                                                showPassword ? "bi-eye-slash-fill" : "bi-eye-fill"
+                                                            }`}
+                                                        ></i>
+                                                    </span>
+                                                </div>
                                             </div>
                                         </div>
 
-                                        <div className="row justify-content-start ms-3">
-                                            <div className="col-xl-6 mx-3">
-                                                <p className=" text-center mb-4 text-light fs-6">
+                                        <div className="row justify-content-start ms-3 mt-5">
+                                            <div className="col-xl-6">
+                                                <p className=" text-center mb-4 text-light fs-6 ms-4">
                                                     Remember Me 
                                                     <input type="checkbox"className="mx-1" style={{ accentColor: "#28b463" }}/>
                                                 </p>
@@ -117,7 +146,12 @@ const Log = () => {
 
                                         <div className="row justify-content-center">
                                             <div className="col-xl-9">
-                                                <a href="/login" className="btn btn-primary rounded-pill mb-4">Login</a>
+                                                <button
+                                                type="button"
+                                                className="btn btn-primary"
+                                                onClick={handleSubmit}>
+                                                    Login
+                                                </button>
                                             </div>   
                                         </div>
                                         
