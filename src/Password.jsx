@@ -57,7 +57,7 @@ const Pass = () => {
 
     
     return (
-        <div>
+        <div className="container-fluid min-vh-100 d-flex justify-content-center align-items-center">
             <div className="row justify-content-center align-items-around">
                 <div className="col-auto">
                     <div className="card my-5"

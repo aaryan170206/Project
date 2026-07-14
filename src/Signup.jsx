@@ -31,6 +31,32 @@ const Sign = () => {
     const hasNumber = /[0-9]/.test(password);
     const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(password);
 
+    const strength =
+    (hasMinLength ? 20 : 0) +
+    (hasUpperCase ? 20 : 0) +
+    (hasLowerCase ? 20 : 0) +
+    (hasNumber ? 20 : 0) +
+    (hasSpecialChar ? 20 : 0);
+
+    let strengthText = "";
+    let strengthColor = "";
+
+    if (strength === 0) {
+        strengthText = "";
+    } else if (strength <= 40) {
+        strengthText = "Weak";
+        strengthColor = "bg-danger";
+    } else if (strength <= 60) {
+        strengthText = "Medium";
+        strengthColor = "bg-warning";
+    } else if (strength <= 80) {
+        strengthText = "Strong";
+        strengthColor = "bg-info";
+    } else {
+        strengthText = "Very Strong";
+        strengthColor = "bg-success";
+    }
+
     const isStrongPassword =
         hasMinLength &&
         hasUpperCase &&
@@ -134,9 +160,9 @@ const Sign = () => {
                         <div className="card-body text-light">
                             <div className="card-subtitle">
                                 <div className="row justify-content-between">
-                                    <h5 className="text-center mb-3">Let's Get Started</h5>  
+                                    <h4 className="text-center mb-3">Let's Get Started</h4>  
                                     <div className="col-auto ms-5">
-                                        <p>To join with us enter the following-</p>
+                                        <p className="fs-5">To join with us enter the following-</p>
                                     </div>
                                 </div>
 
@@ -202,7 +228,8 @@ const Sign = () => {
                                                 className="border-success rounded-3 ms-4 my-3"
                                                 value={password}
                                                 onChange={(e) => setPassword(e.target.value)}
-                                                onBlur={() => setShowPasswordWarning(true)}
+                                                onFocus={() => setShowPasswordWarning(true)}
+                                                onBlur={() => setShowPasswordWarning(false)}
                                                 style={{
                                                     width:"390px",
                                                     height:"45px" 
@@ -220,31 +247,50 @@ const Sign = () => {
                                                     onClick={()=> setShowPassword(!showPassword)}
                                                 ></i>
                                                 {showPasswordWarning && !isStrongPassword && (
-                                                    <div className="mt-2">
-                                                        <small className={hasMinLength ? "text-success" : "text-danger"}>
-                                                            At least 8 characters
-                                                        </small>
-                                                        <br />
+                                                    <div
+                                                className="mt-3 p-3 rounded text-center"
+                                                style={{
+                                                backgroundColor: "rgba(255,255,255,0.08)",
+                                                border: "1px solid rgba(255,255,255,0.15)"}}>
+                                                    <small className="text-warning fw-bold d-block mb-2">
+                                                        Password must contain:
+                                                    </small>
 
-                                                        <small className={hasUpperCase ? "text-success" : "text-danger"}>
-                                                            One uppercase letter
-                                                        </small>
-                                                        <br />
-
-                                                        <small className={hasLowerCase ? "text-success" : "text-danger"}>
-                                                            One lowercase letter
-                                                        </small>
-                                                        <br />
-
-                                                        <small className={hasNumber ? "text-success" : "text-danger"}>
-                                                            One number
-                                                        </small>
-                                                        <br />
-
-                                                        <small className={hasSpecialChar ? "text-success" : "text-danger"}>
-                                                            One special character
-                                                        </small>
+                                                    <div className={hasMinLength ? "text-success" : "text-danger"}>
+                                                        {hasMinLength ? "✅" : "❌"} At least 8 characters
                                                     </div>
+
+                                                    <div className={hasUpperCase ? "text-success" : "text-danger"}>
+                                                        {hasUpperCase ? "✅" : "❌"} One uppercase letter
+                                                    </div>
+
+                                                    <div className={hasLowerCase ? "text-success" : "text-danger"}>
+                                                        {hasLowerCase ? "✅" : "❌"} One lowercase letter
+                                                    </div>
+
+                                                    <div className={hasNumber ? "text-success" : "text-danger"}>
+                                                        {hasNumber ? "✅" : "❌"} One number
+                                                    </div>
+
+                                                    <div className={hasSpecialChar ? "text-success" : "text-danger"}>
+                                                        {hasSpecialChar ? "✅" : "❌"} One special character
+                                                    </div>
+                                                </div>
+                                                )}
+                                                {password && (
+                                                    <>
+                                                    <div className="progress mt-2" style={{ height: "8px" }}>
+                                                        <div
+                                                            className={`progress-bar ${strengthColor}`}
+                                                            role="progressbar"
+                                                            style={{ width: `${strength}%` }}
+                                                        ></div>
+                                                    </div>
+
+                                                    <small className="text-light">
+                                                        Password Strength: <strong>{strengthText}</strong>
+                                                    </small>
+                                                    </>
                                                 )}
                                             </div>
                                         </div>
@@ -285,6 +331,18 @@ const Sign = () => {
                                                 {confirmPassword !== "" && isPasswordMatch && (
                                                 <p className="text-success">
                                                     Passwords match.
+                                                </p>
+                                                )}
+
+                                                {confirmPassword !== "" && isPasswordMatch && !isStrongPassword && (
+                                                <p className="text-warning">
+                                                    Password is too weak.
+                                                </p>
+                                                )}
+
+                                                {confirmPassword !== "" && isPasswordMatch && isStrongPassword && (
+                                                <p className="text-info">
+                                                    Password is strong.
                                                 </p>
                                                 )}
                                             </div>

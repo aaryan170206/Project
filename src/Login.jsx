@@ -33,7 +33,7 @@ const Log = () => {
     };
     
     return (
-        <div>
+        <div className="container-fluid min-vh-100 d-flex justify-content-center align-items-center">
             <div className="container-fluid">
                 <div className="row min-vh-100 align-items-center justify-content-center">
 
@@ -93,7 +93,7 @@ const Log = () => {
 
                                 <div className="card-body text-center animate__animated animate__slideInRight">
                                     <div className="card-subtitle text-light mb-5">
-                                        <h1>Login to our login page:</h1>
+                                        <h1>Welcome Back:</h1>
                                     </div>
 
                                     <div className="container">
@@ -106,7 +106,7 @@ const Log = () => {
                                             <div className="col-6">
                                                 <input
                                                 type="email"
-                                                placeholder="Email"
+                                                placeholder="Enter Your Email"
                                                 className="form-control text-dark border-success"
                                                 value={email}
                                                 onChange={(e) => setEmail(e.target.value)}/>
@@ -123,7 +123,7 @@ const Log = () => {
                                                     <input
                                                     type={showPassword ? "text" : "password"}
                                                     className="form-control text-dark border-success"
-                                                    placeholder="********"
+                                                    placeholder="Password"
                                                     value={password}
                                                     onChange={(e) => setPassword(e.target.value)}/>
 
