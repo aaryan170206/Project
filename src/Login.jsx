@@ -9,15 +9,22 @@ const Log = () => {
     const history = useHistory();
     const [show, setShow] = useState(true);
 
+   
+
     //Credentials
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
     //Show Password
     const [showPassword,setShowPassword] = useState(false);
 
     //Button
     const handleSubmit = () => {
+    if (!isEmailValid) {
+      alert("Please enter a valid email address.");
+      return;
+    }
     if (email === "" || password === "") {
     alert("Invalid credential");
     return;
@@ -43,7 +50,7 @@ const Log = () => {
                             ease: "easeInOut",
                         }}
                         whileHover={{ scale: 1.1 }}>
-                        <h3 className="text-secondary align-items-center">
+                        <h3 className="text-light align-items-center">
                             Welcome to Login Page
                         </h3>  
                         <Button
@@ -52,7 +59,7 @@ const Log = () => {
                             whileTap={{ scale: 0.9 }}
                             onClick={() => setShow(show => !show)}>
                             <i
-                                className="bi bi-arrow-right fs-4 d-inline-flex justify-content-center align-items-center bg-secondary text-light rounded-circle p-4"
+                                className="bi bi-arrow-right fs-4 d-inline-flex justify-content-center align-items-center text-light rounded-circle p-4"
                                 style={{
                                     width: "25px",
                                     height: "25px",
@@ -68,8 +75,8 @@ const Log = () => {
                         <AnimatePresence>
                         {show && (
                             <motion.div
-                                initial={{ x: 500, opacity: 1 }}
-                                animate={{ x: 0, opacity: 1 }}
+                                initial={{ x: 500,y: 50, opacity: 1 }}
+                                animate={{ x: 0,y: 50, opacity: 1 }}
                                 exit={{ x: 500, opacity: 1 }}
                                 transition={{
                                     duration: 1.0,

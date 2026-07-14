@@ -147,28 +147,23 @@ const Sign = () => {
                                     <form>
 
                                         {/*Name Field*/}
-                                        <div className="row justify-content-start mx-5"> 
+                                        
+                                        <div className="row justify-content-start my-3">
                                             <div className="col-auto">
-                                                <h5>Name</h5>
-                                            </div>
-                                        </div>
-                                        <div className="row justify-content-start mx-5">
-                                            <div className="col-auto">
+                                                <label><h5>Name</h5></label>
                                                 <input type="text"
                                                 onChange={(e) => setFirstName(e.target.value)} 
                                                 placeholder="First Name"
-                                                className="border-success rounded-3"
+                                                className="border-success rounded-3 ms-4 me-2 my-3"
                                                 style={{
                                                     width:"200px",
                                                     height:"40px", 
                                                 }}/>
-                                            </div>
-
-                                            <div className="col-auto">
+                                        
                                                 <input type="text" 
                                                 placeholder="Last Name"
                                                 onChange={(e) => setLastName(e.target.value)}
-                                                className="border-success rounded-3"
+                                                className="border-success rounded-3 ms-3 my-3"
                                                 style={{
                                                     width:"200px",
                                                     height:"40px" 
@@ -177,16 +172,13 @@ const Sign = () => {
                                         </div>
                                         
                                         {/*Email Field*/}
-                                        <div className="row justify-content-start mx-5 mt-3">
+                                        
+                                        <div className="row justify-content-start my-3">
                                             <div className="col-auto">
-                                                <h5>Email</h5>
-                                            </div>
-                                        </div>
-                                        <div className="row justify-content-start ms-5">
-                                            <div className="col-auto">
+                                            <label><h5>Email</h5></label>
                                             <input type="email"
                                             onChange={(e) => setEmail(e.target.value)}
-                                            className="border-success rounded-3"
+                                            className="border-success rounded-3 ms-4 my-3"
                                             placeholder="Enter Email" 
                                             style={{
                                             width:"430px",
@@ -201,21 +193,18 @@ const Sign = () => {
                                         </div>
 
                                         {/*Password Field*/}
-                                        <div className="row justify-content-start mx-5 mt-3">
+                        
+                                        <div className="row justify-content-start my-3">
                                             <div className="col-auto">
-                                                <h5>Password</h5>
-                                            </div>
-                                        </div>
-                                        <div className="row justify-content-start mx-5">
-                                            <div className="col-auto">
+                                                <label><h5>Password</h5></label>
                                                 <input
                                                 type={showPassword ? "text" : "password"}
-                                                className="border-success rounded-3"
+                                                className="border-success rounded-3 ms-4 my-3"
                                                 value={password}
                                                 onChange={(e) => setPassword(e.target.value)}
                                                 onBlur={() => setShowPasswordWarning(true)}
                                                 style={{
-                                                    width:"430px",
+                                                    width:"390px",
                                                     height:"45px" 
                                                     }}/>
                                                     
@@ -261,19 +250,16 @@ const Sign = () => {
                                         </div>
 
                                         {/*Confirm Password Field*/}
-                                        <div className="row justify-content-start mx-5">
-                                            <div className="col-auto mt-2">
-                                                <h5>Confirm Password</h5>
-                                            </div>
-                                        </div>
-                                        <div className="row justify-content-start ms-5 mb-3">
+                                        
+                                        <div className="row justify-content-start my-3">
                                             <div className="col-auto">
+                                                <label><h5>Confirm Password</h5></label>
                                                 <input
                                                 type={confirmShowPassword ? "text" : "password"}
                                                 onChange={(e) => setConfirmPassword(e.target.value)}
-                                                className="border-success rounded-3"
+                                                className="border-success rounded-3 ms-4 my-3"
                                                 style={{
-                                                    width: "430px",
+                                                    width: "315px",
                                                     height: "45px"
                                                 }}/>
                                                 

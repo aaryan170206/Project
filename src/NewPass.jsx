@@ -2,6 +2,7 @@ import { useState } from "react";
 import emailjs from "@emailjs/browser";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useHistory } from "react-router-dom";
+import { div } from "framer-motion/client";
 
 const NewPass = () => {
     const history = useHistory();
@@ -75,8 +76,9 @@ const NewPass = () => {
     };
 
     return (
-        <div className="row justify-content-center">
-            <div className="col-auto">
+        <div className="container ">
+        <div className="row justify-content-center align-content-center">
+            <div className="col-auto align-content-center">
                 <div className="card"
                 style={{backgroundColor: "rgba(0, 0, 0, 0.25)",
                 minHeight: "550px",
@@ -191,6 +193,7 @@ const NewPass = () => {
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     );
 }
