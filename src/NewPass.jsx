@@ -17,7 +17,14 @@ const NewPass = () => {
     const hasLowerCase = /[a-z]/.test(password);
     const hasNumber = /\d/.test(password);
     const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+    const isStrongPassword =
+        hasMinLength &&
+        hasUpperCase &&
+        hasLowerCase &&
+        hasNumber &&
+        hasSpecialChar;
 
+    //Strength Bar
     const isPasswordMatch = password === confirmPassword;
     const strength =
     (hasMinLength ? 20 : 0) +
@@ -44,13 +51,6 @@ const NewPass = () => {
         strengthText = "Very Strong";
         strengthColor = "bg-success";
     }
-
-    const isStrongPassword =
-        hasMinLength &&
-        hasUpperCase &&
-        hasLowerCase &&
-        hasNumber &&
-        hasSpecialChar;
 
     const email = sessionStorage.getItem("email");
 
@@ -93,8 +93,25 @@ const NewPass = () => {
         return;
     }
 
+    //Password Change & Correct Email Access
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+
+    const index = users.findIndex(
+        (user) => user.email === email
+    );
+
+    if (index === -1) {
+        alert("User not found.");
+        return;
+    }
+
+    users[index].password = password;
+
+    localStorage.setItem("users", JSON.stringify(users));
+
     const success = await sendConfirmationMail();
 
+    //Password Change Mail & Redirecting
     if (success) {
         alert("Password changed successfully!");
         history.push("/")

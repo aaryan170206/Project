@@ -4,9 +4,6 @@ import emailjs from "@emailjs/browser";
 
 
 const Sign = () => {
-//Next 
-
-
     //Password Validation
     const [showPasswordWarning, setShowPasswordWarning] = useState(false);
 
@@ -31,6 +28,7 @@ const Sign = () => {
     const hasNumber = /[0-9]/.test(password);
     const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(password);
 
+    //Strength Bar
     const strength =
     (hasMinLength ? 20 : 0) +
     (hasUpperCase ? 20 : 0) +
@@ -57,6 +55,7 @@ const Sign = () => {
         strengthColor = "bg-success";
     }
 
+    //Password Check
     const isStrongPassword =
         hasMinLength &&
         hasUpperCase &&
@@ -76,6 +75,7 @@ const Sign = () => {
 
     sessionStorage.setItem("otp", newOTP);
     sessionStorage.setItem("email", email);
+    sessionStorage.setItem("otpExpiry", Date.now() + 30000); // expires in 30 seconds
     setGeneratedOTP(newOTP);
 
     try {
@@ -122,8 +122,22 @@ const Sign = () => {
 
     console.log("OTP sent. Navigating...");
 
-    if (success) {
-        history.push("/NewAcc");
+    if (success) 
+    {
+    //Local Storage
+    const users =
+    JSON.parse(localStorage.getItem("users")) || [];
+
+    users.push({
+        firstName,
+        lastName,
+        email,
+        password,
+    });
+
+    localStorage.setItem("users", JSON.stringify(users));
+
+    history.push("/NewAcc");
     }
     };
     
@@ -180,7 +194,7 @@ const Sign = () => {
                                                 <input type="text"
                                                 onChange={(e) => setFirstName(e.target.value)} 
                                                 placeholder="First Name"
-                                                className="border-success rounded-3 ms-4 me-2 my-3"
+                                                className="border-success rounded-3 ms-5 me-2 my-3"
                                                 style={{
                                                     width:"200px",
                                                     height:"40px", 
@@ -204,7 +218,7 @@ const Sign = () => {
                                             <label><h5>Email</h5></label>
                                             <input type="email"
                                             onChange={(e) => setEmail(e.target.value)}
-                                            className="border-success rounded-3 ms-4 my-3"
+                                            className="border-success rounded-3 ms-5 my-3"
                                             placeholder="Enter Email" 
                                             style={{
                                             width:"430px",
@@ -231,7 +245,7 @@ const Sign = () => {
                                                 onFocus={() => setShowPasswordWarning(true)}
                                                 onBlur={() => setShowPasswordWarning(false)}
                                                 style={{
-                                                    width:"390px",
+                                                    width:"200px",
                                                     height:"45px" 
                                                     }}/>
                                                     
@@ -246,6 +260,30 @@ const Sign = () => {
                                                     }}
                                                     onClick={()=> setShowPassword(!showPassword)}
                                                 ></i>
+                                                
+
+                                                <input
+                                                type={confirmShowPassword ? "text" : "password"}
+                                                onChange={(e) => setConfirmPassword(e.target.value)}
+                                                className="border-success rounded-3 my-3"
+                                                style={{
+                                                    width: "200px",
+                                                    height: "45px"
+                                                }}/>
+                                                
+                                                <i
+                                                    className={`bi ${
+                                                        confirmShowPassword ? "bi-eye-slash-fill" : "bi-eye-fill"
+                                                    } position-relative text-dark`}
+                                                    style={{
+                                                        right: "30px",
+                                                        top: "0%",
+                                                        transform: "translateY(-50%)",
+                                                        cursor: "pointer"
+                                                    }}
+                                                    onClick={() =>setConfirmShowPassword(!confirmShowPassword)}
+                                                ></i>
+
                                                 {showPasswordWarning && !isStrongPassword && (
                                                     <div
                                                 className="mt-3 p-3 rounded text-center"
@@ -292,36 +330,6 @@ const Sign = () => {
                                                     </small>
                                                     </>
                                                 )}
-                                            </div>
-                                        </div>
-
-                                        {/*Confirm Password Field*/}
-                                        
-                                        <div className="row justify-content-start my-3">
-                                            <div className="col-auto">
-                                                <label><h5>Confirm Password</h5></label>
-                                                <input
-                                                type={confirmShowPassword ? "text" : "password"}
-                                                onChange={(e) => setConfirmPassword(e.target.value)}
-                                                className="border-success rounded-3 ms-4 my-3"
-                                                style={{
-                                                    width: "315px",
-                                                    height: "45px"
-                                                }}/>
-                                                
-                                                <i
-                                                    className={`bi ${
-                                                        confirmShowPassword ? "bi-eye-slash-fill" : "bi-eye-fill"
-                                                    } position-relative text-dark`}
-                                                    style={{
-                                                        right: "30px",
-                                                        top: "0%",
-                                                        transform: "translateY(-50%)",
-                                                        cursor: "pointer"
-                                                    }}
-                                                    onClick={() =>setConfirmShowPassword(!confirmShowPassword)}
-                                                ></i>
-
                                                 {confirmPassword !== "" && !isPasswordMatch && (
                                                 <p className="text-danger">
                                                     Passwords do not match.
@@ -335,9 +343,9 @@ const Sign = () => {
                                                 )}
 
                                                 {confirmPassword !== "" && isPasswordMatch && !isStrongPassword && (
-                                                <p className="text-warning">
+                                                <small className="text-warning">
                                                     Password is too weak.
-                                                </p>
+                                                </small>
                                                 )}
 
                                                 {confirmPassword !== "" && isPasswordMatch && isStrongPassword && (

@@ -9,6 +9,7 @@ const Pass = () => {
     const [email, setEmail] = useState("");
     const isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
+    //OTP Generation
     const generateOTP = () => {
         return Math.floor(100000 + Math.random() * 900000).toString();
         };
@@ -17,19 +18,19 @@ const Pass = () => {
     const sendOTP = async () => {
     const newOTP = generateOTP();
 
-    //OTP Generation
     sessionStorage.setItem("otp", newOTP);
     sessionStorage.setItem("email", email);
+    sessionStorage.setItem("otpExpiry", Date.now() + 30000); // expires in 30 seconds
 
     try {
         await emailjs.send(
-            "service_rrmctpu",
-            "template_a8d6z0l",
+            "service_rrmctpu",//Service Id/Type
+            "template_a8d6z0l",//Template
             {
                 to_email: email,
                 otp: newOTP,
             },
-            "QzHWrAFuYYzwk8GRQ"
+            "QzHWrAFuYYzwk8GRQ" //Public Key
         );
 
         alert("OTP sent successfully!");
@@ -45,6 +46,16 @@ const Pass = () => {
     const handleNext = async () => {
     if (!isEmailValid) {
         alert("Enter a valid email.");
+        return;
+    }
+
+    // Check if the email exists
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+
+    const user = users.find((u) => u.email === email);
+
+    if (!user) {
+        alert("No account exists with this email.");
         return;
     }
 

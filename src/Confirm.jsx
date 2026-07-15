@@ -5,9 +5,18 @@ import emailjs from "@emailjs/browser";
 const Confirm = () => {
 
     const history = useHistory();
-    const [timeLeft, setTimeLeft] = useState(30);
+    const [timeLeft, setTimeLeft] = useState(() => {
+    const expiry = Number(sessionStorage.getItem("otpExpiry"));
 
-    //OTP Storage
+    if (!expiry) return 0;
+
+    return Math.max(
+        0,
+        Math.ceil((expiry - Date.now()) / 1000)
+    );
+    });
+
+    //OTP Check Storage
     const [otp, setOtp] = useState("");
 
     //Resend OTP
@@ -17,18 +26,22 @@ const Confirm = () => {
     const email = sessionStorage.getItem("email");
 
     //OTP Verification
-   const handleNext = async () => {
+    const handleNext = () => {
     const storedOTP = sessionStorage.getItem("otp");
+    const expiry = Number(sessionStorage.getItem("otpExpiry"));
+
+    if (Date.now() > expiry) {
+        alert("OTP has expired. Please request a new OTP.");
+        return;
+    }
 
     if (otp === storedOTP) {
         alert("OTP verification successful");
-
         history.push("/Confirm/NewPass");
-
     } else {
         alert("Invalid OTP");
     }
-};
+    };
 
 
     //Resend OTP button
@@ -46,7 +59,7 @@ const Confirm = () => {
     const newOTP = generateOTP();
 
     sessionStorage.setItem("otp", newOTP);
-    setOtp("");
+    sessionStorage.setItem("otpExpiry", Date.now() + 30000); // expires in 30 seconds
 
     setSending(true);
     try {
@@ -74,14 +87,31 @@ const Confirm = () => {
 
     // Timer
     useEffect(() => {
-            if (timeLeft === 0) return;
+    const interval = setInterval(() => {
+        const expiry = Number(sessionStorage.getItem("otpExpiry"));
 
-            const timer = setInterval(() => {
-                setTimeLeft((prev) => prev - 1);
-            }, 1000);
+        if (!expiry) {
+            setTimeLeft(0);
+            clearInterval(interval);
+            return;
+        }
 
-            return () => clearInterval(timer);
-            }, [timeLeft]);
+        const remaining = Math.max(
+            0,
+            Math.ceil((expiry - Date.now()) / 1000)
+        );
+
+        setTimeLeft(remaining);
+
+        if (remaining === 0) {
+            clearInterval(interval);
+        }
+
+    }, 1000);
+
+    return () => clearInterval(interval);
+
+    }, []);
 
 
     return (
@@ -105,7 +135,7 @@ const Confirm = () => {
                                     <div className="row justify-content-center">
                                         <div className="col-auto">
                                             <p className="text-light">
-                                                An OTP has been sent to:<br />
+                                                An OTP for Password Reset has been sent to:<br />
                                                 <strong>{email}</strong>
                                             </p>
                                             <input
@@ -145,7 +175,7 @@ const Confirm = () => {
                                                     </p>
                                                      <a
                                                     href="https://mail.google.com/mail/u/0/#inbox"
-                                                    className="btn btn-light text-center align-content-center"
+                                                    className="btn btn-success text-center align-content-center"
                                                     style={{ height: "50px" }}
                                                     target="_blank"
                                                     rel="noopener noreferrer"

@@ -21,15 +21,22 @@ const Log = () => {
 
     //Button
     const handleSubmit = () => {
-    if (!isEmailValid) {
-      alert("Please enter a valid email address.");
-      return;
+
+    //Data From SignUp Page
+    const users =
+    JSON.parse(localStorage.getItem("users")) || [];
+
+    const user = users.find(
+    (u) =>
+        u.email === email &&
+        u.password === password
+    );
+
+    if (user) {
+        history.push("/Home");
+    } else {
+        alert("Invalid Email or Password");
     }
-    if (email === "" || password === "") {
-    alert("Invalid credential");
-    return;
-    }
-        history.push("/Home");        
     };
     
     return (

@@ -1,4 +1,6 @@
 body{
     background-image:url(assets/Login.jpg);
-
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }

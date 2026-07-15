@@ -3,26 +3,65 @@ import { useHistory } from "react-router-dom";
 import emailjs from "@emailjs/browser";
 
 const NewAcc = () => {
-    const [verified, setVerified] = useState(false);
     const history = useHistory();
-    const [timeLeft, setTimeLeft] = useState(30);
+    const [timeLeft, setTimeLeft] = useState(() => {
+    const expiry = Number(sessionStorage.getItem("otpExpiry"));
+
+    if (!expiry) return 0;
+
+    return Math.max(
+        0,
+        Math.ceil((expiry - Date.now()) / 1000)
+    );
+    });
     const [otp, setOtp] = useState("");
     const [sending, setSending] = useState(false);
     const email = sessionStorage.getItem("email");
 
    const handleNext = async () => {
     const storedOTP = sessionStorage.getItem("otp");
+    const expiry = Number(sessionStorage.getItem("otpExpiry"));
+
+    if (Date.now() > expiry) {
+        alert("OTP has expired. Please request a new OTP.");
+        return;
+    }
 
     if (otp === storedOTP) {
-        alert("OTP verification successful");
+       
+    const pendingUser = JSON.parse(
+    sessionStorage.getItem("pendingUser")
+    );
 
-        // Send account creation email
-        await sendSuccessMail();
-        history.push("/Home")
+    // Get all existing users
+    const users = JSON.parse(localStorage.getItem("users")) || [];
 
-        sessionStorage.removeItem("otp");
-        sessionStorage.removeItem("email");
+    // Check if email already exists
+    const existingUser = users.find(
+        (user) => user.email === pendingUser.email
+    );
 
+    if (existingUser) {
+        alert("An account with this email already exists.");
+        return;
+    }
+
+    // Add new user
+    users.push(pendingUser);
+
+    // Save updated array
+    localStorage.setItem(
+    "users",
+    JSON.stringify(users)
+    );
+    await sendSuccessMail();
+
+    sessionStorage.removeItem("otp");
+    sessionStorage.removeItem("otpExpiry");
+    sessionStorage.removeItem("email");
+    sessionStorage.removeItem("pendingUser");
+
+    history.push("/");
     } else {
         alert("Invalid OTP");
     }
@@ -61,7 +100,7 @@ const NewAcc = () => {
     const newOTP = generateOTP();
 
     sessionStorage.setItem("otp", newOTP);
-    setOtp("");
+    sessionStorage.setItem("otpExpiry", Date.now() + 30000); // expires in 30 seconds
 
     setSending(true);
     try {
@@ -75,7 +114,11 @@ const NewAcc = () => {
             "QzHWrAFuYYzwk8GRQ"
         );
 
-        setTimeLeft(30);
+        const expiry = Date.now() + 30000;
+
+        sessionStorage.setItem("otp", newOTP);
+        sessionStorage.setItem("otpExpiry", expiry);
+
         alert("New OTP has been sent.");
 
     } catch (error) {
@@ -89,14 +132,31 @@ const NewAcc = () => {
 
     // Timer
     useEffect(() => {
-            if (timeLeft === 0) return;
+    const timer = setInterval(() => {
+        const expiry = Number(sessionStorage.getItem("otpExpiry"));
 
-            const timer = setInterval(() => {
-                setTimeLeft((prev) => prev - 1);
-            }, 1000);
+        if (!expiry) {
+            setTimeLeft(0);
+            clearInterval(timer);
+            return;
+        }
 
-            return () => clearInterval(timer);
-            }, [timeLeft]);
+        const remaining = Math.max(
+            0,
+            Math.ceil((expiry - Date.now()) / 1000)
+        );
+
+        setTimeLeft(remaining);
+
+        if (remaining === 0) {
+            clearInterval(timer);
+        }
+
+    }, 1000);
+
+    return () => clearInterval(timer);
+
+    }, []);
 
 
     return (
