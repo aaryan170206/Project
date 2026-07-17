@@ -21,21 +21,28 @@ const Log = () => {
 
     //Button
     const handleSubmit = () => {
+    const users = JSON.parse(localStorage.getItem("users")) || [];
 
-    //Data From SignUp Page
-    const users =
-    JSON.parse(localStorage.getItem("users")) || [];
+    const user = users.find((u) => {
+        console.log("Checking:", u);
 
-    const user = users.find(
-    (u) =>
-        u.email === email &&
-        u.password === password
-    );
+        return (
+            u &&
+            u.email.trim() === email.trim() &&
+            u.password === password
+        );
+    });
 
     if (user) {
-        history.push("/Home");
-    } else {
-        alert("Invalid Email or Password");
+    sessionStorage.setItem(
+        "currentUser",
+        JSON.stringify(user)
+    );
+
+    history.push("/Home");
+    } 
+    else {
+    alert("Invalid Email or Password");
     }
     };
     

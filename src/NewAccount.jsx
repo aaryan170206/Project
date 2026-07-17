@@ -4,6 +4,7 @@ import emailjs from "@emailjs/browser";
 
 const NewAcc = () => {
     const history = useHistory();
+    const [verified, setVerified] = useState(false);
     const [timeLeft, setTimeLeft] = useState(() => {
     const expiry = Number(sessionStorage.getItem("otpExpiry"));
 
@@ -27,33 +28,37 @@ const NewAcc = () => {
         return;
     }
 
+    if (otp !== storedOTP) {
+    alert("Invalid OTP");
+    return;
+    }
+
     if (otp === storedOTP) {
        
     const pendingUser = JSON.parse(
     sessionStorage.getItem("pendingUser")
     );
 
-    // Get all existing users
+    if (!pendingUser) {
+    alert("Signup session expired.");
+    return;
+    }
+
     const users = JSON.parse(localStorage.getItem("users")) || [];
 
-    // Check if email already exists
     const existingUser = users.find(
-        (user) => user.email === pendingUser.email
+    (u) => u && u.email.trim() === pendingUser.email.trim()
     );
 
     if (existingUser) {
-        alert("An account with this email already exists.");
+        alert("Email already exists.");
         return;
     }
 
-    // Add new user
     users.push(pendingUser);
 
-    // Save updated array
-    localStorage.setItem(
-    "users",
-    JSON.stringify(users)
-    );
+    localStorage.setItem("users", JSON.stringify(users));
+
     await sendSuccessMail();
 
     sessionStorage.removeItem("otp");
@@ -61,10 +66,11 @@ const NewAcc = () => {
     sessionStorage.removeItem("email");
     sessionStorage.removeItem("pendingUser");
 
+    setVerified(true);
+    setTimeout(() => {
     history.push("/");
-    } else {
-        alert("Invalid OTP");
-    }
+    }, 1500);
+    } 
     };
 
     const sendSuccessMail = async () => {
@@ -99,9 +105,6 @@ const NewAcc = () => {
 
     const newOTP = generateOTP();
 
-    sessionStorage.setItem("otp", newOTP);
-    sessionStorage.setItem("otpExpiry", Date.now() + 30000); // expires in 30 seconds
-
     setSending(true);
     try {
         await emailjs.send(
@@ -118,6 +121,8 @@ const NewAcc = () => {
 
         sessionStorage.setItem("otp", newOTP);
         sessionStorage.setItem("otpExpiry", expiry);
+
+        setTimeLeft(30);
 
         alert("New OTP has been sent.");
 
@@ -137,7 +142,6 @@ const NewAcc = () => {
 
         if (!expiry) {
             setTimeLeft(0);
-            clearInterval(timer);
             return;
         }
 
@@ -148,14 +152,9 @@ const NewAcc = () => {
 
         setTimeLeft(remaining);
 
-        if (remaining === 0) {
-            clearInterval(timer);
-        }
-
     }, 1000);
 
     return () => clearInterval(timer);
-
     }, []);
 
 
@@ -220,15 +219,11 @@ const NewAcc = () => {
                                                 ) : (
                                                     <>
                                                     <div className="d-flex justify-content-center gap-3 mb-5">
-                                                        <a
-                                                        href="https://mail.google.com/mail/u/0/#inbox"
-                                                        className="btn btn-success text-center align-content-center"
-                                                        style={{ height: "40px" }}
-                                                        target="_blank"
-                                                        rel="noopener noreferrer"
-                                                        ><i className="bi bi-envelope-open-fill me-2"></i>
-                                                            Open Gmail
-                                                        </a>
+
+                                                        <p className="text-warning">
+                                                        If you have multiple Email accounts, Please check the Email <strong>{email}</strong>
+                                                        </p>
+
                                                     </div>
                                                     <p className="text-white">
                                                         Time Remaining: {timeLeft}s

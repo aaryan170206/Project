@@ -99,8 +99,6 @@ const Sign = () => {
     }
     };
     
-    
-
     const history = useHistory();
 
     const handleNext = async () => {
@@ -125,17 +123,32 @@ const Sign = () => {
     if (success) 
     {
     //Local Storage
-    const users =
-    JSON.parse(localStorage.getItem("users")) || [];
+    const users = JSON.parse(localStorage.getItem("users")) || [];
 
-    users.push({
-        firstName,
-        lastName,
-        email,
+    const existingUser = users.find(
+        (u) => u && u.email === email.trim()
+    );
+
+    if (existingUser) {
+        alert("Email already registered.");
+        return;
+    }
+
+   sessionStorage.setItem(
+    "pendingUser",
+    JSON.stringify({
+        firstName: firstName.trim(),
+        lastName: lastName.trim(),
+        email: email.trim(),
         password,
-    });
-
-    localStorage.setItem("users", JSON.stringify(users));
+        
+        joinedOn: new Date().toLocaleDateString("en-US", {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+        })
+    })
+    );
 
     history.push("/NewAcc");
     }

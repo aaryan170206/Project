@@ -1,8 +1,3 @@
-import AiFinance from "./assets/Ai_In_Finance.jpg";
-import AiFood from "./assets/Ai_Food.jpg";
-import AiHealth from "./assets/Ai_In_Health.jpg";
-import AiDefence from "./assets/Ai_In_Defence.jpg";
-import Background from "./assets/Background.jpg";
 import { motion } from "framer-motion";
 
 const Home = () => {
@@ -11,7 +6,8 @@ const Home = () => {
             <div className="container" 
                 style={{
                     minHeight:"500px",
-                    minWidth:"700px"
+                    minWidth:"700px",
+                    paddingTop:"60px"
                 }}>
                 <div className="row justify-content-center">
                     <div className="col-auto">
@@ -70,150 +66,6 @@ const Home = () => {
                         </motion.div>
                     </div>
                 </div>
-
-                {/*Main Image*/}
-                <section id="image">
-                <div className="row g-4 justify-content-center align-items-center">
-                    <div className="col-auto">
-                        <motion.div
-                        initial={{ x: 500, opacity: 0 }}
-                        whileInView={{ x: 0, opacity: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 1 }}>
-
-                             {/*Background Image*/}
-                            <div className="card mt-4  border border-5 border-secondary my-5"
-                            style={{
-                            backgroundImage: `url(${Background})`,
-                            backgroundSize: "cover",
-                            backgroundPosition: "center",
-                            minHeight: "550px",
-                            minWidth: "900px",
-                            borderRadius: "15px",
-                            overflow: "hidden",
-                            }}>
-                                <div
-                                style={{
-                                backgroundColor: "rgba(0, 0, 0, 0.4)",
-                                minHeight: "550px",
-                                borderRadius: "15px",}}>
-
-                                    <div className="row g-4 justify-content-center align-items-center"
-                                    style={{ minHeight: "650px" }}>
-                                        <div className="col-md-3 d-flex justify-content-center">
-                                            <motion.a
-                                            href="#Helth"
-                                            type="button"
-                                            className="btn p-0 border-0 bg-transparent m-5"
-                                            whileHover={{ scale: 1.25 }}
-                                            whileTap={{ scale: 0.95 }}>
-                                                <img src={AiHealth}
-                                                alt="Health"
-                                                height="100" width="200"
-                                                className="border border-danger rounded border-3"/>
-
-                                                <p className="mt-2 text-white fw-bold mb-0">
-                                                    AI In Health
-                                                </p>
-                                            </motion.a>
-                                        </div>
-                                    
-                                        <div className="col-md-3 d-flex justify-content-center">  
-                                            <motion.button
-                                            type="button"
-                                            className="btn p-0 border-0 bg-transparent m-5"
-                                            whileHover={{ scale: 1.25 }}
-                                            whileTap={{ scale: 0.95 }}>
-
-                                                <img src={AiFinance} 
-                                                alt="Finance.jpg" 
-                                                height="100px" width="200px"
-                                                className="border border-danger rounded border-3"/>
-
-                                                <p className="mt-2 text-light fw-bold mb-0">
-                                                    AI In Finance
-                                                </p>
-                                            </motion.button>
-                                        </div>
-                                    
-                                        <div className="col-md-3 d-flex justify-content-center">
-                                            <motion.button
-                                            type="button"
-                                            className="btn p-0 border-0 bg-transparent m-5"
-                                            whileHover={{ scale: 1.25 }}
-                                            whileTap={{ scale: 0.95 }}
-                                            onClick={() => {
-                                            console.log("AI Defence clicked");}}>
-
-                                                <img src={AiFood} alt="Food.jpg" 
-                                                height="100px" 
-                                                width="200px"
-                                                className="m-5 border border-danger rounded border-3"/>
-
-                                                <p className="mt-2 text-light fw-bold mb-0">
-                                                    AI In Food
-                                                </p>
-                                            </motion.button>
-                                        </div>
-                                    
-                                        <div className="col-md-3 d-flex justify-content-center">
-                                            <motion.button
-                                            type="button"
-                                            className="btn p-0 border-0 bg-transparent"
-                                            whileHover={{ scale: 1.25 }}
-                                            whileTap={{ scale: 0.95 }}
-                                            onClick={() => {
-                                            console.log("AI Defence clicked");}}>
-
-                                                <img src={AiDefence}
-                                                alt="AI Defence"
-                                                height="100"
-                                                width="200"
-                                                className="m-5 border border-danger rounded border-3"/>
-
-                                                <p className="mt-2 text-light fw-bold mb-0">
-                                                    AI In Defence
-                                                </p>
-                                                </motion.button>
-                                            
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </motion.div>
-                    </div>
-                </div>
-                </section>
-
-                {/*Ai Health*/}
-                <section id="Helth">
-                    <div className="card mt-4 border border-5 border-secondary my-5"
-                        style={{
-                        backgroundImage: `url(${AiHealth})`,
-                        backgroundSize: "cover",
-                        backgroundPosition: "center",
-                        minHeight: "550px",
-                        minWidth: "900px",
-                        borderRadius: "15px",
-                        overflow: "hidden"}}>
-                        <div style={{
-                            backgroundColor: "rgba(0, 0, 0, 0.4)",
-                            minHeight: "550px",
-                            borderRadius: "15px"}}>
-                            <div className="card-body">
-                                <motion.a 
-                                    href="#image"
-                                    className="btn btn-outline-light btn-lg px-5 mt-4 rounded-pill shadow"
-                                    >
-                                        <i className="bi bi-arrow-up-square"></i> Go Back
-                                    </motion.a>
-                                <div className="card-title text-center">
-                                    <h1 className="text-light">Health</h1>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
             </div>
         </div>
 

@@ -7,6 +7,8 @@ import Home from "./Home";
 import NewPass from "./NewPass";
 import NewAcc from "./NewAccount";
 import Confirm from "./Confirm"
+import Services from "./Services";
+import Health from "./Ai_Health";
 function App() {
 
 
@@ -23,6 +25,23 @@ function App() {
             <Route exact path="/Home">
               <Nav />
               <Home />
+            </Route>
+
+            <Route exact path="/Services">
+              <Nav />
+              <Services />
+            </Route>
+            {/*Service Contents*/}
+            <Route exact path="/Health">
+              <Health />
+            </Route>
+
+            <Route exact path="/About">
+              <Nav />
+            </Route>
+
+            <Route exact path="/Contact">
+              <Nav />
             </Route>
 
             <Route exact path="/Forgot">
@@ -48,7 +67,6 @@ function App() {
             <Route exact path="/Sign/Log">
               <Log />
             </Route>
-
           </Switch>
         </div>
       </div>

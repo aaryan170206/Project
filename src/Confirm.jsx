@@ -173,15 +173,11 @@ const Confirm = () => {
                                                     <p className="text-white">
                                                         Time Remaining: {timeLeft}s
                                                     </p>
-                                                     <a
-                                                    href="https://mail.google.com/mail/u/0/#inbox"
-                                                    className="btn btn-success text-center align-content-center"
-                                                    style={{ height: "50px" }}
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
-                                                    ><i className="bi bi-envelope-open-fill me-2"></i>
-                                                        Open Gmail
-                                                    </a>
+
+                                                    <p className="text-warning">
+                                                        If you have multiple Email accounts, Please check the Email <strong>{email}</strong>
+                                                    </p>
+
                                                     </>
                                                 )}
                                         </div>
