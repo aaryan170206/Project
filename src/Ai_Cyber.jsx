@@ -1,24 +1,25 @@
 import Nav from "./Navbar";
 
 //Background Image
-import AiHealth from "./assets/Ai_In_Health.jpg";
+import AiSec from "./assets/Ai_In_Security.jpg";
 import { motion, useInView  } from "framer-motion";
 import { useEffect, useRef } from "react";
 
-//Images
-import Health_1 from "./assets/Health_1.jpg";
-import Health_2 from "./assets/Health_2.jpg";
-import Health_3 from "./assets/Health_3.jpg";
-import Health_4 from "./assets/Health_4.jpg";
-import Health_5 from "./assets/Health_5.jpg";
-import Health_6 from "./assets/Health_6.jpg";
-import Health_7 from "./assets/Health_7.jpg";
-import Health_8 from "./assets/Health_8.jpg";
+//Images 
+import Security_1 from "./assets/Security_1.jpg";
+import Security_2 from "./assets/Security_2.jpg";
+import Security_3 from "./assets/Security_3.jpg";
+import Security_4 from "./assets/Security_4.jpg";
+import Security_5 from "./assets/Security_5.jpg";
+import Security_6 from "./assets/Security_6.jpg";
+import Security_7 from "./assets/Security_7.jpg";
+import Security_8 from "./assets/Security_8.jpg";
 
-const Health = () => {
+const Cyber = () => {
+
     useEffect(() => {
-    window.scrollTo(0, 0);
-}, []);
+        window.scrollTo(0, 0);
+    }, []);
     
     const imageRef = useRef(null);
 
@@ -26,16 +27,16 @@ const Health = () => {
         amount: 0.4
     });
 
+
     return (
-        <div style={{backgroundImage: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
-        url(${AiHealth})`,
+        <div style={{backgroundImage: `linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)),
+        url(${AiSec})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
         backgroundAttachment: "fixed",
         minHeight: "100vh",
         width: "100%",}}>
-            
         {/*Increace Opcacity*/}
         <div
         style={{
@@ -61,7 +62,7 @@ const Health = () => {
                         <motion.div
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}>
-                            <img src={Health_1}
+                            <img src={Security_1}
                             alt="Image_1"
                             style={{
                             width: "475px",
@@ -76,22 +77,23 @@ const Health = () => {
                             style={{
                                 color:"#f4d03f"
                             }}>
-                                Disease Diagnosis: 
+                                 Threat Detection: 
                             </h1>
                             <p className="text-info text-center fs-5">
-                                Artificial Intelligence is revolutionizing disease diagnosis by helping healthcare professionals identify illnesses more quickly and accurately than traditional methods. 
-                                AI systems analyze large volumes of patient information, including medical histories, laboratory reports, genetic data, 
-                                X-rays, CT scans, MRI images, and pathology slides.
+                                Artificial Intelligence has transformed threat detection by enabling cybersecurity systems to 
+                                identify malicious activities in real time. Unlike traditional security tools that rely on 
+                                predefined signatures, AI continuously analyzes network traffic, user behavior, system logs, 
+                                and device activity to detect suspicious patterns.
                             </p>
                             <p className="text-info text-center fs-5">
-                                AI has demonstrated exceptional performance in diagnosing diseases such as breast cancer, 
-                                lung cancer, diabetic retinopathy, Alzheimer's disease, heart disease, pneumonia, tuberculosis, 
-                                and neurological disorders. Early detection significantly improves treatment success rates and increases the chances of patient recovery.
+                                AI-powered threat detection can recognize various cyberattacks, including malware, ransomware, phishing attempts, 
+                                distributed denial-of-service (DDoS) attacks, insider threats, and unauthorized access. Machine learning
+                                 algorithms compare current activities with normal behavior, allowing them to detect anomalies that may indicate 
+                                 a security breach.
                             </p>
                             <p className="text-info text-center fs-5">
-                                Beyond identifying diseases, AI also assists doctors in assessing disease severity, 
-                                predicting disease progression, and recommending appropriate diagnostic tests. 
-                                Although AI greatly enhances diagnostic accuracy and reduces the risk of human error. 
+                                Beyond identifying threats, AI assists security teams by prioritizing critical alerts, predicting potential attack vectors, 
+                                and recommending appropriate response strategies.
                             </p>
                     </div>
                 </div>
@@ -107,28 +109,27 @@ const Health = () => {
                             style={{
                                 color:"#f4d03f"
                             }}>
-                                Medical Imaging: 
+                                Malware Detection:
                             </h1>
                             <p className="text-info text-center fs-5">
-                                Medical imaging is one of the most successful applications of Artificial Intelligence in healthcare.
-                                 AI-powered systems analyze X-rays, CT scans, MRI scans,
-                                  PET scans, ultrasound images, and mammograms with remarkable speed and precision. 
+                                Artificial Intelligence has significantly improved malware detection by identifying and preventing malicious software before 
+                                it can compromise computer systems or networks. Unlike traditional antivirus programs that rely on known malware signatures. 
                             </p>
                             <p className="text-info text-center fs-5">
-                                AI assists radiologists by automatically highlighting suspicious regions, measuring tumor size,
-                                 comparing previous scans, and prioritizing urgent cases that require immediate attention.
-                                  This reduces diagnostic delays and improves workflow efficiency in hospitals.
+                                AI-powered malware detection systems can identify various types of malicious software, including viruses, worms, trojans, ransomware, 
+                                spyware, rootkits, and fileless malware. By continuously monitoring processes, network traffic, and application behavior, 
+                                machine learning models detect unusual activities that may indicate the presence of malware.
                             </p>
                             <p className="text-info text-center fs-5">
-                                Furthermore, AI minimizes diagnostic errors caused by fatigue or oversight and enables healthcare providers to deliver faster, more accurate, 
-                                and more consistent diagnoses, especially in emergency situations where every minute matters.
+                                Beyond detecting malware, AI assists cybersecurity teams by automatically isolating infected devices, blocking malicious processes, 
+                                and recommending appropriate remediation measures.
                             </p>
                     </div>
                     <div className="col-6 text-center border-start border-secondary">
                         <motion.div
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}>
-                            <img src={Health_2}
+                            <img src={Security_2}
                             alt="Image_3"
                             style={{
                             width: "475px",
@@ -150,7 +151,7 @@ const Health = () => {
                         <motion.div
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}>
-                            <img src={Health_3}
+                            <img src={Security_3}
                             alt="Image_3"
                             style={{
                             width: "475px",
@@ -165,22 +166,21 @@ const Health = () => {
                             style={{
                                 color:"#f4d03f"
                             }}>
-                                Robotic Surgery: 
+                                Phishing Detection: 
                             </h1>
                             <p className="text-info text-center fs-5">
-                                AI-powered robotic surgery combines advanced robotics, computer vision, and artificial intelligence to assist surgeons in performing complex procedures with exceptional precision.
-                                 These robotic systems translate the surgeon's hand movements into highly accurate micro-movements,
-                                  reducing natural hand tremors and improving surgical control.
+                                Artificial Intelligence has become a powerful tool for detecting and preventing phishing attacks by identifying 
+                                fraudulent emails, websites, and messages designed to steal sensitive information. Unlike traditional
+                                 filtering systems that rely on predefined rules, AI analyzes email content, sender behavior, website characteristics. 
                             </p>
                             <p className="text-info text-center fs-5">
-                                Minimally invasive robotic surgery requires only small incisions, 
-                                resulting in less blood loss, reduced pain, lower infection risk, minimal scarring, and faster patient recovery. 
-                                AI also provides real-time imaging, tissue recognition, and navigation assistance during operations,
-                                 helping surgeons avoid critical blood vessels and nerves.
+                                AI-powered phishing detection systems can identify various forms of phishing, including email phishing, spear phishing, 
+                                smishing (SMS phishing), vishing (voice phishing), and fake websites. Machine learning algorithms examine factors such as 
+                                unusual language, spoofed domains, suspicious links, attachment behavior.
                             </p>
                             <p className="text-info text-center fs-5">
-                                Modern robotic systems are widely used in cardiac surgery, neurosurgery, orthopedic procedures, urology, 
-                                gynecology, and cancer surgeries, significantly improving patient safety and surgical outcomes.
+                               Beyond detecting phishing attempts, AI assists cybersecurity teams by automatically blocking malicious emails, 
+                               flagging suspicious websites, and warning users before they interact with harmful content.
                             </p>  
                     </div>
                 </div>
@@ -195,28 +195,26 @@ const Health = () => {
                             style={{
                                 color:"#f4d03f"
                             }}>
-                                Virtual Health Assistants:
+                                Intrusion Detection:
                             </h1>
                             <p className="text-info text-center fs-5">
-                                AI-powered virtual health assistants provide continuous healthcare support by interacting with patients through mobile applications,
-                                 websites, and voice-enabled devices. Using Natural Language Processing (NLP), 
-                                 these assistants understand human language, answer health-related questions, schedule appointments,
-                                  send medication reminders, monitor symptoms, and provide lifestyle recommendations.
+                                Artificial Intelligence has significantly enhanced intrusion detection by enabling cybersecurity systems to 
+                                identify unauthorized access and malicious activities within computer networks in real time. Unlike traditional 
+                                intrusion detection systems that rely on predefined signatures and rules, AI continuously analyzes network traffic, 
+                                user behavior, system logs, and device activities to detect suspicious patterns. 
                             </p>
                             <p className="text-info text-center fs-5">
-                                They help patients manage chronic illnesses such as diabetes, hypertension, asthma, and heart disease by tracking daily health data and encouraging healthy habits. 
-                                Virtual assistants can also collect preliminary symptoms before a doctor's consultation, reducing consultation time and improving healthcare efficiency.
-                            </p>
-                            <p className="text-info text-center fs-5">
-                                Although they cannot replace physicians, virtual health assistants improve patient engagement, increase healthcare accessibility, 
-                                and provide immediate support, especially in remote or underserved regions.
+                                AI-powered intrusion detection systems can detect a wide range of security incidents, including unauthorized login attempts, 
+                                privilege escalation, insider threats, brute-force attacks, network reconnaissance, and advanced persistent threats (APTs). 
+                                By learning normal patterns of network and user behavior, machine learning algorithms quickly recognize anomalies that may indicate 
+                                a security breach.
                             </p>
                     </div>
                     <div className="col-6 text-center border-start border-secondary">
                         <motion.div
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}>
-                            <img src={Health_4}
+                            <img src={Security_4}
                             alt="Image_4"
                             style={{
                             width: "475px",
@@ -237,7 +235,7 @@ const Health = () => {
                         <motion.div
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}>
-                            <img src={Health_5}
+                            <img src={Security_5}
                             alt="Image_5"
                             style={{
                             width: "475px",
@@ -252,20 +250,18 @@ const Health = () => {
                             style={{
                                 color:"#f4d03f"
                             }}>
-                                Patient Monitoring: 
+                                Automated Incident Response: 
                             </h1>
                             <p className="text-info text-center fs-5">
-                                Artificial Intelligence has transformed patient monitoring by enabling continuous observation of patients both inside hospitals and at home.
-                                 AI-powered wearable devices and medical sensors continuously measure vital signs such as heart rate,
-                                 blood pressure, respiratory rate, oxygen saturation, blood glucose levels, and body temperature.
+                                Artificial Intelligence has transformed incident response by enabling organizations to detect, 
+                                analyze, and respond to cybersecurity incidents automatically. Unlike traditional approaches that rely heavily on manual investigation, 
+                                AI continuously monitors security events, correlates data from multiple sources, and identifies potential threats in real time.
                             </p>
                             <p className="text-info text-center fs-5">
-                                Machine learning algorithms analyze this real-time data to detect abnormal trends before they become life-threatening.
-                                 When unusual patterns are identified, AI immediately alerts healthcare providers, allowing early intervention and reducing emergency hospital admissions.
-                            </p>
-                            <p className="text-info text-center fs-5">
-                                Remote patient monitoring is particularly valuable for elderly individuals, post-surgery patients, 
-                                and those with chronic diseases, enabling doctors to provide continuous care without requiring frequent hospital visits.
+                                AI-powered incident response systems can automatically handle a wide range of security events, including malware infections, 
+                                ransomware attacks, unauthorized access attempts, phishing incidents, data breaches, and network intrusions. By analyzing the severity 
+                                and context of each incident, AI can isolate compromised devices, block malicious IP addresses, terminate suspicious processes, 
+                                revoke unauthorized user access, and initiate predefined security workflows. This rapid response helps contain threats before they spread across the network.
                             </p>
                     </div>
                 </div>
@@ -281,28 +277,28 @@ const Health = () => {
                             style={{
                                 color:"#f4d03f"
                             }}>
-                                Drug Discovery:
+                                User Behavior Analysis:
                             </h1>
                             <p className="text-info text-center fs-5">
-                                Traditional drug development often requires more than a decade of research and billions of dollars in investment. 
-                                Artificial Intelligence significantly accelerates this process by analyzing enormous biological, chemical, 
-                                and pharmaceutical datasets to identify promising drug candidates.
+                                Artificial Intelligence has revolutionized user behavior analysis by continuously monitoring and analyzing how users 
+                                interact with computer systems, applications, and networks. Unlike traditional security methods that rely on predefined rules, 
+                                AI learns the normal behavior patterns of individual users and devices over time.
                             </p>
                             <p className="text-info text-center fs-5">
-                                AI predicts how different molecules interact with disease-causing proteins, evaluates drug toxicity, identifies potential side effects, 
-                                and recommends the most effective compounds for laboratory testing. During the COVID-19 pandemic, 
-                                AI played a crucial role in accelerating vaccine development and identifying potential treatments.
+                                AI-powered user behavior analysis can detect a wide range of suspicious activities, including compromised accounts, insider threats, 
+                                unauthorized access attempts, privilege misuse, account takeovers, and credential theft.
                             </p>
                             <p className="text-info text-center fs-5">
-                                By reducing research time, lowering development costs, and improving the success rate of clinical trials, 
-                                AI enables pharmaceutical companies to bring safer and more effective medicines to patients much faster than traditional methods.
+                                Beyond detecting suspicious behavior, AI assists security teams by generating real-time alerts, assigning risk scores
+                                 to users, and recommending appropriate response actions such as multi-factor authentication, session termination, or temporary 
+                                 account suspension.
                             </p>
                     </div>
                     <div className="col-6 text-center border-start border-secondary">
                         <motion.div
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}>
-                            <img src={Health_6}
+                            <img src={Security_6}
                             alt="Image_6"
                             style={{
                             width: "475px",
@@ -324,7 +320,7 @@ const Health = () => {
                         <motion.div
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}>
-                            <img src={Health_7}
+                            <img src={Security_7}
                             alt="Image_7"
                             style={{
                             width: "475px",
@@ -339,20 +335,21 @@ const Health = () => {
                             style={{
                                 color:"#f4d03f"
                             }}>
-                                Personalized Medicine:
+                                Vulnerability Management:
                             </h1>
                             <p className="text-info text-center fs-5">
-                                Personalized medicine uses Artificial Intelligence to design healthcare treatments specifically for each individual rather than applying a standard treatment approach to everyone.
-                                 AI analyzes genetic information, medical history, laboratory reports, environmental factors, lifestyle habits, and previous treatment responses to recommend personalized therapies.
+                                Artificial Intelligence has significantly improved vulnerability management by helping organizations identify, assess, 
+                                and prioritize security weaknesses before they can be exploited by cybercriminals. Unlike traditional methods 
+                                that rely on periodic manual assessments, AI continuously scans networks, applications, operating systems, 
+                                and connected devices to detect vulnerabilities in real time.
                             </p>
                             <p className="text-info text-center fs-5">
-                                This approach is particularly effective in cancer treatment,
-                                 where AI helps oncologists identify the most suitable chemotherapy drugs or targeted therapies based on a patient's genetic profile.
-                                 AI also predicts which medications are likely to be most effective while minimizing harmful side effects.
+                                AI-powered vulnerability management systems can identify software flaws, outdated applications, misconfigured systems, 
+                                insecure network settings, unpatched operating systems, and weaknesses in cloud environments. 
                             </p>
                             <p className="text-info text-center fs-5">
-                                Personalized medicine improves treatment success, enhances patient satisfaction, 
-                                reduces unnecessary medication, and supports the broader goal of precision healthcare.
+                                Beyond identifying vulnerabilities, AI assists cybersecurity teams by recommending appropriate remediation measures, automating patch management, 
+                                verifying that vulnerabilities have been resolved, and continuously monitoring systems for newly discovered security flaws.
                             </p>
                     </div>
                 </div>
@@ -368,30 +365,28 @@ const Health = () => {
                             style={{
                                 color:"#f4d03f"
                             }}>
-                                Administrative Automation:
+                                Security Monitoring:
                             </h1>
                             <p className="text-info text-center fs-5">
-                                Administrative work consumes a significant portion of healthcare professionals' time. 
-                                AI automates routine tasks such as appointment scheduling, 
-                                patient registration, insurance verification, billing, 
-                                electronic health record management, medical coding, report generation, and clinical documentation.
+                                Artificial Intelligence has transformed security monitoring by providing continuous, real-time surveillance of an organization's 
+                                digital infrastructure. Unlike traditional monitoring systems that depend on manual analysis and predefined rules, 
+                                AI continuously examines network traffic, system logs, user activities. 
                             </p>
                             <p className="text-info text-center fs-5">
-                               AI-powered automation reduces paperwork, minimizes human errors, 
-                               accelerates administrative workflows, and improves communication between hospitals, laboratories,
-                                pharmacies, and insurance providers. Intelligent scheduling systems also optimize hospital resources by reducing patient waiting times and improving staff utilization.
+                               AI-powered security monitoring systems can detect a wide range of cyber threats, including malware infections, unauthorized access attempts, 
+                               ransomware attacks, phishing activities, data exfiltration, insider threats, and unusual network behavior. 
                             </p>
                             <p className="text-info text-center fs-5">
-                              By handling repetitive administrative responsibilities,
-                               AI allows doctors, nurses, and healthcare workers to dedicate more time to direct patient care,
-                               ultimately improving both operational efficiency and the overall healthcare experience.
+                              Beyond detecting threats, AI assists cybersecurity teams by generating real-time alerts, prioritizing critical security events, 
+                              and recommending appropriate response actions. It can also automate routine monitoring tasks, reduce false positives, 
+                              and continuously adapt to emerging attack techniques through ongoing learning.
                             </p>
                     </div>
                     <div className="col-6 text-center border-start border-secondary">
                         <motion.div
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}>
-                            <img src={Health_8}
+                            <img src={Security_8}
                             alt="Image_8"
                             style={{
                             width: "475px",
@@ -410,4 +405,4 @@ const Health = () => {
     );
 }
  
-export default Health;
+export default Cyber;

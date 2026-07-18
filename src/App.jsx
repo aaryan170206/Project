@@ -9,6 +9,9 @@ import NewAcc from "./NewAccount";
 import Confirm from "./Confirm"
 import Services from "./Services";
 import Health from "./Ai_Health";
+import Finance from "./Ai_Finance";
+import Cyber from "./Ai_Cyber";
+import Defence from "./Ai_Defence";
 function App() {
 
 
@@ -34,6 +37,18 @@ function App() {
             {/*Service Contents*/}
             <Route exact path="/Health">
               <Health />
+            </Route>
+
+            <Route exact path="/Finance">
+              <Finance />
+            </Route>
+
+            <Route exact path="/Security">
+              <Cyber />
+            </Route>
+            
+            <Route exact path="/Defence">
+              <Defence />
             </Route>
 
             <Route exact path="/About">

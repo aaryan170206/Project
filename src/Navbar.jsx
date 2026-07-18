@@ -15,6 +15,9 @@ const Nav = () => {
     "/About": "About",
     "/Contact": "Contact",
     "/Health": "Healthcare",
+    "/Finance": "Finance",
+    "/Security": "Cyber Security",
+    "/Defence": "Defence",
     };
 
     const currentPage = pageNames[location.pathname] || "AI & Automation";

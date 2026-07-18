@@ -4,3 +4,12 @@ body{
     background-size: cover;
     background-position: center;
 }
+
+.finance-text{
+    transition: color 0.3s ease;
+    cursor: default;
+}
+
+.finance-text:hover{
+    color: #00e5ff !important;
+}
