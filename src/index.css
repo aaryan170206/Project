@@ -13,3 +13,11 @@ body{
 .finance-text:hover{
     color: #00e5ff !important;
 }
+
+.container::-webkit-scrollbar{
+    display:none;
+}
+
+.agri-text:hover{
+    color: #82e0aa !important;
+}

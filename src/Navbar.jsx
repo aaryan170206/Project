@@ -18,6 +18,9 @@ const Nav = () => {
     "/Finance": "Finance",
     "/Security": "Cyber Security",
     "/Defence": "Defence",
+    "/Transport": "Transportation",
+    "/Ecom": "E-Commerce",
+    "/Agriculture": "Agriculture",
     };
 
     const currentPage = pageNames[location.pathname] || "AI & Automation";

@@ -12,6 +12,9 @@ import Health from "./Ai_Health";
 import Finance from "./Ai_Finance";
 import Cyber from "./Ai_Cyber";
 import Defence from "./Ai_Defence";
+import Transport from "./Ai_Transport";
+import Ecom from "./Ai_Ecom";
+import Agriculture from "./Ai_Agri";
 function App() {
 
 
@@ -34,6 +37,7 @@ function App() {
               <Nav />
               <Services />
             </Route>
+
             {/*Service Contents*/}
             <Route exact path="/Health">
               <Health />
@@ -50,6 +54,20 @@ function App() {
             <Route exact path="/Defence">
               <Defence />
             </Route>
+
+            <Route exact path="/Transport">
+              <Transport />
+            </Route>
+
+            <Route exact path="/Ecom">
+              <Ecom />
+            </Route>
+
+            <Route exact path="/Agriculture">
+              <Agriculture />
+            </Route>
+
+            {/*Service End*/}
 
             <Route exact path="/About">
               <Nav />

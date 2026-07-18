@@ -162,7 +162,7 @@ const Services = () => {
                                     
                                         <div className="col-md-3 d-flex justify-content-center">
                                             <motion.button
-                                            onClick={() => scrollToSection("Aggriculture")}
+                                            onClick={() => scrollToSection("Agriculture")}
                                             className="btn p-0 border-0 bg-transparent m-5"
                                             whileHover={{ scale: 1.25 }}
                                             whileTap={{ scale: 0.95 }}>
@@ -172,7 +172,7 @@ const Services = () => {
                                                 className="border border-danger rounded border-3"/>
 
                                                 <p className="text-white fw-bold mb-0">
-                                                    AI In Aggriculture
+                                                    AI In Agriculture
                                                 </p>
                                             </motion.button>
                                         </div>
@@ -507,7 +507,7 @@ const Services = () => {
         </section>
 
         {/*Ai Aggriculture*/}
-        <section id="Aggriculture"
+        <section id="Agriculture"
         className="my-5">
             <div className="row g-4 justify-content-center align-items-center"
             style={{paddingTop:"60px"}}>
@@ -538,7 +538,7 @@ const Services = () => {
                                         <i className="bi bi-arrow-up-square"></i>
                                     </motion.button>
                                     <div className="card-title text-center">
-                                        <h1 className="text-light">AI In Aggriculture</h1>
+                                        <h1 className="text-light">AI In Agriculture</h1>
                                     </div>
                                     <div className="card-subtitle text-center">
                                         <p className="text-light mt-5">Artificial Intelligence (AI) is transforming agriculture by helping farmers increase crop yields, reduce costs, and use resources more efficiently. AI analyzes data from drones, satellites, sensors, and weather forecasts to support better farming decisions and promote sustainable agricultural practices.</p>
@@ -546,7 +546,7 @@ const Services = () => {
                                     <div className="card-subtitle text-center"
                                     style={{paddingTop:"100px"}}>
                                         <button className="btn btn-outline-light rounded-pill"
-                                        onClick={() => openPage("/Aggricultur")}>Learn More</button>
+                                        onClick={() => openPage("/Agriculture")}>Learn More</button>
                                     </div>
                                 </div>
                             </div>
