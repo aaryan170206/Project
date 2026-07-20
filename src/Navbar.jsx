@@ -4,15 +4,17 @@ const Nav = () => {
     const [showNav, setShowNav] = useState(true);
     const location = useLocation();
 
-    //Offcanvas Id Card
+//Offcanvas Id Card
     const history = useHistory();
     const currentUser = JSON.parse(
     sessionStorage.getItem("currentUser")
     );
+
+//Nav Bar Page Name
     const pageNames = {
     "/Home": "Home",
-    "/Services": "Services",
-    "/About": "About",
+    "/Services": "Our Services",
+    "/About": "About Us",
     "/Contact": "Contact",
     "/Health": "Healthcare",
     "/Finance": "Finance",
@@ -21,11 +23,13 @@ const Nav = () => {
     "/Transport": "Transportation",
     "/Ecom": "E-Commerce",
     "/Agriculture": "Agriculture",
+    "/Education": "Education",
+    "/Learn": "Learn More",
     };
 
     const currentPage = pageNames[location.pathname] || "AI & Automation";
 
-    //Logout Button
+//Logout Button
     const handleLogout = () => {
     sessionStorage.removeItem("currentUser");
     sessionStorage.removeItem("pendingUser");
@@ -35,7 +39,7 @@ const Nav = () => {
     useEffect(() => {
     let lastScrollY = window.scrollY;
 
-
+//Nav Bar Permanence
     const handleScroll = () => {
         if (window.scrollY < lastScrollY) {
             // Scrolling up
@@ -58,27 +62,32 @@ const Nav = () => {
     return (
         <div className="navbar d-flex justify-content-between align-items-center px-5"
         style={{
+            backdropFilter: "blur(10px)",
             position: "fixed",
             top: 0,
             left: 0,
             width: "100%",
-            zIndex: 9999,
-            background: "rgba(0,0,0,.4)"}}>
+            zIndex: 9999,}}>
+{/*All Links and Buttons of thr Nav Bar*/}
             <h3 className="text-light fw-bold mb-0 mx-5 text-decoration-underline"
             style={{ letterSpacing: "1px" }}>
                 {currentPage}
             </h3>
 
             <div className="links">
-                <Link to="/Home" className="btn btn-outline-light mx-2">Home</Link>
-                <Link to="/Services" className="btn btn-outline-light mx-2">Services</Link>
-                <Link to="/About" className="btn btn-outline-light mx-2">About</Link>
-                <Link to="/Contact" className="btn btn-outline-light mx-2">Contact</Link>
+                <Link to="/Home" className="btn btn-outline-light mx-2"><i className="bi bi-house-fill fs-5"> Home</i></Link>
+                <Link to="/Services" className="btn btn-outline-light mx-2"><i className="bi bi-grid-fill fs-5"> Services</i></Link>
+                <Link to="/About" className="btn btn-outline-light mx-2"><i className="bi bi-info-circle-fill fs-5"> About</i></Link>
+                <Link to="/Contact" className="btn btn-outline-light mx-2"><i className="bi bi-envelope-fill fs-5"> Contact</i></Link>
                 <button
                 className="btn btn-outline-light mx-2"
+                style={{
+                    height:"43px",
+                }}
                 onClick={handleLogout}>
-                    Logout
+                    <i className="bi bi-box-arrow-left"> Logout</i>
                 </button>
+        {/*Off Canvas as Virtual ID Card*/}
                 <button className="btn border-0"
                 type="button"
                 data-bs-toggle="offcanvas"

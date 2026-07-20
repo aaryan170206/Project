@@ -54,9 +54,12 @@ const Log = () => {
                     {/* Welcome Message */}               
                     <motion.div
                     className={`${show ? "col-xl-6" : "col-6"} d-flex justify-content-center align-items-center`}
-                    initial={{ x: 500, opacity: 0 }}
+                    initial={{ x: 500, opacity: 0,
+                                y: 50, opacity: 50,
+                     }}
                     animate={{
-                        x: show ? -25 : 350,
+                        x: show ? -35 : 370,
+                        y: show ? 50 : 50,
                         opacity: 1,
                         }}
                         transition={{
@@ -64,24 +67,33 @@ const Log = () => {
                             ease: "easeInOut",
                         }}
                         whileHover={{ scale: 1.1 }}>
-                        <h3 className="text-light align-items-center">
-                            Welcome to Login Page
-                        </h3>  
-                        <Button
-                            variant="link"
-                            className="text-decoration-none"
-                            whileTap={{ scale: 0.9 }}
-                            onClick={() => setShow(show => !show)}>
-                            <i
-                                className="bi bi-arrow-right fs-4 d-inline-flex justify-content-center align-items-center text-light rounded-circle p-4"
-                                style={{
-                                    width: "25px",
-                                    height: "25px",
-                                    cursor: "pointer",
-                                }}
-                                >
-                            </i>
-                        </Button>
+                            <div className="card py-3 mb-3" 
+                                style={{backgroundColor: "rgba(0, 0, 0, 0.5)",
+                                backdropFilter: "blur(10px)",
+                                WebkitBackdropFilter: "blur(10px)",
+                                borderRadius: "15px"}}>
+
+                                <h3 className="text-light align-items-center">
+                                    Click 
+                                    <Button
+                                    variant="link"
+                                    className="text-decoration-none"
+                                    whileTap={{ scale: 0.9 }}
+                                    onClick={() => setShow(show => !show)}>
+                                    <i
+                                        className="bi bi-arrow-right fs-4 d-inline-flex justify-content-center align-items-center text-light rounded-circle p-4"
+                                        style={{
+                                            width: "25px",
+                                            height: "25px",
+                                            cursor: "pointer",
+                                        }}
+                                        >
+                                    </i>
+                                </Button>
+                                    to Login
+                                </h3>      
+                            </div> 
+                        
                     </motion.div>
 
                     {/*Login Card */}
@@ -98,7 +110,7 @@ const Log = () => {
                                 }}
                                 >    
                             <div className="card py-3 mb-3" 
-                                style={{backgroundColor: "rgba(0, 0, 0, 0.25)",
+                                style={{backgroundColor: "rgba(0, 0, 0, 0.5)",
                                         height:"550px",
                                         width:"600px",
                                         backdropFilter: "blur(10px)",
@@ -106,7 +118,7 @@ const Log = () => {
                                         borderRadius: "15px"}}>
 
                                 <div className="card-body text-center animate__animated animate__slideInRight">
-                                    <div className="card-subtitle text-light mb-5">
+                                    <div className="card-title text-light mb-5">
                                         <h1>Welcome Back:</h1>
                                     </div>
 

@@ -15,6 +15,9 @@ import Defence from "./Ai_Defence";
 import Transport from "./Ai_Transport";
 import Ecom from "./Ai_Ecom";
 import Agriculture from "./Ai_Agri";
+import Education from "./Ai_Edu";
+import About from "./About";
+import Learn from "./Learn";
 function App() {
 
 
@@ -29,8 +32,11 @@ function App() {
             </Route>
 
             <Route exact path="/Home">
-              <Nav />
               <Home />
+            </Route>
+
+            <Route exact path="/Learn">
+              <Learn />
             </Route>
 
             <Route exact path="/Services">
@@ -67,10 +73,14 @@ function App() {
               <Agriculture />
             </Route>
 
+             <Route exact path="/Education">
+              <Education />
+            </Route>
+
             {/*Service End*/}
 
             <Route exact path="/About">
-              <Nav />
+              <About />
             </Route>
 
             <Route exact path="/Contact">

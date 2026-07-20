@@ -1,3 +1,8 @@
+import Nav from "./Navbar";
+
+//Background Image
+import Services_1 from "./assets/Services_1.jpg";
+
 import AiFinance from "./assets/Ai_In_Finance.jpg";
 import AiSec from "./assets/Ai_In_Security.jpg";
 import AiHealth from "./assets/Ai_In_Health.jpg";
@@ -24,7 +29,22 @@ const Services = () => {
     };
     
     return (
-        <>
+        <div style={{backgroundImage: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+        url(${Services_1})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        backgroundAttachment: "fixed",
+        height: "100%",
+        width: "100%",}}>
+            
+        {/*Increace Opcacity*/}
+        <div
+        style={{
+            backgroundColor: "rgba(0, 0, 0, 0.4)",
+            minHeight: "100vh",}}>
+             <Nav />
+
         <section id="Image">
                 <div className="row g-4 justify-content-center align-items-center"
                 style={{paddingTop:"60px"}}>
@@ -605,7 +625,8 @@ const Services = () => {
                 </div>
             </div>
         </section>
-        </>
+        </div>
+        </div>
     );
 }
  
