@@ -4,8 +4,18 @@ import Nav from "./Navbar";
 //Background Image
 import Home_1 from "./assets/Home_1.jpg";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import { useEffect } from "react";
 
 const Home = () => {
+
+    useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: "instant"
+        });
+    },[]);
+
     return (
        <div style={{backgroundImage: `linear-gradient(rgba(0,0,0,0.0), rgba(0,0,0,0.0)),
         url(${Home_1})`,
@@ -27,7 +37,7 @@ const Home = () => {
                     style={{
                         minHeight:"500px",
                         minWidth:"700px",
-                        paddingTop:"60px"
+                        paddingTop:"100px"
                     }}>
                     <div className="row justify-content-center">
                         <div className="col-12">
@@ -73,7 +83,7 @@ const Home = () => {
                                     style={{ fontStyle: "italic" }}>
                                         Discover the technology that's building tomorrow—today.
                                     </p>
-                                    <Link to="/Learn" className="btn btn-outline-dark rounded-pill">Learn More</Link>
+                                    <Link to="/Learn" className="btn btn-outline-light rounded-pill">Learn More</Link>
                                 </div>
                             </motion.div>
                         </div>

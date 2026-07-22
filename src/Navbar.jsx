@@ -1,5 +1,9 @@
 import { Link, useHistory, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
+import Logo from "./assets/Logo.jpg";
+
 const Nav = () => {
     const [showNav, setShowNav] = useState(true);
     const location = useLocation();
@@ -15,15 +19,15 @@ const Nav = () => {
     "/Home": "Home",
     "/Services": "Our Services",
     "/About": "About Us",
-    "/Contact": "Contact",
-    "/Health": "Healthcare",
-    "/Finance": "Finance",
-    "/Security": "Cyber Security",
-    "/Defence": "Defence",
-    "/Transport": "Transportation",
-    "/Ecom": "E-Commerce",
-    "/Agriculture": "Agriculture",
-    "/Education": "Education",
+    "/Contact": "Contact Us",
+    "/Health": "AI In Healthcare",
+    "/Finance": "AI in Finance",
+    "/Security": "AI in Cyber Security",
+    "/Defence": "AI in Defence",
+    "/Transport": "AI in Transportation",
+    "/Ecom": "AI in E-Commerce",
+    "/Agriculture": "AI in Agriculture",
+    "/Education": "AI in Education",
     "/Learn": "Learn More",
     };
 
@@ -62,27 +66,50 @@ const Nav = () => {
     return (
         <div className="navbar d-flex justify-content-between align-items-center px-5"
         style={{
-            backdropFilter: "blur(10px)",
-            position: "fixed",
-            top: 0,
-            left: 0,
-            width: "100%",
-            zIndex: 9999,}}>
-{/*All Links and Buttons of thr Nav Bar*/}
-            <h3 className="text-light fw-bold mb-0 mx-5 text-decoration-underline"
-            style={{ letterSpacing: "1px" }}>
-                {currentPage}
-            </h3>
+        position: "fixed",
+        top: 0,
+        left: 0,
+        width: "100%",
+        zIndex: 9999,}}>
+            <div className="d-flex align-items-center">
+                <img
+                src={Logo}
+                alt="Logo"
+                width="60"
+                height="60"
+                className="ms-4"/>
+                <h3 className="text-light mb-0 ms-3"
+                style={{ backdropFilter: "blur(10px)" }}>
+                    {currentPage}
+                </h3>
+            </div>
 
             <div className="links">
-                <Link to="/Home" className="btn btn-outline-light mx-2"><i className="bi bi-house-fill fs-5"> Home</i></Link>
-                <Link to="/Services" className="btn btn-outline-light mx-2"><i className="bi bi-grid-fill fs-5"> Services</i></Link>
-                <Link to="/About" className="btn btn-outline-light mx-2"><i className="bi bi-info-circle-fill fs-5"> About</i></Link>
-                <Link to="/Contact" className="btn btn-outline-light mx-2"><i className="bi bi-envelope-fill fs-5"> Contact</i></Link>
+                <Link to="/Home" className="btn btn-outline-light mx-2"
+                style={{backdropFilter: "blur(10px)",}}>
+                    <i className="bi bi-house-fill fs-5"> Home</i>
+                </Link>
+
+                <Link to="/Services" className="btn btn-outline-light mx-2"
+                style={{backdropFilter: "blur(10px)",}}>
+                    <i className="bi bi-grid-fill fs-5"> Services</i>
+                </Link>
+
+                <Link to="/About" className="btn btn-outline-light mx-2"
+                style={{backdropFilter: "blur(10px)",}}>
+                    <i className="bi bi-info-circle-fill fs-5"> About</i>
+                </Link>
+
+                <Link to="/Contact" className="btn btn-outline-light mx-2"
+                style={{backdropFilter: "blur(10px)",}}>
+                    <i className="bi bi-envelope-fill fs-5"> Contact</i>
+                </Link>
+
                 <button
-                className="btn btn-outline-light mx-2"
+                className="btn btn-outline-light rounded-pill"
                 style={{
                     height:"43px",
+                    backdropFilter: "blur(10px)"
                 }}
                 onClick={handleLogout}>
                     <i className="bi bi-box-arrow-left"> Logout</i>
@@ -124,7 +151,6 @@ const Nav = () => {
                                 <p className="text-light">
                                 <strong className="text-info">Joined Date:</strong> {currentUser?.joinedOn}
                                 </p>
-
                             </div>   
                         </div>
                     </div>

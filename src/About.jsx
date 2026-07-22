@@ -11,8 +11,18 @@ import About_4 from "./assets/About_4.jpg";
 import About_5 from "./assets/About_5.jpg";
 import About_6 from "./assets/About_6.jpg";
 import About_7 from "./assets/About_7.jpg";
+import { useEffect } from "react";
 
 const About = () => {
+
+    useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: "instant" // or simply remove this line
+        });
+    });
+
     return (
         <div style={{backgroundImage: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
         url(${Home_1})`,
@@ -31,7 +41,7 @@ const About = () => {
                 style={{
                     minHeight:"500px",
                     minWidth:"700px",
-                    paddingTop:"60px"
+                    paddingTop:"20px"
                 }}>
                     <div className="row justify-content-center"
                     style={{paddingTop:"20px"}}>

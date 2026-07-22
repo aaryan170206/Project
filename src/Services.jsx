@@ -14,8 +14,18 @@ import AiAggri from "./assets/Ai_In_Aggri.jpg";
 import AiEdu from "./assets/Ai_In_Education.jpg";
 import { motion } from "framer-motion";
 import { useHistory } from "react-router-dom";
+import { useEffect } from "react";
 
 const Services = () => {
+
+    useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: "instant" // or simply remove this line
+        });
+    },[]);
+
     const history = useHistory();
 
     const openPage = (path) => {

@@ -4,7 +4,9 @@ body{
     background-size: cover;
     background-position: center;
     height: 100vh;
+    overflow-x: hidden;
 }
+
 
 .finance-text{
     transition: color 0.3s ease;
@@ -15,10 +17,70 @@ body{
     color: #00e5ff !important;
 }
 
+
 .container::-webkit-scrollbar{
     display:none;
 }
 
+
 .agri-text:hover{
     color: #82e0aa !important;
+}
+
+
+.contact-text:hover{
+    color: #ffffff !important;
+}
+
+.cont-text:hover{
+    color: #007FFF !important;
+}
+
+
+.faq-marquee{
+    width:100%;
+    overflow:hidden;
+    padding:30px 0;
+    margin-top: -200px;
+}
+
+.faq-track{
+    display:flex;
+    width:max-content;
+    gap:30px;
+}
+
+.faq-card{
+    width:450px;
+    min-height:280px;
+    flex-shrink:0;
+
+    padding:25px;
+
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(10px);
+
+    border:1px solid rgba(255,255,255,.15);
+    border-radius:20px;
+
+    color:white;
+}
+
+.faq-card h4{
+    margin-bottom:20px;
+}
+
+.faq-card p{
+    line-height:1.7;
+}
+
+.faq-card:hover{
+    transform: scale(1.03);
+    transition: 0.3s ease;
+}
+
+.custom-input:focus {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
 }

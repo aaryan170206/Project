@@ -1,8 +1,18 @@
+import { useEffect } from "react";
 import Nav from "./Navbar";
 //Background Image
 import Learn_1 from "./assets/Learn_1.jpg";
 
-const Learn = () => {
+    const Learn = () => {
+
+    useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: "instant"
+        });
+    },[]);
+
     return (
         <div style={{backgroundImage: `linear-gradient(rgba(0,0,0,0.0), rgba(0,0,0,0.4)),
         url(${Learn_1})`,

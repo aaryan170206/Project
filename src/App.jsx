@@ -18,6 +18,8 @@ import Agriculture from "./Ai_Agri";
 import Education from "./Ai_Edu";
 import About from "./About";
 import Learn from "./Learn";
+import Contact from "./Contact";
+import { BrowserRouter } from "react-router-dom/cjs/react-router-dom.min";
 function App() {
 
 
@@ -25,6 +27,7 @@ function App() {
     <Router>
       <div className="App">
         <div className="content">
+          <BrowserRouter>
           <Switch>
 
             <Route exact path="/">
@@ -40,7 +43,6 @@ function App() {
             </Route>
 
             <Route exact path="/Services">
-              <Nav />
               <Services />
             </Route>
 
@@ -84,7 +86,7 @@ function App() {
             </Route>
 
             <Route exact path="/Contact">
-              <Nav />
+              <Contact />
             </Route>
 
             <Route exact path="/Forgot">
@@ -111,6 +113,7 @@ function App() {
               <Log />
             </Route>
           </Switch>
+          </BrowserRouter>
         </div>
       </div>
     </Router>
