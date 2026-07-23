@@ -70,9 +70,9 @@ const Log = () => {
     };
     
     return (
-        <div className="container-fluid min-vh-100 d-flex justify-content-center align-items-center">
-            <div className="container-fluid"
-            style={{width: "100%",}}>
+        <div className="container-fluid min-vh-100 d-flex justify-content-center align-items-center"
+        style={{width: "100%",}}>
+            <div className="container-fluid">
                 <div className="row min-vh-100 align-items-center justify-content-center">
 
                     {/* Welcome Message */}               

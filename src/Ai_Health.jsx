@@ -48,13 +48,14 @@ const Health = () => {
             <div className="container"
             style={{
             height: "100vh",
+            width: "100%",
             overflowY: "scroll",
             scrollSnapType: "y mandatory",
             }}>
                 {/*First Point*/}
                 <div className="row justify-content-around align-items-center mt-5"
                 style={{
-                minHeight: "100vh",
+                minHeight: "100%",
                 scrollSnapAlign: "start"
                 }}>
                     <div className="col-6 text-center border-end border-secondary">

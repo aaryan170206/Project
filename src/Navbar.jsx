@@ -5,7 +5,6 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import Logo from "./assets/AI & Automatin.jpg";
 
 const Nav = () => {
-    const [showNav, setShowNav] = useState(true);
     const location = useLocation();
 
 //Offcanvas Id Card
@@ -64,13 +63,14 @@ const Nav = () => {
     }, []);
 
     return (
-        <div className="navbar d-flex justify-content-between align-items-center px-5"
+    <>
+        <nav className="navbar d-flex justify-content-between align-items-center px-5"
         style={{
         position: "fixed",
         top: 0,
         left: 0,
         width: "100%",
-        zIndex: 9999,}}>
+        zIndex: 1050,}}>
             <div className="d-flex align-items-center">
             
                 <img
@@ -88,15 +88,15 @@ const Nav = () => {
                 style={{ backdropFilter: "blur(10px)" }}>
                     {currentPage}
                 </h3>
-
-                <button
-                className="btn btn-outline-light d-lg-none ms-3"
-                type="button"
-                data-bs-toggle="offcanvas"
-                data-bs-target="#menuSidebar">
-                    <i className="bi bi-list fs-3"></i>
-                </button>
             </div>
+
+            <button
+            className="btn btn-outline-light d-md-none ms-3"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#sidebar">
+                <i className="bi bi-list fs-3"></i>
+            </button>
 
             <div className="links d-none d-md-flex align-items-center">
                 <Link to="/Home" className="btn btn-outline-light mx-2"
@@ -128,123 +128,55 @@ const Nav = () => {
                 onClick={handleLogout}>
                     Logout
                 </button>
-        {/*Off Canvas as Virtual ID Card*/}
-                <button className="btn border-0"
-                type="button"
-                data-bs-toggle="offcanvas"
-                data-bs-target="#sidebar"
-                aria-controls="sidebar">
-                    <i className="bi bi-person-vcard-fill text-light fs-1"></i>
-                </button>
+        {/*Off Canvas as Virtual ID Card*/}                
+            </div>
 
-                <div className="offcanvas offcanvas-end bg-dark"
+            <div className="offcanvas offcanvas-end bg-dark"
                 data-bs-backdrop="false" 
                 tabIndex={-1} 
                 id="sidebar" 
                 aria-labelledby="sidebar-lable">
-                    <div className="offcanvas-header">
-                        <h5 className="offcanvas-title text-light" id="sidebar-lable">Personal Information:</h5>
-                        <button type="button" className="btn text-light align-item-end" data-bs-dismiss="offcanvas" aria-label="Close">
-                            <i className="bi bi-x-lg"></i>
-                        </button>
-                    </div>
-                    <div className="offcanvas-body">
-                        <div className="card bg-secondary border-light border-3 rounded-4">
-                            <div className="text-center mb-4">
+                <div className="offcanvas-header">
+                    <h5 className="offcanvas-title text-light" id="sidebar-lable"> Navigation</h5>
+                    <button type="button" className="btn text-light align-item-end" data-bs-dismiss="offcanvas" aria-label="Close">
+                        <i className="bi bi-x-lg"></i>
+                    </button>
+                </div>
+                <div className="offcanvas-body">
 
-                                <i className="bi bi-person-circle fs-1 text-info"></i>
+                    <Link
+                    to="/Home"
+                    className="btn btn-outline-light w-100 mb-3">
+                        Home
+                    </Link>
 
-                                <h4 className="mt-2 text-light">
-                                    {currentUser?.firstName} {currentUser?.lastName}
-                                </h4>
+                    <Link
+                    to="/Services"
+                    className="btn btn-outline-light w-100 mb-3">
+                        Services
+                    </Link>
 
-                                <p className="text-light">
-                                    {currentUser?.email}
-                                </p>
+                    <Link
+                    to="/About"
+                    className="btn btn-outline-light w-100 mb-3">
+                        About
+                    </Link>
 
-                                <p className="text-light">
-                                <strong className="text-info">Joined Date:</strong> {currentUser?.joinedOn}
-                                </p>
-                            </div>   
-                        </div>
-                    </div>
+                    <Link
+                    to="/Contact"
+                    className="btn btn-outline-light w-100 mb-3">
+                        Contact
+                    </Link>
 
-                    <div
-                        className="offcanvas offcanvas-start bg-dark"
-                        tabIndex="-1"
-                        id="menuSidebar">
-
-                        <div className="offcanvas-header">
-
-                            <h5 className="text-light">
-                                Navigation
-                            </h5>
-
-                            <button
-                                type="button"
-                                className="btn-close btn-close-white"
-                                data-bs-dismiss="offcanvas"
-                            ></button>
-
-                        </div>
-
-                        <div className="offcanvas-body">
-
-                            <Link
-                                to="/Home"
-                                className="btn btn-outline-light w-100 mb-3"
-                                data-bs-dismiss="offcanvas"
-                            >
-                                Home
-                            </Link>
-
-                            <Link
-                                to="/Services"
-                                className="btn btn-outline-light w-100 mb-3"
-                                data-bs-dismiss="offcanvas"
-                            >
-                                Services
-                            </Link>
-
-                            <Link
-                                to="/About"
-                                className="btn btn-outline-light w-100 mb-3"
-                                data-bs-dismiss="offcanvas"
-                            >
-                                About
-                            </Link>
-
-                            <Link
-                                to="/Contact"
-                                className="btn btn-outline-light w-100 mb-3"
-                                data-bs-dismiss="offcanvas"
-                            >
-                                Contact
-                            </Link>
-
-                            <button
-                                className="btn btn-outline-danger w-100 mb-3"
-                                onClick={handleLogout}
-                                data-bs-dismiss="offcanvas"
-                            >
-                                Logout
-                            </button>
-
-                            <button
-                                className="btn btn-outline-info w-100"
-                                data-bs-toggle="offcanvas"
-                                data-bs-target="#sidebar"
-                                data-bs-dismiss="offcanvas"
-                            >
-                                Profile
-                            </button>
-
-                        </div>
-
-                    </div>
-                </div>                 
-            </div>
-        </div>
+                    <button
+                    className="btn btn-outline-danger w-100 mb-3"
+                    onClick={handleLogout}>
+                        Logout
+                    </button>
+                </div>
+            </div> 
+        </nav>
+      </>  
     );
 }
  

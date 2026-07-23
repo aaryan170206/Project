@@ -71,8 +71,9 @@ const Services = () => {
                             backgroundImage: `url(${Background})`,
                             backgroundSize: "cover",
                             backgroundPosition: "center",
+                            width: "100%",
                             minHeight: "550px",
-                            minWidth: "900px",
+                            maxWidth: "1300px",
                             borderRadius: "15px",
                             overflow: "hidden",}}>
                                 <div
@@ -238,7 +239,7 @@ const Services = () => {
         <>
             <div className="row g-4 justify-content-center align-items-center"
             style={{paddingTop:"60px"}}>
-                <div className="col-auto">
+                <div className="col-12">
                     <motion.div
                     initial={{ x: 500, opacity: 0 }}
                     whileInView={{ x: 0, opacity: 1 }}
@@ -246,12 +247,12 @@ const Services = () => {
                     transition={{ duration: 1 }}>
                         <div className="card mt-4 border border-5 border-secondary mt-5 mb-5"
                             style={{
-                            maxWidth: "700px",
                             backgroundImage: `url(${AiHealth})`,
                             backgroundSize: "cover",
                             backgroundPosition: "center",
                             minHeight: "550px",
-                            minWidth: "900px",
+                            width: "100%",
+                            maxWidth: "900px",
                             borderRadius: "15px",
                             overflow: "hidden"}}>
 
@@ -290,7 +291,7 @@ const Services = () => {
         className="my-5">
             <div className="row g-4 justify-content-center align-items-center"
             style={{paddingTop:"60px"}}>
-                <div className="col-auto">
+                <div className="col-12">
                     <motion.div
                     initial={{ x: 500, opacity: 0 }}
                     whileInView={{ x: 0, opacity: 1 }}
@@ -298,12 +299,12 @@ const Services = () => {
                     transition={{ duration: 1 }}>
                         <div className="card mt-4 border border-5 border-secondary mt-5 mb-5"
                             style={{
-                            maxWidth: "700px",
                             backgroundImage: `url(${AiFinance})`,
                             backgroundSize: "cover",
                             backgroundPosition: "center",
+                            width: "100%",
                             minHeight: "550px",
-                            minWidth: "900px",
+                            maxWidth: "900px",
                             borderRadius: "15px",
                             overflow: "hidden"}}>
                             <div style={{
@@ -340,7 +341,7 @@ const Services = () => {
         className="my-5">
             <div className="row g-4 justify-content-center align-items-center"
             style={{paddingTop:"60px"}}>
-                <div className="col-auto">
+                <div className="col-12">
                     <motion.div
                     initial={{ x: 500, opacity: 0 }}
                     whileInView={{ x: 0, opacity: 1 }}
@@ -348,12 +349,12 @@ const Services = () => {
                     transition={{ duration: 1 }}>
                         <div className="card mt-4 border border-5 border-secondary mt-5 mb-5"
                             style={{
-                            maxWidth: "700px",
                             backgroundImage: `url(${AiSec})`,
                             backgroundSize: "cover",
                             backgroundPosition: "center",
+                            width: "100%",
                             minHeight: "550px",
-                            minWidth: "900px",
+                            maxWidth: "900px",
                             borderRadius: "15px",
                             overflow: "hidden"}}>
                             <div style={{
@@ -390,7 +391,7 @@ const Services = () => {
         className="my-5">
             <div className="row g-4 justify-content-center align-items-center"
             style={{paddingTop:"60px"}}>
-                <div className="col-auto">
+                <div className="col-12">
                     <motion.div
                     initial={{ x: 500, opacity: 0 }}
                     whileInView={{ x: 0, opacity: 1 }}
@@ -398,12 +399,12 @@ const Services = () => {
                     transition={{ duration: 1 }}>
                         <div className="card mt-4 border border-5 border-secondary mt-5 mb-5"
                             style={{
-                            maxWidth: "700px",
                             backgroundImage: `url(${AiDefence})`,
                             backgroundSize: "cover",
                             backgroundPosition: "center",
+                            width: "100%",
                             minHeight: "550px",
-                            minWidth: "900px",
+                            maxWidth: "900px",
                             borderRadius: "15px",
                             overflow: "hidden"}}>
                             <div style={{
@@ -441,7 +442,7 @@ const Services = () => {
         className="my-5">
             <div className="row g-4 justify-content-center align-items-center"
             style={{paddingTop:"60px"}}>
-                <div className="col-auto">
+                <div className="col-12">
                     <motion.div
                     initial={{ x: 500, opacity: 0 }}
                     whileInView={{ x: 0, opacity: 1 }}
@@ -449,12 +450,12 @@ const Services = () => {
                     transition={{ duration: 1 }}>
                         <div className="card mt-4 border border-5 border-secondary mt-5 mb-5"
                             style={{
-                            maxWidth: "700px",
                             backgroundImage: `url(${AiTrans})`,
                             backgroundSize: "cover",
                             backgroundPosition: "center",
+                            width: "100%",
                             minHeight: "550px",
-                            minWidth: "900px",
+                            maxWidth: "900px",
                             borderRadius: "15px",
                             overflow: "hidden"}}>
                             <div style={{
@@ -491,7 +492,7 @@ const Services = () => {
         className="my-5">
             <div className="row g-4 justify-content-center align-items-center"
             style={{paddingTop:"60px"}}>
-                <div className="col-auto">
+                <div className="col-12">
                     <motion.div
                     initial={{ x: 500, opacity: 0 }}
                     whileInView={{ x: 0, opacity: 1 }}
@@ -499,12 +500,12 @@ const Services = () => {
                     transition={{ duration: 1 }}>
                         <div className="card mt-4 border border-5 border-secondary mt-5 mb-5"
                             style={{
-                            maxWidth: "700px",
                             backgroundImage: `url(${AiEcom})`,
                             backgroundSize: "cover",
                             backgroundPosition: "center",
+                            width: "100%",
                             minHeight: "550px",
-                            minWidth: "900px",
+                            maxWidth: "900px",
                             borderRadius: "15px",
                             overflow: "hidden"}}>
                             <div style={{
@@ -541,7 +542,7 @@ const Services = () => {
         className="my-5">
             <div className="row g-4 justify-content-center align-items-center"
             style={{paddingTop:"60px"}}>
-                <div className="col-auto">
+                <div className="col-12">
                     <motion.div
                     initial={{ x: 500, opacity: 0 }}
                     whileInView={{ x: 0, opacity: 1 }}
@@ -549,12 +550,12 @@ const Services = () => {
                     transition={{ duration: 1 }}>
                         <div className="card mt-4 border border-5 border-secondary mt-5 mb-5"
                             style={{
-                            maxWidth: "700px",
                             backgroundImage: `url(${AiAggri})`,
                             backgroundSize: "cover",
                             backgroundPosition: "center",
+                            width: "100%",
                             minHeight: "550px",
-                            minWidth: "900px",
+                            maxWidth: "900px",
                             borderRadius: "15px",
                             overflow: "hidden"}}>
                             <div style={{
@@ -591,7 +592,7 @@ const Services = () => {
         className="my-5">
             <div className="row g-4 justify-content-center align-items-center"
             style={{paddingTop:"60px"}}>
-                <div className="col-auto">
+                <div className="col-12">
                     <motion.div
                     initial={{ x: 500, opacity: 0 }}
                     whileInView={{ x: 0, opacity: 1 }}
@@ -599,12 +600,12 @@ const Services = () => {
                     transition={{ duration: 1 }}>
                         <div className="card mt-4 border border-5 border-secondary mt-5 mb-5"
                             style={{
-                            maxWidth: "700px",
                             backgroundImage: `url(${AiEdu})`,
                             backgroundSize: "cover",
                             backgroundPosition: "center",
+                            width: "100%",
                             minHeight: "550px",
-                            minWidth: "900px",
+                            maxWidth: "900px",
                             borderRadius: "15px",
                             overflow: "hidden"}}>
                             <div style={{

@@ -21,7 +21,7 @@ const About = () => {
             left: 0,
             behavior: "instant" // or simply remove this line
         });
-    });
+    },[]);
 
     return (
         <div style={{backgroundImage: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
@@ -37,11 +37,9 @@ const About = () => {
                 backgroundColor: "rgba(0, 0, 0, 0.3)",
                 minHeight: "100vh",}}>
                 <Nav />
-                <div className="container"
+                <div className="container py-4"
                 style={{
-                    minHeight:"500px",
-                    minWidth:"700px",
-                    paddingTop:"20px"
+                    maxWidth:"1300px",
                 }}>
                     <div className="row justify-content-center"
                     style={{paddingTop:"20px"}}>
@@ -58,21 +56,23 @@ const About = () => {
                                 understanding AI is no longer optional—it's an essential skill for navigating the future.
                             </p>
                         </div>
-                        <div className="col-6 text-center mb-5 mt-5">
+                        <div className="col-12 col-md-6 text-center mb-4">
                             <img src={About_1}
                             alt="Image_1"
                             style={{
-                                width: "400px",
-                                height: "300px",
+                                 maxWidth: "400px",
+                                width: "100%",
+                                height: "auto"
                                 }}
                                 className="border border-light border-2"/>
                         </div>
-                        <div className="col-6 text-center mb-5 mt-5">
+                        <div className="col-12 col-md-6 text-center mb-4">
                             <img src={About_2}
                             alt="Image_2"
                             style={{
-                                width: "400px",
-                                height: "300px",
+                                maxWidth: "400px",
+                                width: "100%",
+                                height: "auto"
                                 }}
                                 className="border border-light border-2"/>
                         </div>
@@ -105,30 +105,33 @@ const About = () => {
                             Our commitment extends beyond education. We strive to create an engaging environment where curiosity is encouraged,
                              innovation is celebrated, and learning never stops.
                         </p>
-                        <div className="col-3 text-center mb-5 mt-5">
+                        <div className="col-12 col-md-6 col-lg-4 text-center mb-4">
                             <img src={About_3}
                             alt="Image_3"
                             style={{
-                                width: "400px",
-                                height: "300px",
+                                maxWidth:"400px",
+                                width:"100%",
+                                height:"auto"
                                 }}
                                 className="border border-light border-2"/>
                         </div>
-                        <div className="col-3 text-center mb-5 mt-5">
+                        <div className="col-12 col-md-6 col-lg-4 text-center mb-4">
                             <img src={About_4}
                             alt="Image_4"
                             style={{
-                                width: "400px",
-                                height: "300px",
+                                maxWidth:"400px",
+                                width:"100%",
+                                height:"auto"
                                 }}
                                 className="border border-light border-2"/>
                         </div>
-                        <div className="col-3 text-center mb-5 mt-5">
+                        <div className="col-12 col-md-6 col-lg-4 text-center mb-4">
                             <img src={About_5}
                             alt="Image_5"
                             style={{
-                                width: "400px",
-                                height: "300px",
+                                maxWidth:"400px",
+                                width:"100%",
+                                height:"auto"
                                 }}
                                 className="border border-light border-2"/>
                         </div>
@@ -138,7 +141,7 @@ const About = () => {
                         <div className="col-12">
                             <h1 className="text-info text-decoration-underline text-center mt-5">Our Values</h1>
                         </div>
-                        <div className="col-5 border-bottom border-light">
+                        <div className="col-12 col-md-6 mb-4 border-bottom border-light">
                                 <h2 className="text-center text-info">
                                     Curiosity
                                 </h2>
@@ -147,7 +150,7 @@ const About = () => {
                                     and a passion for learning.
                                 </p>
                         </div>
-                        <div className="col-5 border-bottom border-light">
+                        <div className="col-12 col-md-6 mb-4 border-bottom border-light">
                                 <h2 className="text-center text-info">
                                     Excellence
                                 </h2>
@@ -155,7 +158,7 @@ const About = () => {
                                     We strive to deliver high-quality content that is accurate, engaging, and meaningful.
                                 </p>
                         </div>
-                        <div className="col-5 border-bottom border-light">
+                        <div className="col-12 col-md-6 mb-4 border-bottom border-light">
                                 <h2 className="text-center text-info">
                                     Collaboration
                                 </h2>
@@ -164,7 +167,7 @@ const About = () => {
                                     developers, educators, businesses, and communities.
                                 </p>
                         </div>
-                        <div className="col-5 border-bottom border-light">
+                        <div className="col-12 col-md-6 mb-4 border-bottom border-light">
                                 <h2 className="text-center text-info">
                                     Integrity
                                 </h2>
@@ -195,8 +198,9 @@ const About = () => {
                             <img src={About_7}
                             alt="Image_7"
                             style={{
-                                width: "400px",
-                                height: "250px",
+                                maxWidth:"400px",
+                                width:"100%",
+                                height:"auto"
                                 }}
                                 className="border border-light border-2 mb-5"/>
                         </div>
