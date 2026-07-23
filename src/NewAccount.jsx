@@ -1,6 +1,7 @@
 import { useState,useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import emailjs from "@emailjs/browser";
+import Swal from "sweetalert2";
 
 const NewAcc = () => {
     const history = useHistory();
@@ -24,12 +25,20 @@ const NewAcc = () => {
     const expiry = Number(sessionStorage.getItem("otpExpiry"));
 
     if (Date.now() > expiry) {
-        alert("OTP has expired. Please request a new OTP.");
+        await Swal.fire({
+        title: "OTP Expired",
+        text: "Please request a new OTP.",
+        icon: "warning",
+        });
         return;
     }
 
     if (otp !== storedOTP) {
-    alert("Invalid OTP");
+    Swal.fire({
+    title: "Invalid OTP",
+    text: "The OTP you entered is incorrect.",
+    icon: "error",
+    });
     return;
     }
 
@@ -40,7 +49,11 @@ const NewAcc = () => {
     );
 
     if (!pendingUser) {
-    alert("Signup session expired.");
+    Swal.fire({
+    title: "Session Expired",
+    text: "Please sign up again.",
+    icon: "warning",
+    });
     return;
     }
 
@@ -51,7 +64,11 @@ const NewAcc = () => {
     );
 
     if (existingUser) {
-        alert("Email already exists.");
+        Swal.fire({
+        title: "Account Exists",
+        text: "This email is already registered.",
+        icon: "warning",
+        });
         return;
     }
 
@@ -67,9 +84,15 @@ const NewAcc = () => {
     sessionStorage.removeItem("pendingUser");
 
     setVerified(true);
-    setTimeout(() => {
+
+    await Swal.fire({
+    title: "Account Created!",
+    text: "Your account has been created successfully.",
+    icon: "success",
+    timer: 1500,
+    showConfirmButton: false,
+    });
     history.push("/");
-    }, 1500);
     } 
     };
 
@@ -99,7 +122,11 @@ const NewAcc = () => {
     const email = sessionStorage.getItem("email");
 
     if (!email) {
-        alert("Email not found.");
+        Swal.fire({
+        title: "Not Found",
+        text: "The email could not br found.",
+        icon: "warning",
+        });
         return;
     }
 
@@ -124,10 +151,20 @@ const NewAcc = () => {
 
         setTimeLeft(30);
 
-        alert("New OTP has been sent.");
+        await Swal.fire({
+        title: "OTP Sent",
+        text: "A new OTP has been sent to your email.",
+        icon: "success",
+        timer: 1500,
+        showConfirmButton: false,
+        });
 
     } catch (error) {
-        alert("Failed to resend OTP.");
+        Swal.fire({
+        title: "Failed",
+        text: "Unable to resend OTP.",
+        icon: "error",
+        });
         console.error(error);
     }
      finally {

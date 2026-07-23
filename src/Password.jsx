@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import emailjs from "@emailjs/browser";
+import Swal from "sweetalert2";
 
 const Pass = () => {
     const history = useHistory();
@@ -33,11 +34,22 @@ const Pass = () => {
             "QzHWrAFuYYzwk8GRQ" //Public Key
         );
 
-        alert("OTP sent successfully!");
+        await Swal.fire({
+        title: "OTP Sent!",
+        text: "Please check your email for the verification code.",
+        icon: "success",
+        timer: 1500,
+        showConfirmButton: false,
+        });
         return true;
 
     } catch (error) {
-        alert("Failed to send OTP");
+       Swal.fire({
+        title: "Failed",
+        text: "Unable to send OTP. Please try again.",
+        icon: "error",
+        });
+
         return false;
     }
     };
@@ -45,17 +57,27 @@ const Pass = () => {
 
     const handleNext = async () => {
     if (!isEmailValid) {
-        alert("Enter a valid email.");
+        Swal.fire({
+        title: "Invalid Email",
+        text: "Please enter a valid email address.",
+        icon: "warning",
+        });
         return;
     }
 
     // Check if the email exists
     const users = JSON.parse(localStorage.getItem("users")) || [];
 
-    const user = users.find((u) => u.email === email);
+    const user = users.find(
+    (u) => u && u.email.trim() === email.trim()
+    );
 
     if (!user) {
-        alert("No account exists with this email.");
+       Swal.fire({
+        title: "Account Not Found",
+        text: "No account exists with this email.",
+        icon: "error",
+        });
         return;
     }
 

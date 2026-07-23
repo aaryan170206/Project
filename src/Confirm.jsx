@@ -1,6 +1,7 @@
 import { useState,useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import emailjs from "@emailjs/browser";
+import Swal from "sweetalert2";
 
 const Confirm = () => {
 
@@ -26,20 +27,35 @@ const Confirm = () => {
     const email = sessionStorage.getItem("email");
 
     //OTP Verification
-    const handleNext = () => {
+    const handleNext = async () => {
     const storedOTP = sessionStorage.getItem("otp");
     const expiry = Number(sessionStorage.getItem("otpExpiry"));
 
     if (Date.now() > expiry) {
-        alert("OTP has expired. Please request a new OTP.");
+        await Swal.fire({
+        title: "OTP Expired",
+        text: "Please request a new OTP.",
+        icon: "warning",
+        });
         return;
     }
 
     if (otp === storedOTP) {
-        alert("OTP verification successful");
-        history.push("/Confirm/NewPass");
+       await Swal.fire({
+        title: "Verified!",
+        text: "OTP verification successful.",
+        icon: "success",
+        timer: 1500,
+        showConfirmButton: false,
+    });
+
+    history.push("/Confirm/NewPass");
     } else {
-        alert("Invalid OTP");
+        Swal.fire({
+        title: "Invalid OTP",
+        text: "The OTP you entered is incorrect.",
+        icon: "error",
+        });
     }
     };
 
@@ -52,7 +68,11 @@ const Confirm = () => {
     const email = sessionStorage.getItem("email");
 
     if (!email) {
-        alert("Email not found.");
+       Swal.fire({
+        title: "Email Not Found",
+        text: "Please restart the password reset process.",
+        icon: "warning",
+        });
         return;
     }
 
@@ -74,11 +94,20 @@ const Confirm = () => {
         );
 
         setTimeLeft(30);
-        alert("New OTP has been sent.");
+        await Swal.fire({
+        title: "OTP Sent!",
+        text: "A new OTP has been sent to your email.",
+        icon: "success",
+        timer: 1500,
+        showConfirmButton: false,
+        });
 
     } catch (error) {
-        alert("Failed to resend OTP.");
-        console.error(error);
+        Swal.fire({
+        title: "Failed",
+        text: "Unable to resend OTP. Please try again.",
+        icon: "error",
+        });
     }
      finally {
     setSending(false);

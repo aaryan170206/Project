@@ -4,6 +4,7 @@ import Button from "react-bootstrap/Button";
 import { useHistory } from "react-router-dom";
 import "animate.css";
 import { AnimatePresence,motion } from "framer-motion";
+import Swal from "sweetalert2";
 
 const Log = () => {
     const history = useHistory();
@@ -24,8 +25,6 @@ const Log = () => {
     const users = JSON.parse(localStorage.getItem("users")) || [];
 
     const user = users.find((u) => {
-        console.log("Checking:", u);
-
         return (
             u &&
             u.email.trim() === email.trim() &&
@@ -34,26 +33,52 @@ const Log = () => {
     });
 
     if (user) {
-    sessionStorage.setItem(
-        "currentUser",
-        JSON.stringify(user)
-    );
+        sessionStorage.setItem(
+            "currentUser",
+            JSON.stringify(user)
+        );
 
-    history.push("/Home");
-    } 
-    else {
-    alert("Invalid Email or Password");
+        Swal.fire({
+            title: `Welcome ${user.firstName}!`,
+            text: "Login successful.",
+            icon: "success",
+             timer: 1500,         
+        showConfirmButton: false,
+        }).then(() => {
+            history.push("/Home");
+        });
+        return;
+    }
+    if (!isEmailValid) {
+    Swal.fire({
+        title: "Invalid Email",
+        text: "Please enter a valid email address.",
+        icon: "warning",
+        confirmButtonColor: "#f39c12",
+    });
+    return;
+    }
+     else {
+        Swal.fire({
+            title: "Login Failed",
+            text: "Invalid email or password.",
+            icon: "error",
+            confirmButtonText: "Try Again",
+            confirmButtonColor: "#dc3545",
+        });
     }
     };
     
     return (
         <div className="container-fluid min-vh-100 d-flex justify-content-center align-items-center">
-            <div className="container-fluid">
+            <div className="container-fluid"
+            style={{width: "100%",}}>
                 <div className="row min-vh-100 align-items-center justify-content-center">
 
                     {/* Welcome Message */}               
                     <motion.div
                     className={`${show ? "col-xl-6" : "col-6"} d-flex justify-content-center align-items-center`}
+                    style={{width:"50%"}}
                     initial={{ x: 500, opacity: 0,
                                 y: 50, opacity: 50,
                      }}
@@ -68,10 +93,11 @@ const Log = () => {
                         }}
                         whileHover={{ scale: 1.1 }}>
                             <div className="card py-3 mb-3" 
-                                style={{backgroundColor: "rgba(0, 0, 0, 0.5)",
+                                style={{maxWidth: "500px",
+                                backgroundColor: "rgba(0, 0, 0, 0.5)",
                                 backdropFilter: "blur(10px)",
                                 WebkitBackdropFilter: "blur(10px)",
-                                borderRadius: "15px"}}>
+                                borderRadius: "15px",}}>
 
                                 <h3 className="text-light align-items-center">
                                     Click 
@@ -112,7 +138,8 @@ const Log = () => {
                             <div className="card py-3 mb-3" 
                                 style={{backgroundColor: "rgba(0, 0, 0, 0.5)",
                                         height:"550px",
-                                        width:"600px",
+                                        maxWidth:"600px",
+                                        width:"100%",
                                         backdropFilter: "blur(10px)",
                                         WebkitBackdropFilter: "blur(10px)",
                                         borderRadius: "15px"}}>

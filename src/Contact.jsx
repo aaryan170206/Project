@@ -6,6 +6,7 @@ import { faFacebook } from "@fortawesome/free-brands-svg-icons";
 import { faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 import emailjs from "@emailjs/browser";
+import Swal from "sweetalert2";
 
 
 
@@ -17,16 +18,24 @@ const Contact = () => {
 
     
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!name || !email || !subject || !message) {
-        alert("Please fill all the fields.");
+       Swal.fire({
+        title: "Incomplete Form",
+        text: "Please fill in all the fields.",
+        icon: "warning",
+        });
         return;
     }
 
     if (!isEmailValid) {
-        alert("Please enter a valid email.");
+        Swal.fire({
+        title: "Invalid Email",
+        text: "Please enter a valid email address.",
+        icon: "warning",
+        });
         return;
     }
 
@@ -49,12 +58,12 @@ const Contact = () => {
         JSON.stringify(messages)
     );
 
-   const templateParams = {
+    const templateParams = {
     name: name,
     email: email,
     subject: subject,
     message: message,
-};
+    };
     setLoading(true);
 
     emailjs
@@ -64,8 +73,14 @@ const Contact = () => {
         templateParams,
         "iu-xECPXeoZmlGogI"
     )
-    .then(() => {
-        alert("Message sent successfully! A confirmation email has been sent.");
+    .then(async () => {
+        await Swal.fire({
+        title: "Message Sent!",
+        text: "Thank you for contacting us. A confirmation email has been sent.",
+        icon: "success",
+        timer: 1800,
+        showConfirmButton: false,
+        });
 
         setName("");
         setEmail("");
@@ -74,7 +89,11 @@ const Contact = () => {
     })
     .catch((error) => {
         console.log(error);
-        alert("Message saved, but confirmation email failed.");
+        Swal.fire({
+        title: "Message Saved",
+        text: "Your message was saved successfully, but we couldn't send the confirmation email.",
+        icon: "warning",
+        });
     })
     .finally(() => {
         setLoading(false);

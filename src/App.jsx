@@ -19,7 +19,7 @@ import Education from "./Ai_Edu";
 import About from "./About";
 import Learn from "./Learn";
 import Contact from "./Contact";
-import { BrowserRouter } from "react-router-dom/cjs/react-router-dom.min";
+import NotFound from "./NotFound";
 function App() {
 
 
@@ -27,7 +27,6 @@ function App() {
     <Router>
       <div className="App">
         <div className="content">
-          <BrowserRouter>
           <Switch>
 
             <Route exact path="/">
@@ -112,8 +111,11 @@ function App() {
             <Route exact path="/Sign/Log">
               <Log />
             </Route>
+
+            <Route path="*">
+              <NotFound />
+            </Route>
           </Switch>
-          </BrowserRouter>
         </div>
       </div>
     </Router>

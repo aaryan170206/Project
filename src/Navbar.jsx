@@ -2,7 +2,7 @@ import { Link, useHistory, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
-import Logo from "./assets/Logo.jpg";
+import Logo from "./assets/AI & Automatin.jpg";
 
 const Nav = () => {
     const [showNav, setShowNav] = useState(true);
@@ -72,37 +72,51 @@ const Nav = () => {
         width: "100%",
         zIndex: 9999,}}>
             <div className="d-flex align-items-center">
+            
                 <img
                 src={Logo}
                 alt="Logo"
                 width="60"
                 height="60"
-                className="ms-4"/>
+                style={{
+                    objectFit: "cover",
+                    borderRadius: "50%",
+                    cursor: "pointer",
+                }}/>
+
                 <h3 className="text-light mb-0 ms-3"
                 style={{ backdropFilter: "blur(10px)" }}>
                     {currentPage}
                 </h3>
+
+                <button
+                className="btn btn-outline-light d-lg-none ms-3"
+                type="button"
+                data-bs-toggle="offcanvas"
+                data-bs-target="#menuSidebar">
+                    <i className="bi bi-list fs-3"></i>
+                </button>
             </div>
 
-            <div className="links">
+            <div className="links d-none d-md-flex align-items-center">
                 <Link to="/Home" className="btn btn-outline-light mx-2"
                 style={{backdropFilter: "blur(10px)",}}>
-                    <i className="bi bi-house-fill fs-5"> Home</i>
+                    Home
                 </Link>
 
                 <Link to="/Services" className="btn btn-outline-light mx-2"
                 style={{backdropFilter: "blur(10px)",}}>
-                    <i className="bi bi-grid-fill fs-5"> Services</i>
+                    Services
                 </Link>
 
                 <Link to="/About" className="btn btn-outline-light mx-2"
                 style={{backdropFilter: "blur(10px)",}}>
-                    <i className="bi bi-info-circle-fill fs-5"> About</i>
+                    About
                 </Link>
 
                 <Link to="/Contact" className="btn btn-outline-light mx-2"
                 style={{backdropFilter: "blur(10px)",}}>
-                    <i className="bi bi-envelope-fill fs-5"> Contact</i>
+                    Contact
                 </Link>
 
                 <button
@@ -112,7 +126,7 @@ const Nav = () => {
                     backdropFilter: "blur(10px)"
                 }}
                 onClick={handleLogout}>
-                    <i className="bi bi-box-arrow-left"> Logout</i>
+                    Logout
                 </button>
         {/*Off Canvas as Virtual ID Card*/}
                 <button className="btn border-0"
@@ -153,6 +167,80 @@ const Nav = () => {
                                 </p>
                             </div>   
                         </div>
+                    </div>
+
+                    <div
+                        className="offcanvas offcanvas-start bg-dark"
+                        tabIndex="-1"
+                        id="menuSidebar">
+
+                        <div className="offcanvas-header">
+
+                            <h5 className="text-light">
+                                Navigation
+                            </h5>
+
+                            <button
+                                type="button"
+                                className="btn-close btn-close-white"
+                                data-bs-dismiss="offcanvas"
+                            ></button>
+
+                        </div>
+
+                        <div className="offcanvas-body">
+
+                            <Link
+                                to="/Home"
+                                className="btn btn-outline-light w-100 mb-3"
+                                data-bs-dismiss="offcanvas"
+                            >
+                                Home
+                            </Link>
+
+                            <Link
+                                to="/Services"
+                                className="btn btn-outline-light w-100 mb-3"
+                                data-bs-dismiss="offcanvas"
+                            >
+                                Services
+                            </Link>
+
+                            <Link
+                                to="/About"
+                                className="btn btn-outline-light w-100 mb-3"
+                                data-bs-dismiss="offcanvas"
+                            >
+                                About
+                            </Link>
+
+                            <Link
+                                to="/Contact"
+                                className="btn btn-outline-light w-100 mb-3"
+                                data-bs-dismiss="offcanvas"
+                            >
+                                Contact
+                            </Link>
+
+                            <button
+                                className="btn btn-outline-danger w-100 mb-3"
+                                onClick={handleLogout}
+                                data-bs-dismiss="offcanvas"
+                            >
+                                Logout
+                            </button>
+
+                            <button
+                                className="btn btn-outline-info w-100"
+                                data-bs-toggle="offcanvas"
+                                data-bs-target="#sidebar"
+                                data-bs-dismiss="offcanvas"
+                            >
+                                Profile
+                            </button>
+
+                        </div>
+
                     </div>
                 </div>                 
             </div>

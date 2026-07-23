@@ -185,7 +185,7 @@ import Learn_1 from "./assets/Learn_1.jpg";
                             backdropFilter: "blur(5px)",
                             borderRadius: "25px",
                             width: "900px",
-                            minHeight: "300px",}}>
+                            minHeight: "200px",}}>
                                 <div className="card-body text-center">
                                     <div className="card-title">
                                         <h1 className="text-secondary text-decoration-underline text-center">
@@ -195,13 +195,13 @@ import Learn_1 from "./assets/Learn_1.jpg";
                                             <div className="col-4">
                                                 <div className="card"
                                                 style={{
-                                                background: "rgba(20, 0, 0, 0.2)",
+                                                background: "rgba(0, 0, 0, 0.2)",
                                                 backdropFilter: "blur(5px)",
                                                 borderRadius: "25px",
                                                 width: "300px",
                                                 minHeight: "170px",}}>
                                                     <div className="card-title">
-                                                        <h3 className="text-center text-light">
+                                                        <h3 className="text-center text-light my-2">
                                                             Narrow AI
                                                         </h3>
                                                     </div>
@@ -215,13 +215,13 @@ import Learn_1 from "./assets/Learn_1.jpg";
                                             <div className="col-4">
                                                 <div className="card"
                                                 style={{
-                                                background: "rgba(20, 0, 0, 0.2)",
+                                                background: "rgba(0, 0, 0, 0.2)",
                                                 backdropFilter: "blur(5px)",
                                                 borderRadius: "25px",
                                                 width: "300px",
                                                 minHeight: "10px",}}>
                                                     <div className="card-title">
-                                                        <h3 className="text-center text-light">
+                                                        <h3 className="text-center text-light my-2">
                                                             General AI
                                                         </h3>
                                                     </div>
@@ -235,13 +235,13 @@ import Learn_1 from "./assets/Learn_1.jpg";
                                             <div className="col-4">
                                                 <div className="card"
                                                 style={{
-                                                background: "rgba(20, 0, 0, 0.2)",
+                                                background: "rgba(0, 0, 0, 0.2)",
                                                 backdropFilter: "blur(5px)",
                                                 borderRadius: "25px",
                                                 width: "300px",
                                                 minHeight: "170px",}}>
                                                     <div className="card-title">
-                                                        <h3 className="text-center text-light">
+                                                        <h3 className="text-center text-light my-2">
                                                             Super AI
                                                         </h3>
                                                     </div>
@@ -268,7 +268,7 @@ import Learn_1 from "./assets/Learn_1.jpg";
                             backdropFilter: "blur(5px)",
                             borderRadius: "25px",
                             nimWidth: "900px",
-                            minHeight: "300px",}}>
+                            minHeight: "200px",}}>
                                 <div className="card-body text-center">
                                     <div className="card-title">
                                         <h1 className="text-secondary text-decoration-underline text-center">
@@ -276,49 +276,34 @@ import Learn_1 from "./assets/Learn_1.jpg";
                                         </h1>
                                     </div>
 
-                                    <div className="row justify-content-around my-4">
+                                    <div className="row justify-content-center my-4">
                                         <div className="col-auto">
-                                            <h4 className="text-center text-light border-bottom border-light">
-                                                Machine Learning
-                                            </h4>
+                                            <a href="https://en.wikipedia.org/wiki/Machine_learning" className="link-text text-light fs-4 text-center">Machine Learning</a>
                                         </div>
                                         <div className="col-auto">
-                                            <h4 className="text-center text-light border-bottom border-light">
-                                                Deep Learning
-                                            </h4>
+                                            <a href="https://en.wikipedia.org/wiki/Deep_learning" className="link-text text-light fs-4 text-center">Deep Learning</a>
                                         </div>
                                         <div className="col-auto">
-                                            <h4 className="text-center text-light border-bottom border-light">
-                                                Natural Language Processing
-                                            </h4>
+                                            <a href="https://en.wikipedia.org/wiki/Natural_language_processing" className="link-text text-light fs-4 text-center">Natural Language Processing</a>
                                         </div>
                                         <div className="col-auto">
-                                            <h4 className="text-center text-light border-bottom border-light">
-                                                Computer Vision
-                                            </h4>
+                                            <a href="https://en.wikipedia.org/wiki/Computer_vision" className="link-text text-light fs-4 text-center"> Computer Vision</a>
                                         </div>
                                     </div>
 
                                     <div className="row justify-content-around my-4">
                                         <div className="col-auto">
-                                            <h4 className="text-center text-light border-bottom border-light">
-                                                Robotics
-                                            </h4>
+                                            <a href="https://en.wikipedia.org/wiki/Robotics" className="link-text text-light fs-4 text-center"> Robotics</a>
                                         </div>
                                         <div className="col-auto">
-                                            <h4 className="text-center text-light border-bottom border-light">
-                                                Speech Recognition
-                                            </h4>
+                                            <a href="https://en.wikipedia.org/wiki/Speech_recognition" className="link-text text-light fs-4 text-center"> Speech Recognition</a>
                                         </div>
                                         <div className="col-auto">
-                                            <h4 className="text-center text-light border-bottom border-light">
-                                                Predictive Analytics
-                                            </h4>
+                                            <a href="https://en.wikipedia.org/wiki/Predictive_analytics" className="link-text text-light fs-4 text-center">  Predictive Analytics</a>
                                         </div>
                                         <div className="col-auto">
-                                            <h4 className="text-center text-light border-bottom border-light">
-                                                Generative AI
-                                            </h4>
+                                            <a href="https://en.wikipedia.org/wiki/Generative_AI" className="link-text text-light fs-4 text-center"> Generative AI</a>
+
                                         </div>
                                     </div>
                                 </div>
@@ -340,7 +325,7 @@ import Learn_1 from "./assets/Learn_1.jpg";
                             minHeight: "300px",}}>
                                 <div className="card-body text-center">
                                     <div className="card-title">
-                                        <h1 className="text-info text-decoration-underline text-center">
+                                        <h1 className="text-info text-decoration-underline text-center mb-4">
                                            Benefits
                                         </h1>
                                     </div>
@@ -423,7 +408,7 @@ import Learn_1 from "./assets/Learn_1.jpg";
                             minHeight: "300px",}}>
                                 <div className="card-body text-center">
                                     <div className="card-title">
-                                        <h1 className="text-warning text-decoration-underline text-center">
+                                        <h1 className="text-warning text-decoration-underline text-center mb-4">
                                            Challenges
                                         </h1>
                                     </div>
@@ -483,13 +468,13 @@ import Learn_1 from "./assets/Learn_1.jpg";
 {/*Sixth Card-------------------------------------------------------------------------------------------------------------------------*/}
                     <div className="row justify-content-center mt-5">
                         <div className="col-auto">
-                            <div className="card"
+                            <div className="card mb-5"
                             style={{
                             background: "rgba(20, 0, 0, 0.4)",
                             backdropFilter: "blur(5px)",
                             borderRadius: "25px",
                             width: "900px",
-                            minHeight: "300px",}}>
+                            minHeight: "200px",}}>
                                 <div className="card-body text-center">
                                     <div className="card-title">
                                         <h1 className="text-secondary text-decoration-underline text-center">

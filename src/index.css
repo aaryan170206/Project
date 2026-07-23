@@ -36,6 +36,9 @@ body{
     color: #007FFF !important;
 }
 
+.link-text:hover{
+    color: #82e0aa !important;
+}
 
 .faq-marquee{
     width:100%;

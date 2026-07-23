@@ -2,8 +2,10 @@ import { useState } from "react";
 import emailjs from "@emailjs/browser";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useHistory } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const NewPass = () => {
+    const [loading, setLoading] = useState(false);
     const history = useHistory();
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
@@ -56,7 +58,11 @@ const NewPass = () => {
 
     const sendConfirmationMail = async () => {
     if (!email) {
-    alert("Email not found.");
+    Swal.fire({
+    title: "Email Not Found",
+    text: "Please restart the password reset process.",
+    icon: "warning",
+    });
     return;
     
 }
@@ -73,52 +79,95 @@ const NewPass = () => {
         return true;
     } catch (error) {
         console.error(error);
-        alert("Failed to send confirmation email.");
+        Swal.fire({
+        title: "Failed",
+        text: "Unable to send the confirmation email.",
+        icon: "error",
+        });
         return false;
     }
     };
 
     const handleSubmit = async () => {
     if (password.trim() === "" || confirmPassword.trim() === "") {
-        alert("Please fill in both fields.");
+        Swal.fire({
+        title: "Incomplete Form",
+        text: "Please fill in both password fields.",
+        icon: "warning",
+        });
         return;
     }
     if (password !== confirmPassword) {
-    alert("Passwords do not match.");
+        Swal.fire({
+        title: "Passwords Don't Match",
+        text: "Please enter the same password in both fields.",
+        icon: "warning",
+        });
     return;
     }
 
     if (!isStrongPassword) {
-        alert("Please create a stronger password.");
+        Swal.fire({
+        title: "Weak Password",
+        text: "Please create a stronger password.",
+        icon: "warning",
+        });
         return;
     }
-
+     setLoading(true);
+     try {
     //Password Change & Correct Email Access
-    const users = JSON.parse(localStorage.getItem("users")) || [];
+        const users = JSON.parse(localStorage.getItem("users")) || [];
 
-    const index = users.findIndex(
-        (user) => user.email === email
-    );
+        const index = users.findIndex(
+            (user) =>
+            user &&
+            user.email.trim() === email.trim()
+        );
 
-    if (index === -1) {
-        alert("User not found.");
+        if (index === -1) {
+        Swal.fire({
+            title: "User Not Found",
+            text: "Unable to locate this account.",
+            icon: "error",
+            });
+            return;
+        }
+        
+        if (users[index].password === password) {
+            Swal.fire({
+            title: "Choose a Different Password",
+            text: "Your new password cannot be the same as your current password.",
+            icon: "warning",
+            });
         return;
+        }
+
+        users[index].password = password;
+
+        localStorage.setItem("users", JSON.stringify(users));
+
+        const success = await sendConfirmationMail();
+     
+        //Password Change Mail & Redirecting
+        if (success) {
+        await Swal.fire({
+            title: "Password Updated!",
+            text: "Your password has been changed successfully.",
+            icon: "success",
+            timer: 1500,
+            showConfirmButton: false,
+            });
+
+            sessionStorage.removeItem("otp");
+            sessionStorage.removeItem("email");
+
+            history.push("/");
+
+        }
     }
-
-    users[index].password = password;
-
-    localStorage.setItem("users", JSON.stringify(users));
-
-    const success = await sendConfirmationMail();
-
-    //Password Change Mail & Redirecting
-    if (success) {
-        alert("Password changed successfully!");
-        history.push("/")
-
-        sessionStorage.removeItem("otp");
-        sessionStorage.removeItem("email");
-
+    finally {
+        setLoading(false);
     }
     };
 
@@ -257,10 +306,32 @@ const NewPass = () => {
                             <div className="row justify-content-center mt-5">
                                 <div className="col-auto">
                                     <button
-                                    type="button"
-                                    className="btn btn-info"
-                                    onClick={handleSubmit}>
-                                        Next
+                                        type="button"
+                                        onClick={handleSubmit}
+                                        disabled={loading}
+                                        className="btn rounded-pill px-5 py-2 fw-bold shadow"
+                                        style={{
+                                            background: loading
+                                                ? "#6c757d"
+                                                : "linear-gradient(135deg, #00c6ff, #0072ff)",
+                                            color: "#fff",
+                                            border: "none",
+                                            transition: "all .3s ease",
+                                            minWidth: "190px",}}>
+                                        {loading ? (
+                                            <>
+                                                <span
+                                                    className="spinner-border spinner-border-sm me-2"
+                                                    role="status"
+                                                ></span>
+                                                Updating...
+                                            </>
+                                        ) : (
+                                            <>
+                                                <i className="bi bi-shield-lock-fill me-2"></i>
+                                                Update Password
+                                            </>
+                                        )}
                                     </button>
                                 </div>
                             </div>

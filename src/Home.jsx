@@ -36,11 +36,12 @@ const Home = () => {
                 <div className="container" 
                     style={{
                         minHeight:"500px",
-                        minWidth:"700px",
-                        paddingTop:"100px"
+                        paddingTop:"100px",
+                        width:"100%"
                     }}>
                     <div className="row justify-content-center">
-                        <div className="col-12">
+                        <div className="col"
+                        style={{width: "100%",}}>
                             <motion.div className="card my-5 border border-light border-opacity-25 shadow-lg"
                             initial={{ opacity: 0, y: 80 }}
                             animate={{ opacity: 1, y: 0 }}
@@ -50,7 +51,7 @@ const Home = () => {
                             backdropFilter: "blur(10px)",
                             WebkitBackdropFilter: "blur(18px)",
                             borderRadius: "25px",
-                            width: "1300px",
+                            width: "100%",
                             minHeight: "550px",
                             boxShadow: "0 15px 40px rgba(0,0,0,0.0)",
                             overflow: "hidden",
@@ -96,7 +97,7 @@ const Home = () => {
                 backdropFilter: "blur(10px)",
                 WebkitBackdropFilter: "blur(18px)",
                 borderRadius: "25px",
-                width: "1300px",
+                width: "100%",
                 minHeight: "300px",
                 boxShadow: "0 15px 40px rgba(0,0,0,0.0)",
                 overflow: "hidden",
@@ -127,7 +128,7 @@ const Home = () => {
                 backdropFilter: "blur(10px)",
                 WebkitBackdropFilter: "blur(18px)",
                 borderRadius: "25px",
-                width: "1300px",
+                width: "100%",
                 minHeight: "300px",
                 boxShadow: "0 15px 40px rgba(0,0,0,0.0)",
                 overflow: "hidden",
@@ -172,7 +173,7 @@ const Home = () => {
                 backdropFilter: "blur(10px)",
                 WebkitBackdropFilter: "blur(18px)",
                 borderRadius: "25px",
-                width: "1300px",
+                width: "100%",
                 minHeight: "300px",
                 boxShadow: "0 15px 40px rgba(0,0,0,0.0)",
                 overflow: "hidden",

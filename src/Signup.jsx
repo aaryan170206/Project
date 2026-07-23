@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { Link,useHistory } from "react-router-dom";
 import emailjs from "@emailjs/browser";
+import Swal from "sweetalert2";
 
 
 const Sign = () => {
+    const [loading, setLoading] = useState(false);
     //Password Validation
     const [showPasswordWarning, setShowPasswordWarning] = useState(false);
 
@@ -27,6 +29,23 @@ const Sign = () => {
     const hasLowerCase = /[a-z]/.test(password);
     const hasNumber = /[0-9]/.test(password);
     const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+
+     //Valid Email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const isEmailValid = emailRegex.test(email);
+    
+    const isPasswordMatch = password === confirmPassword;
+
+    //Form Validation
+    const isFormValid =
+    firstName.trim() !== "" &&
+    lastName.trim() !== "" &&
+    email.trim() !== "" &&
+    password.trim() !== "" &&
+    confirmPassword.trim() !== "" &&
+    password === confirmPassword &&
+    isPasswordMatch &&
+    /\S+@\S+\.\S+/.test(email);
 
     //Strength Bar
     const strength =
@@ -90,11 +109,22 @@ const Sign = () => {
             "QzHWrAFuYYzwk8GRQ"
         );
 
-        alert("OTP sent successfully!");
+       await Swal.fire({
+        title: "OTP Sent!",
+        text: "Please check your email for the verification code.",
+        icon: "success",
+        timer: 1500,
+        showConfirmButton: false,
+        });
         return true;
-    } catch (error) {
+    } 
+    catch (error) {
         console.error(error);
-        alert("Failed to send OTP");
+       Swal.fire({
+        title: "Failed",
+        text: "Unable to send OTP. Please try again.",
+        icon: "error",
+        });
         return false;
     }
     };
@@ -104,82 +134,75 @@ const Sign = () => {
     const handleNext = async () => {
     if (!isFormValid) return;
 
-    if (!isEmailValid) {
-        alert("Enter a valid email.");
+    setLoading(true);
+
+    try{
+        if (!isEmailValid) {
+        Swal.fire({
+            title: "Invalid Email",
+            text: "Please enter a valid email address.",
+            icon: "warning",
+            });
+            return;
+        }
+
+        if (!isStrongPassword) {
+        Swal.fire({
+        title: "Weak Password",
+        text: "Please create a stronger password.",
+        icon: "warning",
+        });
         return;
-    }
+        }
+        const users = JSON.parse(localStorage.getItem("users")) || [];
 
-    if (!isStrongPassword) {
-    alert("Please create a stronger password.");
-    return;
-    }
-
-    console.log("Sending OTP...");
-
-    const success = await sendOTP();
-
-    console.log("OTP sent. Navigating...");
-
-    if (success) 
-    {
-    //Local Storage
-    const users = JSON.parse(localStorage.getItem("users")) || [];
-
-    const existingUser = users.find(
+        const existingUser = users.find(
         (u) => u && u.email === email.trim()
-    );
+        );
 
-    if (existingUser) {
-        alert("Email already registered.");
+        if (existingUser) {
+        Swal.fire({
+            title: "Account Exists",
+            text: "This email is already registered.",
+            icon: "warning",
+        });
+
         return;
-    }
+        }
+        const success = await sendOTP();
 
-   sessionStorage.setItem(
-    "pendingUser",
-    JSON.stringify({
-        firstName: firstName.trim(),
-        lastName: lastName.trim(),
-        email: email.trim(),
-        password,
-        
-        joinedOn: new Date().toLocaleDateString("en-US", {
-        day: "numeric",
-        month: "long",
-        year: "numeric",
+        if (success) {
+        sessionStorage.setItem(
+            "pendingUser",
+            JSON.stringify({
+                firstName: firstName.trim(),
+                lastName: lastName.trim(),
+                email: email.trim(),
+                password,
+                joinedOn: new Date().toLocaleDateString("en-US", {
+                    day: "numeric",
+                    month: "long",
+                    year: "numeric",
+                }),
         })
-    })
     );
 
     history.push("/NewAcc");
+}
+    } 
+    finally {
+        setLoading(false);
     }
     };
     
-
-    //Valid Email
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const isEmailValid = emailRegex.test(email);
-    
-    const isPasswordMatch = password === confirmPassword;
-
-    //Form Validation
-    const isFormValid =
-        firstName.trim() !== "" &&
-        lastName.trim() !== "" &&
-        email.trim() !== "" &&
-        password.trim() !== "" &&
-        confirmPassword.trim() !== "" &&
-        password === confirmPassword &&
-        isPasswordMatch &&
-        /\S+@\S+\.\S+/.test(email);
-
     return (
         <div>
-            <div className="row justify-content-center mb-5">
+            <div className="row justify-content-center mb-5 ">
                 <div className="col-auto align-items-center">
-                    <div className="card"
+                    <div className="card w-100%"
                     style={{backgroundColor: "rgba(0, 0, 0, 0.25)",
                     minHeight: "600px",
-                    width:"700px",
+                    width:"100%",
                     marginTop:"50px",
                     backdropFilter: "blur(10px)",
                     WebkitBackdropFilter: "blur(10px)",
@@ -209,7 +232,7 @@ const Sign = () => {
                                                 placeholder="First Name"
                                                 className="border-success rounded-3 ms-5 me-2 my-3"
                                                 style={{
-                                                    width:"200px",
+                                                    maxWidth:"200px",
                                                     height:"40px", 
                                                 }}/>
                                         
@@ -372,13 +395,25 @@ const Sign = () => {
                                         {/*Button( dissabled by default) Field*/}
                                         <div className="row justify-content-center">
                                             <div className="col-auto align-items-center">
-                                                <button
-                                                type="button"
-                                                className="btn btn-info"
-                                                disabled={!isFormValid}
-                                                onClick={handleNext}
-                                                >
-                                                    SignUp
+                                               <button
+                                                    type="button"
+                                                    className="btn btn-info rounded-pill px-5 py-2 fw-bold shadow"
+                                                    disabled={!isFormValid || loading}
+                                                    onClick={handleNext}>
+                                                    {loading ? (
+                                                        <>
+                                                            <span
+                                                                className="spinner-border spinner-border-sm me-2"
+                                                                role="status"
+                                                            ></span>
+                                                            Sending OTP...
+                                                        </>
+                                                    ) : (
+                                                        <>
+                                                            <i className="bi bi-person-plus-fill me-2"></i>
+                                                            Create Account
+                                                        </>
+                                                    )}
                                                 </button>
                                             </div>
                                         </div>
