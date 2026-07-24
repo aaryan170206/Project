@@ -263,7 +263,7 @@ const Defence = () => {
                         <div className="col-12 col-lg-5 mx-auto px-3"
                         style={{
                         height:"100%",
-                        maxHeight:"400px",
+                        maxHeight:"600px",
                         maxWidth: "700px"
                         }}>
                             <h1 className="display-6 display-lg-5 text-center text-warning fw-bold">
@@ -319,7 +319,7 @@ const Defence = () => {
                         <div className="col-12 col-lg-5 mx-auto px-3"
                         style={{
                         height:"100%",
-                        maxHeight:"400px",
+                        maxHeight:"600px",
                         maxWidth: "700px"
                         }}>
                             <h1 className="display-6 display-lg-5 text-center text-warning fw-bold">
@@ -374,7 +374,7 @@ const Defence = () => {
                         <div className="col-12 col-lg-5 mx-auto px-3"
                         style={{
                         height:"100%",
-                        maxHeight:"400px",
+                        maxHeight:"600px",
                         maxWidth: "700px"
                         }}>
                             <h1 className="display-6 display-lg-5 text-center text-warning fw-bold">
@@ -428,7 +428,7 @@ const Defence = () => {
                         <div className="col-12 col-lg-5 mx-auto px-3"
                         style={{
                         height:"100%",
-                        maxHeight:"400px",
+                        maxHeight:"600px",
                         maxWidth: "700px"
                         }}>
                             <h1 className="display-6 display-lg-5 text-center text-warning fw-bold">
@@ -482,7 +482,7 @@ const Defence = () => {
                         <div className="col-12 col-lg-5 mx-auto px-3"
                         style={{
                         height:"100%",
-                        maxHeight:"400px",
+                        maxHeight:"600px",
                         maxWidth: "700px"
                         }}>
                             <h1 className="display-6 display-lg-5 text-center text-warning fw-bold">
@@ -536,7 +536,7 @@ const Defence = () => {
                         <div className="col-12 col-lg-5 mx-auto px-3"
                         style={{
                         height:"100%",
-                        maxHeight:"400px",
+                        maxHeight:"600px",
                         maxWidth: "700px"
                         }}>
                             <h1 className="display-6 display-lg-5 text-center text-warning fw-bold">
@@ -591,7 +591,7 @@ const Defence = () => {
                         <div className="col-12 col-lg-5 mx-auto px-3"
                         style={{
                         height:"100%",
-                        maxHeight:"400px",
+                        maxHeight:"600px",
                         maxWidth: "700px"
                         }}>
                             <h1 className="display-6 display-lg-5 text-center text-warning fw-bold">
