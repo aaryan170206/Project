@@ -27,13 +27,27 @@ body{
 }
 
 .defence-img{
-    width:100%;
-    max-width:420px;
+    width: 100%;
+    max-width: 380px;
+    aspect-ratio: 1;
+    object-fit: cover;
 }
 
-@media (max-width:768px){
+.defence-text{
+    font-size: clamp(0.95rem, 1vw + 0.6rem, 1.2rem);
+    line-height: 1.8;
+    text-wrap: pretty;
+}
+
+@media (max-width: 992px){
     .defence-img{
-        max-width:280px;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 576px){
+    .defence-img{
+        max-width: 240px;
     }
 }
 

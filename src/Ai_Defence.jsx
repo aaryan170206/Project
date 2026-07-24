@@ -202,11 +202,13 @@ const Defence = () => {
                                 aspectRatio:"1 / 1",
                                 objectFit:"cover"
                                 }}
-                                className="defence-img img-fluid rounded-circle img-thumbnail shadow border border-info border-5"/>
+                                className="defence-img w-75 img-fluid rounded-circle img-thumbnail shadow border border-info border-5"/>
                             </motion.div>
                         </div>
                         <div className="col-12 col-lg-5 mx-auto px-3"
                         style={{
+                        height:"100%",
+                        maxHeight:"600px",
                         maxWidth: "700px"
                         }}>
                             <h1 className="display-6 display-lg-5 text-center text-warning fw-bold">
@@ -255,11 +257,13 @@ const Defence = () => {
                                 aspectRatio:"1 / 1",
                                 objectFit:"cover"
                                 }}
-                                className="defence-img img-fluid rounded-circle img-thumbnail shadow border border-info border-5"/>
+                                className="defence-img w-75 img-fluid rounded-circle img-thumbnail shadow border border-info border-5"/>
                             </motion.div>
                         </div>
                         <div className="col-12 col-lg-5 mx-auto px-3"
                         style={{
+                        height:"100%",
+                        maxHeight:"400px",
                         maxWidth: "700px"
                         }}>
                             <h1 className="display-6 display-lg-5 text-center text-warning fw-bold">
@@ -309,11 +313,13 @@ const Defence = () => {
                                 aspectRatio:"1 / 1",
                                 objectFit:"cover"
                                 }}
-                                className="defence-img img-fluid rounded-circle img-thumbnail shadow border border-info border-5"/>
+                                className="defence-img w-75 img-fluid rounded-circle img-thumbnail shadow border border-info border-5"/>
                             </motion.div>
                         </div>
                         <div className="col-12 col-lg-5 mx-auto px-3"
                         style={{
+                        height:"100%",
+                        maxHeight:"400px",
                         maxWidth: "700px"
                         }}>
                             <h1 className="display-6 display-lg-5 text-center text-warning fw-bold">
@@ -362,11 +368,13 @@ const Defence = () => {
                                 aspectRatio:"1 / 1",
                                 objectFit:"cover"
                                 }}
-                                className="defence-img img-fluid rounded-circle img-thumbnail shadow border border-info border-5"/>
+                                className="defence-img w-75 img-fluid rounded-circle img-thumbnail shadow border border-info border-5"/>
                             </motion.div>
                         </div>
                         <div className="col-12 col-lg-5 mx-auto px-3"
                         style={{
+                        height:"100%",
+                        maxHeight:"400px",
                         maxWidth: "700px"
                         }}>
                             <h1 className="display-6 display-lg-5 text-center text-warning fw-bold">
@@ -414,11 +422,13 @@ const Defence = () => {
                                 aspectRatio:"1 / 1",
                                 objectFit:"cover"
                                 }}
-                                className="defence-img img-fluid rounded-circle img-thumbnail shadow border border-info border-5"/>
+                                className="defence-img w-75 img-fluid rounded-circle img-thumbnail shadow border border-info border-5"/>
                             </motion.div>
                         </div>
                         <div className="col-12 col-lg-5 mx-auto px-3"
                         style={{
+                        height:"100%",
+                        maxHeight:"400px",
                         maxWidth: "700px"
                         }}>
                             <h1 className="display-6 display-lg-5 text-center text-warning fw-bold">
@@ -466,11 +476,13 @@ const Defence = () => {
                                 aspectRatio:"1 / 1",
                                 objectFit:"cover"
                                 }}
-                                className="defence-img img-fluid rounded-circle img-thumbnail shadow border border-info border-5"/>
+                                className="defence-img w-75 img-fluid rounded-circle img-thumbnail shadow border border-info border-5"/>
                             </motion.div>
                         </div>
                         <div className="col-12 col-lg-5 mx-auto px-3"
                         style={{
+                        height:"100%",
+                        maxHeight:"400px",
                         maxWidth: "700px"
                         }}>
                             <h1 className="display-6 display-lg-5 text-center text-warning fw-bold">
@@ -518,11 +530,13 @@ const Defence = () => {
                                 aspectRatio:"1 / 1",
                                 objectFit:"cover"
                                 }}
-                                className="defence-img img-fluid rounded-circle img-thumbnail shadow border border-info border-5"/>
+                                className="defence-img w-75 img-fluid rounded-circle img-thumbnail shadow border border-info border-5"/>
                             </motion.div>
                         </div>
                         <div className="col-12 col-lg-5 mx-auto px-3"
                         style={{
+                        height:"100%",
+                        maxHeight:"400px",
                         maxWidth: "700px"
                         }}>
                             <h1 className="display-6 display-lg-5 text-center text-warning fw-bold">
@@ -571,11 +585,13 @@ const Defence = () => {
                                 aspectRatio:"1 / 1",
                                 objectFit:"cover"
                                 }}
-                                className="defence-img img-fluid rounded-circle img-thumbnail shadow border border-info border-5"/>
+                                className="defence-img w-75 img-fluid rounded-circle img-thumbnail shadow border border-info border-5"/>
                             </motion.div>
                         </div>
                         <div className="col-12 col-lg-5 mx-auto px-3"
                         style={{
+                        height:"100%",
+                        maxHeight:"400px",
                         maxWidth: "700px"
                         }}>
                             <h1 className="display-6 display-lg-5 text-center text-warning fw-bold">
