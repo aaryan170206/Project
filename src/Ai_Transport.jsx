@@ -45,33 +45,35 @@ const Transport = () => {
 
 
             {/*Actual Body of This Component*/}
-            <div className="container"
+            <div className="container py-4"
             style={{
             height: "100vh",
-            overflowY: "scroll",
+            overflowY: "auto",
             scrollSnapType: "y mandatory",
+            scrollBehavior: "smooth",
             }}>
                 {/*First Point*/}
-                <div className="row justify-content-around align-items-center mt-5"
+                <div className="row justify-content-center align-items-center gy-5 py-5 mx-0 border-bottom border-secondary border-4"
                 style={{
                 minHeight: "100vh",
-                scrollSnapAlign: "start"
+                scrollSnapAlign: "start",
                 }}>
-                    <div className="col-6 text-center border-end border-secondary">
+                    <div className="col-12 col-lg-6 text-center border-end border-secondary">
                         <motion.div
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}>
                             <img src={Trans_1}
                             alt="Image_1"
                             style={{
-                            width: "475px",
-                            height: "475px",
-                            objectFit: "cover",
+                            width: "100%",
+                            maxWidth: "450px",
+                            aspectRatio: "1",
+                            objectFit: "cover"
                             }}
                             className="img-thumbnail rounded-circle shadow border border-info border-5"/>
                         </motion.div>
                     </div>
-                    <div className="col-6 border-start border-secondary">
+                    <div className="col-12 col-lg-6 border-start border-secondary">
                             <h1 className="text-center mb-4 fw-bolder"
                             style={{
                                 color:"#f4d03f"
@@ -95,12 +97,12 @@ const Transport = () => {
                 </div>
 
                 {/*Second Point*/}
-                <div className="row justify-content-around align-items-center mt-5 "
+                <div className="row justify-content-center align-items-center gy-5 py-5 mx-0 border-bottom border-secondary border-4"
                 style={{
                 minHeight: "100vh",
-                scrollSnapAlign: "start"
+                scrollSnapAlign: "start",
                 }}>
-                    <div className="col-6 border-end border-secondary">
+                    <div className="col-12 col-lg-6 border-end border-secondary">
                             <h1 className="text-center mb-4 fw-bolder"
                             style={{
                                 color:"#f4d03f"
@@ -121,16 +123,17 @@ const Transport = () => {
                                 intelligent traffic signal control, enabling faster response times during critical situations.
                             </p>
                     </div>
-                    <div className="col-6 text-center border-start border-secondary">
+                    <div className="col-12 col-lg-6 text-center border-start border-secondary">
                         <motion.div
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}>
                             <img src={Trans_2}
                             alt="Image_2"
                             style={{
-                            width: "475px",
-                            height: "475px",
-                            objectFit: "cover",
+                            width: "100%",
+                            maxWidth: "450px",
+                            aspectRatio: "1",
+                            objectFit: "cover"
                             }}
                             className="img-thumbnail rounded-circle shadow border border-info border-5"/>
                         </motion.div>
@@ -138,26 +141,27 @@ const Transport = () => {
                 </div>
 
                 {/*Third Point*/}
-                <div className="row justify-content-around align-items-center mt-5"
+                <div className="row justify-content-center align-items-center gy-5 py-5 mx-0 border-bottom border-secondary border-4"
                 style={{
                 minHeight: "100vh",
-                scrollSnapAlign: "start"
+                scrollSnapAlign: "start",
                 }}>
-                    <div className="col-6 border-end border-secondary text-center">
+                    <div className="col-12 col-lg-6 border-end border-secondary text-center">
                         <motion.div
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}>
                             <img src={Trans_3}
                             alt="Image_3"
                             style={{
-                            width: "475px",
-                            height: "475px",
-                            objectFit: "cover",
+                            width: "100%",
+                            maxWidth: "450px",
+                            aspectRatio: "1",
+                            objectFit: "cover"
                             }}
                             className="img-thumbnail rounded-circle shadow border border-info border-5"/>
                         </motion.div>
                     </div>
-                    <div className="col-6 border-start border-secondary">
+                    <div className="col-12 col-lg-6 border-start border-secondary">
                             <h1 className="text-center mb-4 fw-bolder"
                             style={{
                                 color:"#f4d03f"
@@ -178,12 +182,12 @@ const Transport = () => {
                     </div>
                 </div>
                 {/*Fourth Point*/}
-                <div className="row justify-content-around align-items-center mt-5"
+                <div className="row justify-content-center align-items-center gy-5 py-5 mx-0 border-bottom border-secondary border-4"
                 style={{
                 minHeight: "100vh",
-                scrollSnapAlign: "start"
+                scrollSnapAlign: "start",
                 }}>
-                    <div className="col-6 border-end border-secondary">
+                    <div className="col-12 col-lg-6 border-end border-secondary">
                             <h1 className="text-center mb-4 fw-bolder"
                             style={{
                                 color:"#f4d03f"
@@ -202,42 +206,44 @@ const Transport = () => {
                                 issues before they lead to breakdowns, enabling proactive maintenance and minimizing vehicle downtime.
                             </p>
                     </div>
-                    <div className="col-6 text-center border-start border-secondary">
+                    <div className="col-12 col-lg-6 text-center border-start border-secondary">
                         <motion.div
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}>
                             <img src={Trans_4}
                             alt="Image_4"
                             style={{
-                            width: "475px",
-                            height: "475px",
-                            objectFit: "cover",
+                            width: "100%",
+                            maxWidth: "450px",
+                            aspectRatio: "1",
+                            objectFit: "cover"
                             }}
                             className="img-thumbnail rounded-circle shadow border border-info border-5"/>
                         </motion.div>
                     </div>
                 </div>
                 {/*Fifth Point*/}
-                <div className="row justify-content-around align-items-center mt-5"
+                <div className="row justify-content-center align-items-center gy-5 py-5 mx-0 border-bottom border-secondary border-4"
                 style={{
                 minHeight: "100vh",
-                scrollSnapAlign: "start"
+                scrollSnapAlign: "start",
                 }}>
-                    <div className="col-6 border-end border-secondary text-center">
+                    <div className="col-12 col-lg-6 border-end border-secondary text-center">
                         <motion.div
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}>
                             <img src={Trans_5}
                             alt="Image_5"
                             style={{
-                            width: "475px",
-                            height: "475px",
-                            objectFit: "cover",
+                            width: "100%",
+                            maxWidth: "450px",
+                            aspectRatio: "1",
+                            objectFit: "cover"
                             }}
                             className="img-thumbnail rounded-circle shadow border border-info border-5"/>
                         </motion.div>
                     </div>
-                    <div className="col-6 border-start border-secondary">
+                    <div className="col-12 col-lg-6 border-start border-secondary">
                             <h1 className="text-center mb-4 fw-bolder"
                             style={{
                                 color:"#f4d03f"
@@ -260,12 +266,12 @@ const Transport = () => {
                 </div>
 
                 {/*Sixth Point*/}
-                <div className="row justify-content-around align-items-center mt-5"
+                <div className="row justify-content-center align-items-center gy-5 py-5 mx-0 border-bottom border-secondary border-4"
                 style={{
                 minHeight: "100vh",
-                scrollSnapAlign: "start"
+                scrollSnapAlign: "start",
                 }}>
-                    <div className="col-6 border-end border-secondary">
+                    <div className="col-12 col-lg-6 border-end border-secondary">
                             <h1 className="text-center mb-4 fw-bolder"
                             style={{
                                 color:"#f4d03f"
@@ -286,16 +292,17 @@ const Transport = () => {
                                 assistance.
                             </p>
                     </div>
-                    <div className="col-6 text-center border-start border-secondary">
+                    <div className="col-12 col-lg-6 text-center border-start border-secondary">
                         <motion.div
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}>
                             <img src={Trans_6}
                             alt="Image_6"
                             style={{
-                            width: "475px",
-                            height: "475px",
-                            objectFit: "cover",
+                            width: "100%",
+                            maxWidth: "450px",
+                            aspectRatio: "1",
+                            objectFit: "cover"
                             }}
                             className="img-thumbnail rounded-circle shadow border border-info border-5"/>
                         </motion.div>
@@ -303,26 +310,27 @@ const Transport = () => {
                 </div>
 
                 {/*Seventh Point*/}
-                <div className="row justify-content-around align-items-center mt-5"
+                <div className="row justify-content-center align-items-center gy-5 py-5 mx-0 border-bottom border-secondary border-4"
                 style={{
                 minHeight: "100vh",
-                scrollSnapAlign: "start"
+                scrollSnapAlign: "start",
                 }}>
-                    <div className="col-6 border-end border-secondary text-center">
+                    <div className="col-12 col-lg-6 border-end border-secondary text-center">
                         <motion.div
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}>
                             <img src={Trans_7}
                             alt="Image_7"
                             style={{
-                            width: "475px",
-                            height: "475px",
-                            objectFit: "cover",
+                            width: "100%",
+                            maxWidth: "450px",
+                            aspectRatio: "1",
+                            objectFit: "cover"
                             }}
                             className="img-thumbnail rounded-circle shadow border border-info border-5"/>
                         </motion.div>
                     </div>
-                    <div className="col-6 border-start border-secondary">
+                    <div className="col-12 col-lg-6 border-start border-secondary">
                             <h1 className="text-center mb-4 fw-bolder"
                             style={{
                                 color:"#f4d03f"
@@ -344,12 +352,12 @@ const Transport = () => {
                 </div>
 
                 {/*Eightth Point*/}
-                <div className="row justify-content-around align-items-center mt-5"
+                <div className="row justify-content-center align-items-center gy-5 py-5 mx-0 border-bottom border-secondary border-4"
                 style={{
                 minHeight: "100vh",
-                scrollSnapAlign: "start"
+                scrollSnapAlign: "start",
                 }}>
-                    <div className="col-6 border-end border-secondary">
+                    <div className="col-12 col-lg-6 border-end border-secondary">
                             <h1 className="text-center mb-4 fw-bolder"
                             style={{
                                 color:"#f4d03f"
@@ -368,16 +376,17 @@ const Transport = () => {
                                automate package sorting, and monitor shipment conditions throughout transit. 
                             </p>
                     </div>
-                    <div className="col-6 text-center border-start border-secondary">
+                    <div className="col-12 col-lg-6 text-center border-start border-secondary">
                         <motion.div
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}>
                             <img src={Trans_8}
                             alt="Image_8"
                             style={{
-                            width: "475px",
-                            height: "475px",
-                            objectFit: "cover",
+                            width: "100%",
+                            maxWidth: "450px",
+                            aspectRatio: "1",
+                            objectFit: "cover"
                             }}
                             className="img-thumbnail rounded-circle shadow border border-info border-5"/>
                         </motion.div>
