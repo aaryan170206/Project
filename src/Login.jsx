@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import { useHistory } from "react-router-dom";
@@ -10,7 +10,14 @@ const Log = () => {
     const history = useHistory();
     const [show, setShow] = useState(true);
 
-   
+   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
 
     //Credentials
     const [email, setEmail] = useState("");
@@ -70,38 +77,35 @@ const Log = () => {
     };
     
     return (
-        <div className="container-fluid min-vh-100 d-flex justify-content-center align-items-center"
-        style={{width: "100%",}}>
+        <div className="container-fluid min-vh-100 d-flex justify-content-center align-items-center">
             <div className="container-fluid">
                 <div className="row min-vh-100 align-items-center justify-content-center">
 
                     {/* Welcome Message */}               
                     <motion.div
-                    className={`${show ? "col-xl-6" : "col-6"} d-flex justify-content-center align-items-center`}
-                    style={{width:"50%"}}
-                    initial={{ x: 500, opacity: 0,
-                                y: 50, opacity: 50,
-                     }}
-                    animate={{
-                        x: show ? -35 : 370,
-                        y: show ? 50 : 50,
-                        opacity: 1,
-                        }}
-                        transition={{
-                            duration: 1,
-                            ease: "easeInOut",
-                        }}
+                    className="col-12 col-md-6 order-1 order-md-1 d-flex justify-content-center"
+                    initial={isMobile ? false : { x: 370, y: 50, opacity: 0 }}
+                    animate={isMobile ? {} : { x: -35, y: 50, opacity: 1 }}
+                    transition={
+                        isMobile
+                            ? {}
+                            : {
+                                duration: 1,
+                                ease: "easeInOut",
+                            }
+                        }
                         whileHover={{ scale: 1.1 }}>
                             <div className="card py-3 mb-3" 
-                                style={{maxWidth: "500px",
+                                style={{
+                                width: "100%",
+                                maxWidth: "275px",
                                 backgroundColor: "rgba(0, 0, 0, 0.5)",
                                 backdropFilter: "blur(10px)",
                                 WebkitBackdropFilter: "blur(10px)",
                                 borderRadius: "15px",}}>
 
                                 <h3 className="text-light align-items-center">
-                                    Click 
-                                    <Button
+                                <Button
                                     variant="link"
                                     className="text-decoration-none"
                                     whileTap={{ scale: 0.9 }}
@@ -116,35 +120,37 @@ const Log = () => {
                                         >
                                     </i>
                                 </Button>
-                                    to Login
+                                    Click to Login
                                 </h3>      
                             </div> 
                         
                     </motion.div>
 
                     {/*Login Card */}
-                    <div className="col-xl-6 mb-5">
+                    <div className="col-12 col-md-6 order-2 order-md-2 d-flex justify-content-center">
                         <AnimatePresence>
                         {show && (
                             <motion.div
-                                initial={{ x: 500,y: 50, opacity: 1 }}
-                                animate={{ x: 0,y: 50, opacity: 1 }}
-                                exit={{ x: 500, opacity: 1 }}
+                                initial={{ y: 90, opacity: 0 }}
+                                animate={{ y: 0, opacity: 1 }}
+                                exit={{ y: 90, opacity: 0 }}
                                 transition={{
-                                    duration: 1.0,
-                                    ease: "easeInOut"
+                                    duration: 0.9,
+                                    ease: "easeOut"
                                 }}
+                                className="mt-5"
                                 >    
                             <div className="card py-3 mb-3" 
                                 style={{backgroundColor: "rgba(0, 0, 0, 0.5)",
                                         height:"550px",
                                         maxWidth:"600px",
+                                        minWidth: "280px",
                                         width:"100%",
                                         backdropFilter: "blur(10px)",
                                         WebkitBackdropFilter: "blur(10px)",
                                         borderRadius: "15px"}}>
 
-                                <div className="card-body text-center animate__animated animate__slideInRight">
+                                <div className="card-body text-center animate__animated animate__slideInUp">
                                     <div className="card-title text-light mb-5">
                                         <h1>Welcome Back:</h1>
                                     </div>
@@ -168,7 +174,7 @@ const Log = () => {
 
                                         <div className="row align-items-center justify-content-center mb-4">
                                             <div className="col-3">
-                                                <label className="text-light fs-5 ms-4">Password</label>
+                                                <label className="text-light fs-5">Password</label>
                                             </div>
 
                                             <div className="col-6">
@@ -197,7 +203,7 @@ const Log = () => {
 
                                         <div className="row justify-content-start ms-3 mt-5">
                                             <div className="col-xl-6">
-                                                <p className=" text-center mb-4 text-light fs-6 ms-4">
+                                                <p className=" text-center mb-4 text-light fs-6">
                                                     Remember Me 
                                                     <input type="checkbox"className="mx-1" style={{ accentColor: "#28b463" }}/>
                                                 </p>

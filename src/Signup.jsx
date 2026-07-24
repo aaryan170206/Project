@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link,useHistory } from "react-router-dom";
 import emailjs from "@emailjs/browser";
 import Swal from "sweetalert2";
+import Back from "./assets/Login.jpg";
 
 
 const Sign = () => {
@@ -196,14 +197,24 @@ const Sign = () => {
     };
     
     return (
-        <div>
+    <div
+    style={{
+    backgroundImage: `url(${Back})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+    minHeight: "100vh",
+    }}
+    >
+        <div className="container">
             <div className="row justify-content-center mb-5 ">
-                <div className="col-auto align-items-center">
+                <div className="col-12 col-md-10 col-lg-8 col-xl-7">
                     <div className="card w-100%"
                     style={{backgroundColor: "rgba(0, 0, 0, 0.25)",
-                    minHeight: "600px",
                     width:"100%",
-                    marginTop:"50px",
+                    maxWidth:"600px",
+                    margin:"50px auto",
+                    minHeight:"500px",
                     backdropFilter: "blur(10px)",
                     WebkitBackdropFilter: "blur(10px)",
                     borderRadius: "15px"}}>
@@ -216,32 +227,39 @@ const Sign = () => {
                                     </div>
                                 </div>
 
-                                <div className="row justify-content-start ms-5">
-                                    <div className="col-auto justify-content-between">
+                                <div className="row justify-content-center px-3 mb-2">
+                                    <div className="col-12 justify-content-between">
 
                                     {/*User Data*/}
                                     <form>
 
                                         {/*Name Field*/}
                                         
-                                        <div className="row justify-content-start my-3">
-                                            <div className="col-auto">
-                                                <label><h5>Name</h5></label>
+                                        <div className="row justify-content-center my-5">
+                                             <div className="col-12 col-lg-2">
+                                                <label className="form-label fw-bold mb-0">
+                                                    Name
+                                                </label>
+                                            </div>
+                                            <div className="col-12 col-lg-5">
                                                 <input type="text"
                                                 onChange={(e) => setFirstName(e.target.value)} 
                                                 placeholder="First Name"
-                                                className="border-success rounded-3 ms-5 me-2 my-3"
+                                                className="form-control border-success"
                                                 style={{
-                                                    maxWidth:"200px",
+                                                    width: "100%",
+                                                    maxWidth:"400px",
                                                     height:"40px", 
                                                 }}/>
-                                        
+                                            </div>
+                                            <div className="col-12 col-lg-5">
                                                 <input type="text" 
                                                 placeholder="Last Name"
                                                 onChange={(e) => setLastName(e.target.value)}
-                                                className="border-success rounded-3 ms-3 my-3"
+                                                className="form-control border-success"
                                                 style={{
-                                                    width:"200px",
+                                                    width: "100%",
+                                                    maxWidth:"400px",
                                                     height:"40px" 
                                                 }}/>
                                             </div>
@@ -249,15 +267,20 @@ const Sign = () => {
                                         
                                         {/*Email Field*/}
                                         
-                                        <div className="row justify-content-start my-3">
-                                            <div className="col-auto">
-                                            <label><h5>Email</h5></label>
+                                        <div className="row justify-content-center my-5">
+                                            <div className="col-12 col-lg-2">
+                                                <label className="form-label fw-bold mb-0">
+                                                    Email
+                                                </label>
+                                            </div>
+                                            <div className="col-12 col-lg-10">
                                             <input type="email"
                                             onChange={(e) => setEmail(e.target.value)}
-                                            className="border-success rounded-3 ms-5 my-3"
+                                            className="border-success rounded-3 mb-3"
                                             placeholder="Enter Email" 
                                             style={{
-                                            width:"430px",
+                                            width:"100%",
+                                            maxWidth:"600px",
                                             height:"45px" 
                                             }}/>
 
@@ -270,59 +293,62 @@ const Sign = () => {
 
                                         {/*Password Field*/}
                         
-                                        <div className="row justify-content-start my-3">
-                                            <div className="col-auto">
-                                                <label><h5>Password</h5></label>
-                                                <input
-                                                type={showPassword ? "text" : "password"}
-                                                className="border-success rounded-3 ms-4 my-3"
-                                                value={password}
-                                                onChange={(e) => setPassword(e.target.value)}
-                                                onFocus={() => setShowPasswordWarning(true)}
-                                                onBlur={() => setShowPasswordWarning(false)}
-                                                style={{
-                                                    width:"200px",
-                                                    height:"45px" 
-                                                    }}/>
-                                                    
-                                                <i
-                                                    className={`bi ${showPassword ? "bi-eye-slash-fill" : "bi-eye-fill"} 
-                                                        position-relative text-dark`}
-                                                    style={{
-                                                    right: "30px",
-                                                    top: "0%",
-                                                    transform: "translateY(-50%)",
-                                                    cursor: "pointer"
-                                                    }}
-                                                    onClick={()=> setShowPassword(!showPassword)}
-                                                ></i>
-                                                
+                                        <div className="row justify-content-center my-5">
+                                            <div className="col-12 col-lg-2">
+                                                <label className="form-label fw-bold mb-0">
+                                                    Password
+                                                </label>
+                                            </div>
+                                            <div className="col-12 col-lg-5 position-relative">
+                                                <div className="position-relative">
+                                                    <input
+                                                        type={showPassword ? "text" : "password"}
+                                                        className="form-control border-success pe-5"
+                                                        value={password}
+                                                        onChange={(e) => setPassword(e.target.value)}
+                                                    />
 
-                                                <input
-                                                type={confirmShowPassword ? "text" : "password"}
-                                                onChange={(e) => setConfirmPassword(e.target.value)}
-                                                className="border-success rounded-3 my-3"
-                                                style={{
-                                                    width: "200px",
-                                                    height: "45px"
-                                                }}/>
-                                                
-                                                <i
-                                                    className={`bi ${
-                                                        confirmShowPassword ? "bi-eye-slash-fill" : "bi-eye-fill"
-                                                    } position-relative text-dark`}
-                                                    style={{
-                                                        right: "30px",
-                                                        top: "0%",
-                                                        transform: "translateY(-50%)",
-                                                        cursor: "pointer"
-                                                    }}
-                                                    onClick={() =>setConfirmShowPassword(!confirmShowPassword)}
-                                                ></i>
+                                                    <i
+                                                        className={`bi text-dark ${
+                                                            showPassword ? "bi-eye-slash-fill" : "bi-eye-fill"
+                                                        } position-absolute`}
+                                                        style={{
+                                                            right: "15px",
+                                                            top: "50%",
+                                                            transform: "translateY(-50%)",
+                                                            cursor: "pointer"
+                                                        }}
+                                                        onClick={() => setShowPassword(!showPassword)}
+                                                    ></i>
+                                                </div>
+                                            </div>
+                                            <div className="col-12 col-lg-5">
+                                                <div className="position-relative">
+                                                    <input
+                                                        type={confirmShowPassword ? "text" : "password"}
+                                                        className="form-control border-success pe-5"
+                                                        onChange={(e) => setConfirmPassword(e.target.value)}
+                                                    />
 
+                                                    <i
+                                                        className={`bi text-dark ${
+                                                            confirmShowPassword ? "bi-eye-slash-fill" : "bi-eye-fill"
+                                                        } position-absolute`}
+                                                        style={{
+                                                            right: "15px",
+                                                            top: "50%",
+                                                            transform: "translateY(-50%)",
+                                                            cursor: "pointer"
+                                                        }}
+                                                        onClick={() =>
+                                                            setConfirmShowPassword(!confirmShowPassword)
+                                                        }
+                                                    ></i>
+                                                </div>
+                                            </div>
                                                 {showPasswordWarning && !isStrongPassword && (
-                                                    <div
-                                                className="mt-3 p-3 rounded text-center"
+                                                <div
+                                                className="col-12 col-lg-8 mt-3 p-3 rounded text-center"
                                                 style={{
                                                 backgroundColor: "rgba(255,255,255,0.08)",
                                                 border: "1px solid rgba(255,255,255,0.15)"}}>
@@ -353,7 +379,7 @@ const Sign = () => {
                                                 )}
                                                 {password && (
                                                     <>
-                                                    <div className="progress mt-2" style={{ height: "8px" }}>
+                                                    <div className="progress mt-2" style={{ height: "8px", width:"250px" }}>
                                                         <div
                                                             className={`progress-bar ${strengthColor}`}
                                                             role="progressbar"
@@ -361,35 +387,35 @@ const Sign = () => {
                                                         ></div>
                                                     </div>
 
-                                                    <small className="text-light">
+                                                    <small className="text-light text-center">
                                                         Password Strength: <strong>{strengthText}</strong>
                                                     </small>
                                                     </>
                                                 )}
                                                 {confirmPassword !== "" && !isPasswordMatch && (
-                                                <p className="text-danger">
+                                                <p className="text-danger text-center">
                                                     Passwords do not match.
                                                 </p>
                                                 )}
 
                                                 {confirmPassword !== "" && isPasswordMatch && (
-                                                <p className="text-success">
+                                                <p className="text-success text-center">
                                                     Passwords match.
                                                 </p>
                                                 )}
 
                                                 {confirmPassword !== "" && isPasswordMatch && !isStrongPassword && (
-                                                <small className="text-warning">
+                                                <small className="text-warning text-center">
                                                     Password is too weak.
                                                 </small>
                                                 )}
 
                                                 {confirmPassword !== "" && isPasswordMatch && isStrongPassword && (
-                                                <p className="text-info">
+                                                <p className="text-info text-center">
                                                     Password is strong.
                                                 </p>
                                                 )}
-                                            </div>
+                                            
                                         </div>
 
                                         {/*Button( dissabled by default) Field*/}
@@ -441,7 +467,7 @@ const Sign = () => {
                 </div>
             </div>
         </div>
-             
+    </div>   
     );
 }
  

@@ -216,13 +216,13 @@ const Agriculture = () => {
                             <h1 className="display-6 text-center text-warning fw-bolder">
                                 Precision Farming: 
                             </h1>
-                            <p className="agri-text text-light text-center px-3 px-lg-4 fs-5">
+                            <p className="agri-text text-light text-center px-3 px-lg-4">
                                 Artificial Intelligence is transforming precision farming by enabling farmers to monitor, analyze, and manage agricultural 
                                 activities with exceptional accuracy. Unlike traditional farming methods that apply resources uniformly across entire fields, 
                                 AI uses data from satellites, drones, IoT sensors, GPS systems, and weather stations to assess the unique conditions of different 
                                 areas within a farm.
                             </p>
-                            <p className="agri-text text-light text-center px-3 px-lg-4 fs-5">
+                            <p className="agri-text text-light text-center px-3 px-lg-4">
                                 AI-powered precision farming systems use machine learning, computer vision, and predictive analytics to monitor soil health, 
                                 crop growth, weather conditions, and pest activity in real time. These systems identify variations in soil moisture, nutrient 
                                 levels, and plant health, enabling targeted irrigation, fertilization, and pest control. AI also provides recommendations 

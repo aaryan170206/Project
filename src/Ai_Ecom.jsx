@@ -121,6 +121,7 @@ const Ecom = () => {
                 
                 {/*Right Arrow*/}
                 <motion.div
+                className="d-none d-lg-block"
                 initial={{ x: 0 }}
                 animate={{ x: [0, 15, 0] }}
                 transition={{
@@ -146,6 +147,7 @@ const Ecom = () => {
 
                 {/*Left Arrow*/}
                 <motion.div
+                className="d-none d-lg-block"
                 initial={{ x: 0 }}
                 animate={{ x: [0, 15, 0] }}
                 transition={{
