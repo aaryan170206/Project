@@ -31,7 +31,7 @@ const Cyber = () => {
     return (
         <div style={{backgroundImage: `linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)),
         url(${AiSec})`,
-        backgroundSize: "cover",
+       backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
         backgroundAttachment: "fixed",
@@ -49,30 +49,30 @@ const Cyber = () => {
             <div className="container"
             style={{
             height: "100vh",
-            overflowY: "scroll",
+            overflowY: "auto",
             scrollSnapType: "y mandatory",
             }}>
                 {/*First Point*/}
-                <div className="row justify-content-around align-items-center mt-5"
+                <div className="row align-items-center gy-5 py-5 border-bottom border-secondary border-4"
                 style={{
                 minHeight: "100vh",
                 scrollSnapAlign: "start"
                 }}>
-                    <div className="col-6 text-center border-end border-secondary">
+                    <div className="col-12 col-lg-6 text-center border-end border-secondary">
                         <motion.div
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}>
                             <img src={Security_1}
                             alt="Image_1"
                             style={{
-                            width: "475px",
-                            height: "475px",
-                            objectFit: "cover",
-                            }}
-                            className="img-thumbnail rounded-circle shadow border border-info border-5"/>
+                            width: "100%",
+                            maxWidth: "420px",
+                            aspectRatio: "1 / 1",
+                            objectFit: "cover"}}
+                            className="img-fluid rounded-circle img-thumbnail shadow border border-info border-5"/>
                         </motion.div>
                     </div>
-                    <div className="col-6 border-start border-secondary">
+                    <div className="col-12 col-lg-6 border-start border-secondary">
                             <h1 className="text-center mb-4 fw-bolder"
                             style={{
                                 color:"#f4d03f"
@@ -99,12 +99,12 @@ const Cyber = () => {
                 </div>
 
                 {/*Second Point*/}
-                <div className="row justify-content-around align-items-center mt-5 "
+                <div className="row align-items-center gy-5 py-5 border-bottom border-secondary border-4"
                 style={{
                 minHeight: "100vh",
                 scrollSnapAlign: "start"
                 }}>
-                    <div className="col-6 border-end border-secondary">
+                    <div className="col-12 col-lg-6 border-end border-secondary">
                             <h1 className="text-center mb-4 fw-bolder"
                             style={{
                                 color:"#f4d03f"
@@ -125,43 +125,43 @@ const Cyber = () => {
                                 and recommending appropriate remediation measures.
                             </p>
                     </div>
-                    <div className="col-6 text-center border-start border-secondary">
+                    <div className="col-12 col-lg-6 text-center border-start border-secondary">
                         <motion.div
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}>
                             <img src={Security_2}
                             alt="Image_3"
                             style={{
-                            width: "475px",
-                            height: "475px",
-                            objectFit: "cover",
-                            }}
-                            className="img-thumbnail rounded-circle shadow border border-info border-5"/>
+                            width: "100%",
+                            maxWidth: "420px",
+                            aspectRatio: "1 / 1",
+                            objectFit: "cover"}}
+                            className="img-fluid rounded-circle img-thumbnail shadow border border-info border-5"/>
                         </motion.div>
                     </div>
                 </div>
 
                 {/*Third Point*/}
-                <div className="row justify-content-around align-items-center mt-5"
+                <div className="row align-items-center gy-5 py-5 border-bottom border-secondary border-4"
                 style={{
                 minHeight: "100vh",
                 scrollSnapAlign: "start"
                 }}>
-                    <div className="col-6 border-end border-secondary text-center">
+                    <div className="col-12 col-lg-6 text-center border-end border-secondary">
                         <motion.div
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}>
                             <img src={Security_3}
                             alt="Image_3"
                             style={{
-                            width: "475px",
-                            height: "475px",
-                            objectFit: "cover",
-                            }}
-                            className="img-thumbnail rounded-circle shadow border border-info border-5"/>
+                            width: "100%",
+                            maxWidth: "420px",
+                            aspectRatio: "1 / 1",
+                            objectFit: "cover"}}
+                            className="img-fluid rounded-circle img-thumbnail shadow border border-info border-5"/>
                         </motion.div>
                     </div>
-                    <div className="col-6 border-start border-secondary">
+                    <div className="col-12 col-lg-6 border-start border-secondary">
                             <h1 className="text-center mb-4 fw-bolder"
                             style={{
                                 color:"#f4d03f"
@@ -185,12 +185,12 @@ const Cyber = () => {
                     </div>
                 </div>
                 {/*Fourth Point*/}
-                <div className="row justify-content-around align-items-center mt-5"
+                <div className="row align-items-center gy-5 py-5 border-bottom border-secondary border-4"
                 style={{
                 minHeight: "100vh",
                 scrollSnapAlign: "start"
                 }}>
-                    <div className="col-6 border-end border-secondary">
+                    <div className="col-12 col-lg-6 border-end border-secondary">
                             <h1 className="text-center mb-4 fw-bolder"
                             style={{
                                 color:"#f4d03f"
@@ -210,42 +210,42 @@ const Cyber = () => {
                                 a security breach.
                             </p>
                     </div>
-                    <div className="col-6 text-center border-start border-secondary">
+                    <div className="col-12 col-lg-6 text-center border-start border-secondary">
                         <motion.div
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}>
                             <img src={Security_4}
                             alt="Image_4"
                             style={{
-                            width: "475px",
-                            height: "475px",
-                            objectFit: "cover",
-                            }}
-                            className="img-thumbnail rounded-circle shadow border border-info border-5"/>
+                            width: "100%",
+                            maxWidth: "420px",
+                            aspectRatio: "1 / 1",
+                            objectFit: "cover"}}
+                            className="img-fluid rounded-circle img-thumbnail shadow border border-info border-5"/>
                         </motion.div>
                     </div>
                 </div>
                 {/*Fifth Point*/}
-                <div className="row justify-content-around align-items-center mt-5"
+                <div className="row align-items-center gy-5 py-5 border-bottom border-secondary border-4"
                 style={{
                 minHeight: "100vh",
                 scrollSnapAlign: "start"
                 }}>
-                    <div className="col-6 border-end border-secondary text-center">
+                    <div className="col-12 col-lg-6 text-center border-end border-secondary">
                         <motion.div
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}>
                             <img src={Security_5}
                             alt="Image_5"
                             style={{
-                            width: "475px",
-                            height: "475px",
-                            objectFit: "cover",
-                            }}
-                            className="img-thumbnail rounded-circle shadow border border-info border-5"/>
+                            width: "100%",
+                            maxWidth: "420px",
+                            aspectRatio: "1 / 1",
+                            objectFit: "cover"}}
+                            className="img-fluid rounded-circle img-thumbnail shadow border border-info border-5"/>
                         </motion.div>
                     </div>
-                    <div className="col-6 border-start border-secondary">
+                    <div className="col-12 col-lg-6 border-start border-secondary">
                             <h1 className="text-center mb-4 fw-bolder"
                             style={{
                                 color:"#f4d03f"
@@ -267,12 +267,12 @@ const Cyber = () => {
                 </div>
 
                 {/*Sixth Point*/}
-                <div className="row justify-content-around align-items-center mt-5"
+                <div className="row align-items-center gy-5 py-5 border-bottom border-secondary border-4"
                 style={{
                 minHeight: "100vh",
                 scrollSnapAlign: "start"
                 }}>
-                    <div className="col-6 border-end border-secondary">
+                    <div className="col-12 col-lg-6 border-end border-secondary">
                             <h1 className="text-center mb-4 fw-bolder"
                             style={{
                                 color:"#f4d03f"
@@ -294,43 +294,43 @@ const Cyber = () => {
                                  account suspension.
                             </p>
                     </div>
-                    <div className="col-6 text-center border-start border-secondary">
+                    <div className="col-12 col-lg-6 text-center border-start border-secondary">
                         <motion.div
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}>
                             <img src={Security_6}
                             alt="Image_6"
                             style={{
-                            width: "475px",
-                            height: "475px",
-                            objectFit: "cover",
-                            }}
-                            className="img-thumbnail rounded-circle shadow border border-info border-5"/>
+                            width: "100%",
+                            maxWidth: "420px",
+                            aspectRatio: "1 / 1",
+                            objectFit: "cover"}}
+                            className="img-fluid rounded-circle img-thumbnail shadow border border-info border-5"/>
                         </motion.div>
                     </div>
                 </div>
 
                 {/*Seventh Point*/}
-                <div className="row justify-content-around align-items-center mt-5"
+                <div className="row align-items-center gy-5 py-5 border-bottom border-secondary border-4"
                 style={{
                 minHeight: "100vh",
                 scrollSnapAlign: "start"
                 }}>
-                    <div className="col-6 border-end border-secondary text-center">
+                    <div className="col-12 col-lg-6 text-center border-end border-secondary">
                         <motion.div
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}>
                             <img src={Security_7}
                             alt="Image_7"
                             style={{
-                            width: "475px",
-                            height: "475px",
-                            objectFit: "cover",
-                            }}
-                            className="img-thumbnail rounded-circle shadow border border-info border-5"/>
+                            width: "100%",
+                            maxWidth: "420px",
+                            aspectRatio: "1 / 1",
+                            objectFit: "cover"}}
+                            className="img-fluid rounded-circle img-thumbnail shadow border border-info border-5"/>
                         </motion.div>
                     </div>
-                    <div className="col-6 border-start border-secondary">
+                    <div className="col-12 col-lg-6 border-start border-secondary">
                             <h1 className="text-center mb-4 fw-bolder"
                             style={{
                                 color:"#f4d03f"
@@ -355,12 +355,12 @@ const Cyber = () => {
                 </div>
 
                 {/*Eightth Point*/}
-                <div className="row justify-content-around align-items-center mt-5"
+                <div className="row align-items-center gy-5 py-5 border-bottom border-secondary border-4"
                 style={{
                 minHeight: "100vh",
                 scrollSnapAlign: "start"
                 }}>
-                    <div className="col-6 border-end border-secondary">
+                    <div className="col-12 col-lg-6 border-end border-secondary">
                             <h1 className="text-center mb-4 fw-bolder"
                             style={{
                                 color:"#f4d03f"
@@ -382,18 +382,18 @@ const Cyber = () => {
                               and continuously adapt to emerging attack techniques through ongoing learning.
                             </p>
                     </div>
-                    <div className="col-6 text-center border-start border-secondary">
+                    <div className="col-12 col-lg-6 text-center border-start border-secondary">
                         <motion.div
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}>
                             <img src={Security_8}
                             alt="Image_8"
                             style={{
-                            width: "475px",
-                            height: "475px",
-                            objectFit: "cover",
-                            }}
-                            className="img-thumbnail rounded-circle shadow border border-info border-5"/>
+                            width: "100%",
+                            maxWidth: "420px",
+                            aspectRatio: "1 / 1",
+                            objectFit: "cover"}}
+                            className="img-fluid rounded-circle img-thumbnail shadow border border-info border-5"/>
                         </motion.div>
                     </div>
                 </div>

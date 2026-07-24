@@ -122,7 +122,7 @@ const Finance = () => {
                 scrollBehavior: "smooth",
                 }}>
                     {/*First Point*/}
-                    <div className="row justify-content-center align-items-center"
+                    <div className="row justify-content-center align-items-center mt-5"
                     style={{
                     width: "100%",
                     maxWidth: "100vw",
@@ -148,6 +148,8 @@ const Finance = () => {
                         </div>
                         <div className="col-12 col-lg-6"
                         style={{
+                        height:"100%",
+                        maxHeight:"600px",
                         maxWidth: "700px"
                         }}>
                             <h1 className="text-center text-warning fw-bolder fs-2 fs-md-1">
@@ -173,7 +175,7 @@ const Finance = () => {
                     </div>
                     
                     {/*Second Point*/}
-                    <div className="row justify-content-center align-items-center"
+                    <div className="row justify-content-center align-items-center mt-5"
                     style={{
                         width: "100%",
                     maxWidth: "100vw",
@@ -199,6 +201,8 @@ const Finance = () => {
                         </div>
                         <div className="col-12 col-lg-6"
                         style={{
+                        height:"100%",
+                        maxHeight:"600px",
                         maxWidth: "700px"
                         }}>
                             <h1 className="text-center text-warning fw-bolder fs-2 fs-md-1">
@@ -222,7 +226,7 @@ const Finance = () => {
                     </div>
 
                     {/*Third Point*/}
-                    <div className="row justify-content-center align-items-center"
+                    <div className="row justify-content-center align-items-center mt-5"
                     style={{
                         width: "100%",
                     maxWidth: "100vw",
@@ -248,6 +252,8 @@ const Finance = () => {
                         </div>
                         <div className="col-12 col-lg-6"
                         style={{
+                        height:"100%",
+                        maxHeight:"600px",
                         maxWidth: "700px"
                         }}>
                             <h1 className="text-center text-warning fw-bolder fs-2 fs-md-1">
@@ -270,7 +276,7 @@ const Finance = () => {
                     </div>
 
                     {/*Fourth Point*/}
-                    <div className="row justify-content-center align-items-center"
+                    <div className="row justify-content-center align-items-center mt-5"
                     style={{
                         width: "100%",
                     maxWidth: "100vw",
@@ -296,6 +302,8 @@ const Finance = () => {
                         </div>
                         <div className="col-12 col-lg-6"
                         style={{
+                        height:"100%",
+                        maxHeight:"400px",
                         maxWidth: "700px"
                         }}>
                             <h1 className="text-center text-warning fw-bolder fs-2 fs-md-1">
@@ -318,7 +326,7 @@ const Finance = () => {
                     </div>
 
                     {/*Fifth Point*/}
-                    <div className="row justify-content-center align-items-center"
+                    <div className="row justify-content-center align-items-center mt-5"
                     style={{
                         width: "100%",
                     maxWidth: "100vw",
@@ -344,6 +352,8 @@ const Finance = () => {
                         </div>
                         <div className="col-12 col-lg-6"
                         style={{
+                        height:"100%",
+                        maxHeight:"500px",
                         maxWidth: "700px"
                         }}>
                             <h1 className="text-center text-warning fw-bolder fs-2 fs-md-1">
@@ -364,7 +374,7 @@ const Finance = () => {
                     </div>
 
                     {/*Sixth Point*/}
-                    <div className="row justify-content-center align-items-center"
+                    <div className="row justify-content-center align-items-center mt-5"
                     style={{
                         width: "100%",
                     maxWidth: "100vw",
@@ -390,6 +400,8 @@ const Finance = () => {
                         </div>
                         <div className="col-12 col-lg-6"
                         style={{
+                        height:"100%",
+                        maxHeight:"500px",
                         maxWidth: "700px"
                         }}>
                             <h1 className="text-center text-warning fw-bolder fs-2 fs-md-1">
@@ -412,7 +424,7 @@ const Finance = () => {
                     </div>
 
                     {/*Seventh Point*/}
-                    <div className="row justify-content-center align-items-center"
+                    <div className="row justify-content-center align-items-center mt-5"
                     style={{
                         width: "100%",
                     maxWidth: "100vw",
@@ -438,6 +450,8 @@ const Finance = () => {
                         </div>
                         <div className="col-12 col-lg-6"
                         style={{
+                        height:"100%",
+                        maxHeight:"400px",
                         maxWidth: "700px"
                         }}>
                             <h1 className="text-center text-warning fw-bolder fs-2 fs-md-1">
@@ -458,7 +472,7 @@ const Finance = () => {
                     </div>
 
                     {/*Eighth Point*/}
-                    <div className="row justify-content-center align-items-center"
+                    <div className="row justify-content-center align-items-center mt-5"
                     style={{
                         width: "100%",
                     maxWidth: "100vw",
@@ -484,6 +498,8 @@ const Finance = () => {
                         </div>
                         <div className="col-12 col-lg-6"
                         style={{
+                        height:"100%",
+                        maxHeight:"400px",
                         maxWidth: "700px"
                         }}>
                             <h1 className="text-center text-warning fw-bolder fs-2 fs-md-1">

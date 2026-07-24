@@ -238,7 +238,7 @@ const Services = () => {
         <>
             <div className="row g-4 justify-content-center align-items-center"
             style={{paddingTop:"60px"}}>
-                <div className="col-12">
+                <div className="col-auto">
                     <motion.div
                     initial={{ x: 500, opacity: 0 }}
                     whileInView={{ x: 0, opacity: 1 }}
@@ -290,7 +290,7 @@ const Services = () => {
         className="my-5">
             <div className="row g-4 justify-content-center align-items-center"
             style={{paddingTop:"60px"}}>
-                <div className="col-12">
+                <div className="col-auto">
                     <motion.div
                     initial={{ x: 500, opacity: 0 }}
                     whileInView={{ x: 0, opacity: 1 }}
@@ -340,7 +340,7 @@ const Services = () => {
         className="my-5">
             <div className="row g-4 justify-content-center align-items-center"
             style={{paddingTop:"60px"}}>
-                <div className="col-12">
+                <div className="col-auto">
                     <motion.div
                     initial={{ x: 500, opacity: 0 }}
                     whileInView={{ x: 0, opacity: 1 }}
@@ -390,7 +390,7 @@ const Services = () => {
         className="my-5">
             <div className="row g-4 justify-content-center align-items-center"
             style={{paddingTop:"60px"}}>
-                <div className="col-12">
+                <div className="col-auto">
                     <motion.div
                     initial={{ x: 500, opacity: 0 }}
                     whileInView={{ x: 0, opacity: 1 }}
@@ -441,7 +441,7 @@ const Services = () => {
         className="my-5">
             <div className="row g-4 justify-content-center align-items-center"
             style={{paddingTop:"60px"}}>
-                <div className="col-12">
+                <div className="col-auto">
                     <motion.div
                     initial={{ x: 500, opacity: 0 }}
                     whileInView={{ x: 0, opacity: 1 }}
@@ -491,7 +491,7 @@ const Services = () => {
         className="my-5">
             <div className="row g-4 justify-content-center align-items-center"
             style={{paddingTop:"60px"}}>
-                <div className="col-12">
+                <div className="col-auto">
                     <motion.div
                     initial={{ x: 500, opacity: 0 }}
                     whileInView={{ x: 0, opacity: 1 }}
@@ -541,7 +541,7 @@ const Services = () => {
         className="my-5">
             <div className="row g-4 justify-content-center align-items-center"
             style={{paddingTop:"60px"}}>
-                <div className="col-12">
+                <div className="col-auto">
                     <motion.div
                     initial={{ x: 500, opacity: 0 }}
                     whileInView={{ x: 0, opacity: 1 }}
@@ -591,7 +591,7 @@ const Services = () => {
         className="my-5">
             <div className="row g-4 justify-content-center align-items-center"
             style={{paddingTop:"60px"}}>
-                <div className="col-12">
+                <div className="col-auto">
                     <motion.div
                     initial={{ x: 500, opacity: 0 }}
                     whileInView={{ x: 0, opacity: 1 }}

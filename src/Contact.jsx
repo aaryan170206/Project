@@ -178,8 +178,8 @@ const isEmailValid = emailRegex.test(email);
             <div className="container"
             style={{
             minHeight:"500px",
-            minWidth:"500px",
-            paddingTop:"80px"
+            paddingTop:"80px",
+            paddingBottom:"200px"
             }}>
                 <div className="row justify-content-center">
                     <div className="col-auto">
@@ -189,19 +189,19 @@ const isEmailValid = emailRegex.test(email);
                     </div>
                 </div>
                 <div className="row justify-content-center">
-                    <div className="col-auto">
-                        <h4 className="contact-text text-light">
+                    <div className="col-xl-12 col-md-10 col-lg-8">
+                        <h4 className="contact-text text-light text-center">
                             Have a question, suggestion, or idea? We'd love to hear from you!
                         </h4>
                     </div>
-                    <div className="col-auto">
-                        <p className="contact-text text-light">
+                    <div className="col-xl-12 col-md-10 col-lg-8">
+                        <p className="contact-text text-light text-center">
                             At AI & Automation, we believe that innovation grows through collaboration. 
                             Whether you're a student eager to learn about Artificial Intelligence, 
                             a professional looking for insights, a researcher interested in emerging technologies, 
                             or simply someone curious about the future of AI, we're here to help.
                         </p>
-                        <p className="contact-text text-light">
+                        <p className="contact-text text-light text-center">
                             Feel free to reach out with your questions, feedback, or collaboration opportunities. 
                             Every message helps us improve and create a better learning experience for everyone.
                         </p>
@@ -209,8 +209,9 @@ const isEmailValid = emailRegex.test(email);
                 </div>
             </div>
 {/*FAQS------------------------------------------------------------*/}
-            <div className="faq-marquee">
-                <h1 className="contact-text text-info text-center"
+            <div className="faq-marquee"
+            style={{width:"100%"}}>
+                <h1 className="contact-text text-info text-center display-6 display-md-5"
                 style={{marginBottom:"60px"}}>Frequently Asked Questions:</h1>
                 <motion.div
                     className="faq-track"
@@ -251,7 +252,7 @@ const isEmailValid = emailRegex.test(email);
             }}>
                 <div className="row justify-content-center my-4">
 {/*Left Column--------------------------------------------------------------------------------------------------------------------------------*/}
-                    <div className="col-5 mt-4 mx-2"
+                    <div className="col-12 col-lg-5 mt-4 mx-lg-2"
                     style={{
                     marginTop:"100px",
                     background: "rgba(11, 11, 90, 0.9)",
@@ -281,7 +282,7 @@ const isEmailValid = emailRegex.test(email);
                                     disabled={loading}
                                     value={name}
                                     onChange={(e) => setName(e.target.value)} 
-                                    className="text-light custom-input mb-1"
+                                    className="form-control text-light custom-input mb-1"
                                     style={{
                                         width:"300px",
                                         height:"45px",
@@ -301,7 +302,7 @@ const isEmailValid = emailRegex.test(email);
                                     disabled={loading}
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
-                                    className="text-light custom-input mb-1" 
+                                    className="form-control text-light custom-input mb-1" 
                                     style={{
                                     width:"300px",
                                     height:"45px",
@@ -324,7 +325,7 @@ const isEmailValid = emailRegex.test(email);
                                     disabled={loading}
                                     value={subject}
                                     onChange={(e) => setSubject(e.target.value)}
-                                    className="text-light custom-input mb-1"
+                                    className="form-control text-light custom-input mb-1"
                                     style={{
                                         width: "300px",
                                         height: "45px",
@@ -353,7 +354,7 @@ const isEmailValid = emailRegex.test(email);
                                     disabled={loading}
                                     value={message}
                                     onChange={(e) => setMessage(e.target.value)}
-                                    className="text-light custom-input mb-1"
+                                    className="form-control text-light custom-input mb-1"
                                     rows={2}
                                     style={{
                                         width: "300px",
@@ -389,7 +390,7 @@ const isEmailValid = emailRegex.test(email);
                     </div>
 
 {/*Right Column--------------------------------------------------------------------------------------------------------------------------------*/}
-                    <div className="col-5 mt-4 mx-2"
+                    <div className="col-12 col-lg-5 mt-4 mx-lg-2"
                     style={{
                         borderRadius: "25px",
                         marginTop:"200px"}}>

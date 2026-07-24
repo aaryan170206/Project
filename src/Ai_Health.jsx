@@ -53,26 +53,31 @@ const Health = () => {
             scrollSnapType: "y mandatory",
             }}>
                 {/*First Point*/}
-                <div className="row justify-content-around align-items-center mt-5"
+                <div className="row justify-content-around align-items-center mt-5 border-bottom border-secondary border-4"
                 style={{
-                minHeight: "100%",
+                minHeight:"100vh",
+                padding:"60px 0",
                 scrollSnapAlign: "start"
                 }}>
-                    <div className="col-6 text-center border-end border-secondary">
+                    <div className="col-12 col-lg-6 text-center border-lg-end border-secondary">
                         <motion.div
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}>
                             <img src={Health_1}
                             alt="Image_1"
                             style={{
-                            width: "475px",
-                            height: "475px",
-                            objectFit: "cover",
+                            width: "100%",
+                            maxWidth: "450px",
+                            aspectRatio: "1",
+                            objectFit: "cover"
                             }}
                             className="img-thumbnail rounded-circle shadow border border-info border-5"/>
                         </motion.div>
                     </div>
-                    <div className="col-6 border-start border-secondary">
+                    <div className="col-12 col-lg-6 border-lg-start border-secondary"
+                    style={{height:"100%",
+                            paddingTop:"80px"
+                    }}>
                             <h1 className="text-center mb-4 fw-bolder"
                             style={{
                                 color:"#f4d03f"
@@ -98,12 +103,15 @@ const Health = () => {
                 </div>
 
                 {/*Second Point*/}
-                <div className="row justify-content-around align-items-center mt-5 "
+                <div className="row justify-content-around align-items-center mt-5 border-bottom border-secondary border-4"
                 style={{
-                minHeight: "100vh",
+                minHeight:"100vh",
+                padding:"60px 0",
                 scrollSnapAlign: "start"
                 }}>
-                    <div className="col-6 border-end border-secondary">
+                    <div className="col-12 col-lg-6 text-center border-lg-end border-secondary"
+                    style={{height:"100%",
+                            paddingTop:"80px"}}>
                             <h1 className="text-center mb-4 fw-bolder"
                             style={{
                                 color:"#f4d03f"
@@ -125,16 +133,17 @@ const Health = () => {
                                 and more consistent diagnoses, especially in emergency situations where every minute matters.
                             </p>
                     </div>
-                    <div className="col-6 text-center border-start border-secondary">
+                    <div className="col-12 col-lg-6 border-lg-start border-secondary">
                         <motion.div
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}>
                             <img src={Health_2}
                             alt="Image_3"
                             style={{
-                            width: "475px",
-                            height: "475px",
-                            objectFit: "cover",
+                            width: "100%",
+                            maxWidth: "450px",
+                            aspectRatio: "1",
+                            objectFit: "cover"
                             }}
                             className="img-thumbnail rounded-circle shadow border border-info border-5"/>
                         </motion.div>
@@ -142,26 +151,28 @@ const Health = () => {
                 </div>
 
                 {/*Third Point*/}
-                <div className="row justify-content-around align-items-center mt-5"
+                <div className="row justify-content-around align-items-center mt-5 border-bottom border-secondary border-4"
                 style={{
-                minHeight: "100vh",
+                minHeight:"100vh",
+                padding:"60px 0",
                 scrollSnapAlign: "start"
                 }}>
-                    <div className="col-6 border-end border-secondary text-center">
+                    <div className="col-12 col-lg-6 text-center border-lg-end border-secondary">
                         <motion.div
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}>
                             <img src={Health_3}
                             alt="Image_3"
                             style={{
-                            width: "475px",
-                            height: "475px",
-                            objectFit: "cover",
+                            width: "100%",
+                            maxWidth: "450px",
+                            aspectRatio: "1",
+                            objectFit: "cover"
                             }}
                             className="img-thumbnail rounded-circle shadow border border-info border-5"/>
                         </motion.div>
                     </div>
-                    <div className="col-6 border-start border-secondary">
+                    <div className="col-12 col-lg-6 border-lg-start border-secondary">
                             <h1 className="text-center mb-4 fw-bolder"
                             style={{
                                 color:"#f4d03f"
@@ -186,12 +197,13 @@ const Health = () => {
                     </div>
                 </div>
                 {/*Fourth Point*/}
-                <div className="row justify-content-around align-items-center mt-5"
+                <div className="row justify-content-around align-items-center mt-5 border-bottom border-secondary border-4"
                 style={{
-                minHeight: "100vh",
+                minHeight:"100vh",
+                padding:"60px 0",
                 scrollSnapAlign: "start"
                 }}>
-                    <div className="col-6 border-end border-secondary">
+                    <div className="col-12 col-lg-6 text-center border-lg-end border-secondary">
                             <h1 className="text-center mb-4 fw-bolder"
                             style={{
                                 color:"#f4d03f"
@@ -213,42 +225,45 @@ const Health = () => {
                                 and provide immediate support, especially in remote or underserved regions.
                             </p>
                     </div>
-                    <div className="col-6 text-center border-start border-secondary">
+                    <div className="col-12 col-lg-6 border-lg-start border-secondary">
                         <motion.div
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}>
                             <img src={Health_4}
                             alt="Image_4"
                             style={{
-                            width: "475px",
-                            height: "475px",
-                            objectFit: "cover",
+                            width: "100%",
+                            maxWidth: "450px",
+                            aspectRatio: "1",
+                            objectFit: "cover"
                             }}
                             className="img-thumbnail rounded-circle shadow border border-info border-5"/>
                         </motion.div>
                     </div>
                 </div>
                 {/*Fifth Point*/}
-                <div className="row justify-content-around align-items-center mt-5"
+                <div className="row justify-content-around align-items-center mt-5 border-bottom border-secondary border-4"
                 style={{
-                minHeight: "100vh",
+                minHeight:"100vh",
+                padding:"60px 0",
                 scrollSnapAlign: "start"
                 }}>
-                    <div className="col-6 border-end border-secondary text-center">
+                    <div className="col-12 col-lg-6 text-center border-lg-end border-secondary">
                         <motion.div
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}>
                             <img src={Health_5}
                             alt="Image_5"
                             style={{
-                            width: "475px",
-                            height: "475px",
-                            objectFit: "cover",
+                            width: "100%",
+                            maxWidth: "450px",
+                            aspectRatio: "1",
+                            objectFit: "cover"
                             }}
                             className="img-thumbnail rounded-circle shadow border border-info border-5"/>
                         </motion.div>
                     </div>
-                    <div className="col-6 border-start border-secondary">
+                    <div className="col-12 col-lg-6 border-lg-start border-secondary">
                             <h1 className="text-center mb-4 fw-bolder"
                             style={{
                                 color:"#f4d03f"
@@ -272,12 +287,13 @@ const Health = () => {
                 </div>
 
                 {/*Sixth Point*/}
-                <div className="row justify-content-around align-items-center mt-5"
+                <div className="row justify-content-around align-items-center mt-5 border-bottom border-secondary border-4"
                 style={{
-                minHeight: "100vh",
+                minHeight:"100vh",
+                padding:"60px 0",
                 scrollSnapAlign: "start"
                 }}>
-                    <div className="col-6 border-end border-secondary">
+                    <div className="col-12 col-lg-6 text-center border-lg-end border-secondary">
                             <h1 className="text-center mb-4 fw-bolder"
                             style={{
                                 color:"#f4d03f"
@@ -299,16 +315,17 @@ const Health = () => {
                                 AI enables pharmaceutical companies to bring safer and more effective medicines to patients much faster than traditional methods.
                             </p>
                     </div>
-                    <div className="col-6 text-center border-start border-secondary">
+                    <div className="col-12 col-lg-6 border-lg-start border-secondary">
                         <motion.div
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}>
                             <img src={Health_6}
                             alt="Image_6"
                             style={{
-                            width: "475px",
-                            height: "475px",
-                            objectFit: "cover",
+                            width: "100%",
+                            maxWidth: "450px",
+                            aspectRatio: "1",
+                            objectFit: "cover"
                             }}
                             className="img-thumbnail rounded-circle shadow border border-info border-5"/>
                         </motion.div>
@@ -316,26 +333,28 @@ const Health = () => {
                 </div>
 
                 {/*Seventh Point*/}
-                <div className="row justify-content-around align-items-center mt-5"
+                <div className="row justify-content-around align-items-center mt-5 border-bottom border-secondary border-4"
                 style={{
-                minHeight: "100vh",
+                minHeight:"100vh",
+                padding:"60px 0",
                 scrollSnapAlign: "start"
                 }}>
-                    <div className="col-6 border-end border-secondary text-center">
+                    <div className="col-12 col-lg-6 text-center border-lg-end border-secondary">
                         <motion.div
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}>
                             <img src={Health_7}
                             alt="Image_7"
                             style={{
-                            width: "475px",
-                            height: "475px",
-                            objectFit: "cover",
+                            width: "100%",
+                            maxWidth: "450px",
+                            aspectRatio: "1",
+                            objectFit: "cover"
                             }}
                             className="img-thumbnail rounded-circle shadow border border-info border-5"/>
                         </motion.div>
                     </div>
-                    <div className="col-6 border-start border-secondary">
+                    <div className="col-12 col-lg-6 border-lg-start border-secondary">
                             <h1 className="text-center mb-4 fw-bolder"
                             style={{
                                 color:"#f4d03f"
@@ -359,12 +378,13 @@ const Health = () => {
                 </div>
 
                 {/*Eightth Point*/}
-                <div className="row justify-content-around align-items-center mt-5"
+                <div className="row justify-content-around align-items-center mt-5 border-bottom border-secondary border-4"
                 style={{
-                minHeight: "100vh",
+                minHeight:"100vh",
+                padding:"60px 0",
                 scrollSnapAlign: "start"
                 }}>
-                    <div className="col-6 border-end border-secondary">
+                    <div className="col-12 col-lg-6 text-center border-lg-end border-secondary">
                             <h1 className="text-center mb-4 fw-bolder"
                             style={{
                                 color:"#f4d03f"
@@ -388,16 +408,17 @@ const Health = () => {
                                ultimately improving both operational efficiency and the overall healthcare experience.
                             </p>
                     </div>
-                    <div className="col-6 text-center border-start border-secondary">
+                    <div className="col-12 col-lg-6 border-lg-start border-secondary">
                         <motion.div
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}>
                             <img src={Health_8}
                             alt="Image_8"
                             style={{
-                            width: "475px",
-                            height: "475px",
-                            objectFit: "cover",
+                            width: "100%",
+                            maxWidth: "450px",
+                            aspectRatio: "1",
+                            objectFit: "cover"
                             }}
                             className="img-thumbnail rounded-circle shadow border border-info border-5"/>
                         </motion.div>
