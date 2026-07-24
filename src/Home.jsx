@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import Back from "./assets/Login.jpg";
+import Nav from "./Navbar";
 
 //Background Image
 import Home_1 from "./assets/Home_1.jpg";
@@ -18,14 +19,14 @@ const Home = () => {
 
     return (
     <div
-    style={{
-    backgroundImage: `url(${Back})`,
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    backgroundRepeat: "no-repeat",
-    minHeight: "100vh",
-    }}
-    >
+        style={{
+        backgroundImage: `url(${Back})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        minHeight: "100vh",
+        }}
+        >
        <div style={{backgroundImage: `linear-gradient(rgba(0,0,0,0.0), rgba(0,0,0,0.0)),
         url(${Home_1})`,
         backgroundSize: "cover",
